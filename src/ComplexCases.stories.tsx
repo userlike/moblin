@@ -1,37 +1,54 @@
 import { css } from "@emotion/css";
-import { Box2 } from "./Box2";
+import { Box } from "./Box";
 import { WithChildren } from "./react";
-import { FlexItem, Flex } from "./Stack2";
+import { FlexItem, Flex } from "./Flex";
 import { Text } from "./Text";
+import { contentPositions } from "./types";
+import { demo } from "./animatable-demo";
+import { storiesOf } from "@storybook/react";
 
-const Component = ({ children }: WithChildren) => (
-  <Box2
-    halign="center"
-    className={css`
-      width: 200px;
-      height: 200px;
-    `}
-  >
-    <Flex>
-      <FlexItem>
-        <Text ellipsis>{children}</Text>
-      </FlexItem>
-    </Flex>
-  </Box2>
+const shortText = "foobar";
+const longText = Array(100).fill("foobar").join(" ");
+
+const stories = [true, false].flatMap((overflow) =>
+  contentPositions.map(
+    (halign) =>
+      [
+        `h=${halign} ow=${overflow}`,
+        () => (
+          <Box
+            halign={halign}
+            className={css`
+              width: 200px;
+              height: 200px;
+            `}
+          >
+            <Flex direction="column">
+              <FlexItem>
+                <Text ellipsis>{overflow ? longText : shortText}</Text>
+              </FlexItem>
+            </Flex>
+          </Box>
+        ),
+      ] as [string, () => JSX.Element]
+  )
 );
 
-export default {
-  component: Component,
-};
-
-export const centeredEllipsis = {
-  args: {
-    children: Array(100).fill("foobar").join(" "),
+stories.reduce(
+  (acc, [name, story]) => {
+    acc.add(name, story);
+    return acc;
   },
-};
-
-export const centeredNoOverflow = {
-  args: {
-    children: "foobar",
-  },
-};
+  storiesOf("ComplexStories/TextOverflow", module)
+    .addDecorator(demo())
+    .addParameters({
+      layout: "centered",
+      docs: {
+        inlineStories: false,
+        iframeHeight: 500,
+        source: {
+          type: "code",
+        },
+      },
+    })
+);

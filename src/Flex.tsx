@@ -1,19 +1,30 @@
 import { css, cx } from "@emotion/css";
 import { WithChildren, WithClassName } from "./react";
-import { Align } from "./types";
-import { alignToFlex } from "./utils";
+import { AlignContent, AlignItems, AlignSelf, JustifyContent } from "./types";
 
-export interface FlexItemProps extends WithChildren {}
+export interface FlexItemProps extends WithChildren {
+  alignSelf?: AlignSelf;
+}
 
-export const FlexItem = ({ children }: WithChildren): JSX.Element => (
+export const FlexItem = ({
+  alignSelf,
+  children,
+}: FlexItemProps): JSX.Element => (
   <div
     className={cx(
       css`
         display: flex;
         overflow: hidden;
-
         align-items: stretch;
-      `
+      `,
+      alignSelf &&
+        css`
+          justify-content: ${alignSelf};
+
+          & > * {
+            flex: ${alignSelf === "stretch" ? "1 1 auto" : "0 1 auto"};
+          }
+        `
     )}
   >
     {children}
@@ -21,13 +32,14 @@ export const FlexItem = ({ children }: WithChildren): JSX.Element => (
 );
 
 export interface FlexProps extends WithChildren, WithClassName {
-  direction: "vertical" | "horizontal";
+  direction: "row" | "column";
   gap?: string;
   gapX?: string;
   gapY?: string;
-  halign?: Align;
-  valign?: Align;
-  wrap?: true | "reverse";
+  justifyContent?: JustifyContent;
+  alignItems?: AlignItems;
+  alignContent?: AlignContent;
+  wrap?: boolean | "reverse";
 }
 
 export const Flex = ({
@@ -36,13 +48,13 @@ export const Flex = ({
   gap = "0",
   gapX = gap,
   gapY = gap,
-  halign = direction === "vertical" ? "stretch" : "start",
-  valign = direction === "vertical" ? "start" : "stretch",
-  wrap,
+  justifyContent = "flex-start",
+  alignItems = "stretch",
+  alignContent = "flex-start",
+  wrap = false,
   className,
 }: FlexProps): JSX.Element => {
-  const mainAlign = direction === "vertical" ? valign : halign;
-  const crossAlign = direction === "vertical" ? halign : valign;
+  const shrink = wrap ? "0" : "1";
 
   return (
     <div
@@ -59,7 +71,7 @@ export const Flex = ({
       <div
         className={css`
           display: flex;
-          flex-direction: ${direction === "vertical" ? "column" : "row"};
+          flex-direction: ${direction};
           flex-wrap: ${wrap === true
             ? "wrap"
             : wrap === "reverse"
@@ -73,24 +85,22 @@ export const Flex = ({
           margin-left: calc(${gapX} / -1);
 
           align-items: stretch;
-
-          justify-content: ${mainAlign === "stretch"
-            ? "normal"
-            : alignToFlex(mainAlign)};
+          align-content: ${alignContent};
+          justify-content: ${justifyContent};
 
           & > * {
-            flex-direction: ${direction === "vertical" ? "row" : "column"};
-            flex: ${mainAlign === "stretch" ? "1 1 auto" : "0 1 auto"};
-            justify-content: ${crossAlign === "stretch"
-              ? "normal"
-              : alignToFlex(crossAlign)};
+            flex-direction: ${direction === "row" ? "column" : "row"};
+            flex: ${justifyContent === "stretch"
+              ? `1 ${shrink} auto`
+              : `0 ${shrink} auto`};
+            justify-content: ${alignItems};
 
             margin-top: ${gapY};
             margin-left: ${gapX};
           }
 
           & > * > * {
-            flex: ${crossAlign === "stretch" ? "1 1 auto" : "0 1 auto"};
+            flex: ${alignItems === "stretch" ? "1 1 auto" : "0 1 auto"};
           }
         `}
       >

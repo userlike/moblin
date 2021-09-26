@@ -1,11 +1,14 @@
 {
   "include": ["src/**/*"],
   "compilerOptions": {
+    "target": "ESNext",
     "outDir": "dist/es",
-    "rootDir": "src",
+    "rootDirs": [],
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "jsx": "preserve",
-    "strict": true
+    "strict": true,
+    "module": "ESNext",
+    "moduleResolution": "Node"
   }
 }

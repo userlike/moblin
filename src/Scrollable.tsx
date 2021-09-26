@@ -1,36 +1,49 @@
 import { css } from "@emotion/css";
+import { Box } from "./Box";
 import { WithChildren } from "./react";
+import { ContentPosition, JustifyContent } from "./types";
 
-export const VScrollable = ({ children }: WithChildren): JSX.Element => (
-    <div
-        className={css`
-            display: flex;
-            overflow-y: auto;
+export interface ScrollableProps extends WithChildren {
+  direction?: "row" | "column";
+  justifyContent?: ContentPosition;
+}
 
-            flex-direction: column;
+export const Scrollable = ({
+  children,
+  direction = "column",
+  justifyContent = "flex-start",
+}: ScrollableProps): JSX.Element => (
+  <div
+    className={css`
+      display: flex;
+      overflow-x: ${direction === "row" ? "auto" : "hidden"};
+      overflow-y: ${direction === "column" ? "auto" : "hidden"};
 
-            & > * {
-                flex: 1 0 auto;
-            }
-        `}
-    >
-        {children}
-    </div>
+      flex-direction: ${direction};
+
+      align-items: stretch;
+
+      & > * {
+        flex: ${justifyContent === "stretch" ? "1 0 auto" : "0 0 auto"};
+
+        ${marginStartProp(direction)}: ${marginStart(justifyContent)};
+        ${marginEndProp(direction)}: ${marginEnd(justifyContent)};
+      }
+    `}
+  >
+    {children}
+  </div>
 );
 
-export const HScrollable = ({ children }: WithChildren): JSX.Element => (
-    <div
-        className={css`
-            display: flex;
-            overflow-x: auto;
+const marginStartProp = (direction: "row" | "column") =>
+  direction === "row" ? "margin-left" : "margin-top";
+const marginEndProp = (direction: "row" | "column") =>
+  direction === "row" ? "margin-right" : "margin-bottom";
 
-            flex-direction: row;
+const marginStart = (justifyContent: ContentPosition) =>
+  justifyContent === "stretch" || justifyContent === "flex-start"
+    ? "0"
+    : "auto";
 
-            & > * {
-                flex: 1 0 auto;
-            }
-        `}
-    >
-        {children}
-    </div>
-);
+const marginEnd = (justifyContent: ContentPosition) =>
+  justifyContent === "stretch" || justifyContent === "flex-end" ? "0" : "auto";
