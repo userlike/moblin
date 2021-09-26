@@ -11,21 +11,31 @@ export const FlexItem = ({
   children,
 }: FlexItemProps): JSX.Element => (
   <div
-    className={cx(
-      css`
-        display: flex;
-        overflow: hidden;
-        align-items: stretch;
-      `,
-      alignSelf &&
-        css`
-          justify-content: ${alignSelf};
+    className={css`
+      display: flex;
+      overflow: hidden;
+      align-items: stretch;
 
-          & > * {
-            flex: ${alignSelf === "stretch" ? "1 1 auto" : "0 1 auto"};
-          }
-        `
-    )}
+      flex-direction: var(--pcss-flex-child-direction);
+      flex: var(--pcss-flex-child-flex);
+      justify-content: var(--pcss-flex-align-items);
+
+      margin-left: var(--pcss-flex-gap-x);
+      margin-top: var(--pcss-flex-gap-y);
+
+      & > * {
+        flex: var(--pcss-flex-grandchild-flex);
+      }
+
+      ${alignSelf &&
+      css`
+        justify-content: ${alignSelf};
+
+        & > * {
+          flex: ${alignSelf === "stretch" ? "1 1 auto" : "0 1 auto"};
+        }
+      `}
+    `}
   >
     {children}
   </div>
@@ -88,20 +98,26 @@ export const Flex = ({
           align-content: ${alignContent};
           justify-content: ${justifyContent};
 
-          & > * {
-            flex-direction: ${direction === "row" ? "column" : "row"};
-            flex: ${justifyContent === "stretch"
-              ? `1 ${shrink} auto`
-              : `0 ${shrink} auto`};
-            justify-content: ${alignItems};
-
-            margin-top: ${gapY};
-            margin-left: ${gapX};
-          }
-
-          & > * > * {
-            flex: ${alignItems === "stretch" ? "1 1 auto" : "0 1 auto"};
-          }
+          --pcsss-flex-direction: ${direction};
+          --pcss-flex-wrap: ${wrap === true
+            ? "wrap"
+            : wrap === "reverse"
+            ? "wrap-reverse"
+            : "nowrap"};
+          --pcss-flex-gap-x: ${gapX};
+          --pcss-flex-gap-y: ${gapY};
+          --pcss-flex-align-items: ${alignItems};
+          --pcss-flex-justify-content: ${justifyContent};
+          --pcss-flex-child-direction: ${direction === "row"
+            ? "column"
+            : "row"};
+          --pcss-flex-child-shrink: ${shrink};
+          --pcss-flex-child-flex: ${justifyContent === "stretch"
+            ? `1 ${shrink} auto`
+            : `0 ${shrink} auto`};
+          --pcss-flex-grandchild-flex: ${alignItems === "stretch"
+            ? "1 1 auto"
+            : "0 1 auto"};
         `}
       >
         {children}
