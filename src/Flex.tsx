@@ -4,11 +4,17 @@ import { AlignContent, AlignItems, AlignSelf, JustifyContent } from "./types";
 
 export interface FlexItemProps extends WithChildren {
   alignSelf?: AlignSelf;
+  grow?: number;
+  shrink?: number;
+  basis?: string;
 }
 
 export const FlexItem = ({
   alignSelf,
   children,
+  grow = 1,
+  shrink = 1,
+  basis = "auto",
 }: FlexItemProps): JSX.Element => (
   <div
     className={css`
@@ -17,14 +23,17 @@ export const FlexItem = ({
       align-items: stretch;
 
       flex-direction: var(--pcss-flex-child-direction);
-      flex: var(--pcss-flex-child-flex);
+      flex: calc(${grow} * var(--pcss-flex-child-grow))
+        calc(${shrink} * var(--pcss-flex-child-grow)) ${basis};
       justify-content: var(--pcss-flex-align-items);
 
       margin-left: var(--pcss-flex-gap-x);
       margin-top: var(--pcss-flex-gap-y);
 
       & > * {
-        flex: var(--pcss-flex-grandchild-flex);
+        flex-grow: var(--pcss-flex-grandchild-grow);
+        flex-shrink: 1;
+        flex-basis: auto;
       }
 
       ${alignSelf &&
@@ -32,7 +41,7 @@ export const FlexItem = ({
         justify-content: ${alignSelf};
 
         & > * {
-          flex: ${alignSelf === "stretch" ? "1 1 auto" : "0 1 auto"};
+          flex-grow: ${alignSelf === "stretch" ? "1" : "0"};
         }
       `}
     `}
@@ -64,8 +73,6 @@ export const Flex = ({
   wrap = false,
   className,
 }: FlexProps): JSX.Element => {
-  const shrink = wrap ? "0" : "1";
-
   return (
     <div
       className={cx(
@@ -111,13 +118,9 @@ export const Flex = ({
           --pcss-flex-child-direction: ${direction === "row"
             ? "column"
             : "row"};
-          --pcss-flex-child-shrink: ${shrink};
-          --pcss-flex-child-flex: ${justifyContent === "stretch"
-            ? `1 ${shrink} auto`
-            : `0 ${shrink} auto`};
-          --pcss-flex-grandchild-flex: ${alignItems === "stretch"
-            ? "1 1 auto"
-            : "0 1 auto"};
+          --pcss-flex-child-grow: ${justifyContent === "stretch" ? "1" : "0"};
+          --pcss-flex-child-shrink: ${wrap ? "0" : "1"};
+          --pcss-flex-grandchild-grow: ${alignItems === "stretch" ? "1" : "0"};
         `}
       >
         {children}
