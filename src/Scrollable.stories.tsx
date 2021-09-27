@@ -1,24 +1,15 @@
-import * as S from "./storybook";
-
 import { demo } from "./animatable-demo";
 import { Scrollable } from "./Scrollable";
-import { css } from "@emotion/css";
-import { Box } from "./Box";
 import { contentPositions } from "./types";
 import { storiesOf } from "@storybook/react";
+import styled from "@emotion/styled";
 
-const Content = ({ big }: { big?: "row" | "column" }) => (
-  <Box
-    className={css`
-      min-width: ${big === "row" ? "800px" : undefined};
-      min-height: ${big === "column" ? "800px" : undefined};
-      padding: 8px;
-      background-color: #f00;
-    `}
-  >
-    Content
-  </Box>
-);
+const Content = styled.div<{ big?: "row" | "column" }>`
+  min-width: ${({ big }) => (big === "row" ? "800px" : undefined)};
+  min-height: ${({ big }) => (big === "column" ? "800px" : undefined)};
+  padding: 8px;
+  background-color: #f00;
+`;
 
 const stories = (["column", "row"] as const).flatMap((direction) =>
   [true, false].flatMap((overflow) =>
@@ -28,7 +19,7 @@ const stories = (["column", "row"] as const).flatMap((direction) =>
           `d=${direction} ow=${overflow} j=${justifyContent}`,
           () => (
             <Scrollable direction={direction} justifyContent={justifyContent}>
-              <Content big={overflow ? direction : undefined} />
+              <Content big={overflow ? direction : undefined}>Content</Content>
             </Scrollable>
           ),
         ] as [string, () => JSX.Element]

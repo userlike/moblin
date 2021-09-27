@@ -1,4 +1,5 @@
 import { css } from "@emotion/css";
+import styled from "@emotion/styled";
 import { storiesOf } from "@storybook/react";
 import isChromatic from "chromatic/isChromatic";
 
@@ -7,23 +8,13 @@ import { Box } from "./Box";
 import { WithClassName } from "./react";
 import { contentPositions } from "./types";
 
-const Content = ({
-  text = "Content",
-  overflowHidden = true,
-}: {
-  text?: string;
+const Content = styled.div<{
   overflowHidden?: boolean;
-} & WithClassName) => (
-  <div
-    className={css`
-      padding: 8px;
-      overflow: ${overflowHidden ? "hidden" : "visible"};
-      background-color: #f00;
-    `}
-  >
-    {text}
-  </div>
-);
+}>`
+  padding: 8px;
+  overflow: ${({ overflowHidden }) => (overflowHidden ? "hidden" : "visible")};
+  background-color: #f00;
+`;
 
 const stories = contentPositions.flatMap((valign) =>
   contentPositions.map(
@@ -32,7 +23,7 @@ const stories = contentPositions.flatMap((valign) =>
         `v=${valign} h=${halign}`,
         () => (
           <Box valign={valign} halign={halign}>
-            <Content />
+            <Content>Content</Content>
           </Box>
         ),
       ] as [string, () => JSX.Element]

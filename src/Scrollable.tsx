@@ -1,38 +1,25 @@
-import { css } from "@emotion/css";
-import { Box } from "./Box";
+import styled from "@emotion/styled";
 import { WithChildren } from "./react";
-import { ContentPosition, JustifyContent } from "./types";
+import { ContentPosition } from "./types";
 
 export interface ScrollableProps extends WithChildren {
   direction?: "row" | "column";
   justifyContent?: ContentPosition;
 }
 
-export const Scrollable = ({
-  children,
-  direction = "column",
-  justifyContent = "flex-start",
-}: ScrollableProps): JSX.Element => (
-  <div
-    className={css`
-      display: flex;
-      overflow-x: ${direction === "row" ? "auto" : "hidden"};
-      overflow-y: ${direction === "column" ? "auto" : "hidden"};
-
-      flex-direction: ${direction};
-
-      align-items: stretch;
-
-      & > * {
-        flex: ${justifyContent === "stretch" ? "1 0 auto" : "0 0 auto"};
-
-        ${marginStartProp(direction)}: ${marginStart(justifyContent)};
-        ${marginEndProp(direction)}: ${marginEnd(justifyContent)};
-      }
-    `}
-  >
-    {children}
-  </div>
+export const Scrollable = styled.div<ScrollableProps>(
+  ({ direction = "column", justifyContent = "flex-start" }) => ({
+    display: "flex",
+    overflowX: direction === "row" ? "auto" : "hidden",
+    overflowY: direction === "column" ? "auto" : "hidden",
+    flexDirection: direction,
+    alignItems: "stretch",
+    "& > *": {
+      flex: justifyContent === "stretch" ? "1 0 auto" : "0 0 auto",
+      [marginStartProp(direction)]: marginStart(justifyContent),
+      [marginEndProp(direction)]: marginEnd(justifyContent),
+    },
+  })
 );
 
 const marginStartProp = (direction: "row" | "column") =>

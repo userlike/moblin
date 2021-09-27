@@ -1,4 +1,4 @@
-import { css, cx } from "@emotion/css";
+import styled from "@emotion/styled";
 import { WithChildren, WithClassName } from "./react";
 import { AlignContent, AlignItems, AlignSelf, JustifyContent } from "./types";
 
@@ -9,45 +9,29 @@ export interface FlexItemProps extends WithChildren {
   basis?: string;
 }
 
-export const FlexItem = ({
-  alignSelf,
-  children,
-  grow = 1,
-  shrink = 1,
-  basis = "auto",
-}: FlexItemProps): JSX.Element => (
-  <div
-    className={css`
-      display: flex;
-      overflow: hidden;
-      align-items: stretch;
-
-      flex-direction: var(--pcss-flex-child-direction);
-      flex: calc(${grow} * var(--pcss-flex-child-grow))
-        calc(${shrink} * var(--pcss-flex-child-grow)) ${basis};
-      justify-content: var(--pcss-flex-align-items);
-
-      margin-left: var(--pcss-flex-gap-x);
-      margin-top: var(--pcss-flex-gap-y);
-
-      & > * {
-        flex-grow: var(--pcss-flex-grandchild-grow);
-        flex-shrink: 1;
-        flex-basis: auto;
-      }
-
-      ${alignSelf &&
-      css`
-        justify-content: ${alignSelf};
-
-        & > * {
-          flex-grow: ${alignSelf === "stretch" ? "1" : "0"};
-        }
-      `}
-    `}
-  >
-    {children}
-  </div>
+export const FlexItem = styled.div<FlexItemProps>(
+  ({ alignSelf, grow = 1, shrink = 1, basis = "auto" }) => ({
+    display: "flex",
+    overflow: "hidden",
+    alignItems: "stretch",
+    flexDirection: unsafeCoerce("var(--pcss-flex-child-direction)"),
+    flex: `calc(${grow} * var(--pcss-flex-child-grow))
+      calc(${shrink} * var(--pcss-flex-child-grow))
+      ${basis}`,
+    justifyContent: alignSelf ? alignSelf : "var(--pcss-flex-align-items)",
+    marginLeft: "var(--pcss-flex-gap-x)",
+    marginTop: "var(--pcss-flex-gap-y)",
+    "& > *": {
+      flexGrow:
+        alignSelf === "stretch"
+          ? 1
+          : alignSelf !== undefined
+          ? 0
+          : unsafeCoerce("var(--pcss-flex-grandchild-grow)"),
+      flexShrink: 1,
+      flexBasis: "auto",
+    },
+  })
 );
 
 export interface FlexProps extends WithChildren, WithClassName {
@@ -60,6 +44,42 @@ export interface FlexProps extends WithChildren, WithClassName {
   alignContent?: AlignContent;
   wrap?: boolean | "reverse";
 }
+
+const FlexContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  overflow: hidden;
+`;
+
+const FlexCore = styled.div<FlexProps>`
+  display: flex;
+  flex-direction: ${({ direction }) => direction};
+  flex-wrap: ${({ wrap }) =>
+    wrap === true ? "wrap" : wrap === "reverse" ? "wrap-reverse" : "nowrap"};
+  overflow: hidden;
+
+  flex: 1 1 auto;
+
+  --pcss-flex-gap-x: ${({ gapX }) => gapX};
+  --pcss-flex-gap-y: ${({ gapY }) => gapY};
+  --pcss-flex-align-items: ${({ alignItems }) => alignItems};
+  --pcss-flex-justify-content: ${({ justifyContent }) => justifyContent};
+  --pcss-flex-child-direction: ${({ direction }) =>
+    direction === "row" ? "column" : "row"};
+  --pcss-flex-child-grow: ${({ justifyContent }) =>
+    justifyContent === "stretch" ? "1" : "0"};
+  --pcss-flex-child-shrink: ${({ wrap }) => (wrap ? "0" : "1")};
+  --pcss-flex-grandchild-grow: ${({ alignItems }) =>
+    alignItems === "stretch" ? "1" : "0"};
+
+  margin-top: calc(var(--pcss-flex-gap-y) / -1);
+  margin-left: calc(var(--pcss-flex-gap-x) / -1);
+
+  align-items: stretch;
+  align-content: ${({ alignContent }) => alignContent};
+  justify-content: ${({ justifyContent }) => justifyContent};
+`;
 
 export const Flex = ({
   children,
@@ -74,57 +94,22 @@ export const Flex = ({
   className,
 }: FlexProps): JSX.Element => {
   return (
-    <div
-      className={cx(
-        css`
-          display: flex;
-          flex-direction: row;
-          align-items: stretch;
-          overflow: hidden;
-        `,
-        className
-      )}
-    >
-      <div
-        className={css`
-          display: flex;
-          flex-direction: ${direction};
-          flex-wrap: ${wrap === true
-            ? "wrap"
-            : wrap === "reverse"
-            ? "wrap-reverse"
-            : "nowrap"};
-          overflow: hidden;
-
-          flex: 1 1 auto;
-
-          margin-top: calc(${gapY} / -1);
-          margin-left: calc(${gapX} / -1);
-
-          align-items: stretch;
-          align-content: ${alignContent};
-          justify-content: ${justifyContent};
-
-          --pcsss-flex-direction: ${direction};
-          --pcss-flex-wrap: ${wrap === true
-            ? "wrap"
-            : wrap === "reverse"
-            ? "wrap-reverse"
-            : "nowrap"};
-          --pcss-flex-gap-x: ${gapX};
-          --pcss-flex-gap-y: ${gapY};
-          --pcss-flex-align-items: ${alignItems};
-          --pcss-flex-justify-content: ${justifyContent};
-          --pcss-flex-child-direction: ${direction === "row"
-            ? "column"
-            : "row"};
-          --pcss-flex-child-grow: ${justifyContent === "stretch" ? "1" : "0"};
-          --pcss-flex-child-shrink: ${wrap ? "0" : "1"};
-          --pcss-flex-grandchild-grow: ${alignItems === "stretch" ? "1" : "0"};
-        `}
+    <FlexContainer className={className}>
+      <FlexCore
+        direction={direction}
+        gapX={gapX}
+        gapY={gapY}
+        justifyContent={justifyContent}
+        alignItems={alignItems}
+        alignContent={alignContent}
+        wrap={wrap}
       >
         {children}
-      </div>
-    </div>
+      </FlexCore>
+    </FlexContainer>
   );
 };
+
+function unsafeCoerce<T>(x: unknown): T {
+  return x as T;
+}

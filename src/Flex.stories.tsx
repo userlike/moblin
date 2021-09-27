@@ -1,22 +1,16 @@
-import { css } from "@emotion/css";
 import { demo } from "./animatable-demo";
 import { storiesOf } from "@storybook/react";
 import { Box } from "./Box";
 import { WithChildren } from "./react";
 import { Flex, FlexItem } from "./Flex";
 import { contentDistributions, contentPositions } from "./types";
+import styled from "@emotion/styled";
 
-const Item = ({ big, children }: WithChildren & { big?: "row" | "column" }) => (
-  <Box
-    className={css({
-      backgroundColor: "#f00",
-      minHeight: big === "column" ? "150px" : undefined,
-      minWidth: big === "row" ? "150px" : undefined,
-    })}
-  >
-    {children}
-  </Box>
-);
+const Item = styled(Box)<{ big?: "row" | "column" }>`
+  background-color: #f00;
+  min-height: ${({ big }) => (big === "column" ? "150px" : undefined)};
+  min-width: ${({ big }) => (big === "row" ? "150px" : undefined)};
+`;
 
 const flexStories = (["column", "row"] as const).flatMap((direction) =>
   contentPositions.flatMap((alignItems) =>

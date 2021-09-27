@@ -1,25 +1,14 @@
-import { css, cx } from "@emotion/css";
+import styled from "@emotion/styled";
 import { WithChildren, WithClassName } from "./react";
 
 export interface TextProps extends WithClassName, WithChildren {
   ellipsis?: boolean;
 }
 
-export const Text = ({ className, children, ellipsis }: TextProps) => (
-  <div
-    className={cx(
-      css`
-        display: inline-block;
-        overflow: hidden;
-      `,
-      ellipsis &&
-        css`
-          white-space: nowrap;
-          text-overflow: ellipsis;
-        `,
-      className
-    )}
-  >
-    {children}
-  </div>
-);
+export const Text = styled.div<TextProps>`
+  display: inline-block;
+  overflow: hidden;
+
+  white-space: ${({ ellipsis }) => ellipsis && "nowrap"};
+  text-overflow: ${({ ellipsis }) => ellipsis && "ellipsis"};
+`;

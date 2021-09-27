@@ -1,14 +1,18 @@
-import { css } from "@emotion/css";
 import { Box } from "./Box";
-import { WithChildren } from "./react";
 import { FlexItem, Flex } from "./Flex";
 import { Text } from "./Text";
 import { contentPositions } from "./types";
 import { demo } from "./animatable-demo";
 import { storiesOf } from "@storybook/react";
+import styled from "@emotion/styled";
 
 const shortText = "foobar";
 const longText = Array(100).fill("foobar").join(" ");
+
+const ContentContainer = styled(Box)`
+  width: 200px;
+  height: 200px;
+`;
 
 const stories = [true, false].flatMap((overflow) =>
   contentPositions.map(
@@ -16,19 +20,13 @@ const stories = [true, false].flatMap((overflow) =>
       [
         `h=${halign} ow=${overflow}`,
         () => (
-          <Box
-            halign={halign}
-            className={css`
-              width: 200px;
-              height: 200px;
-            `}
-          >
+          <ContentContainer halign={halign}>
             <Flex direction="column">
               <FlexItem>
                 <Text ellipsis>{overflow ? longText : shortText}</Text>
               </FlexItem>
             </Flex>
-          </Box>
+          </ContentContainer>
         ),
       ] as [string, () => JSX.Element]
   )

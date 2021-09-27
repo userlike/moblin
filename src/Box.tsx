@@ -1,7 +1,6 @@
-import { css, cx } from "@emotion/css";
 import { WithChildren, WithClassName } from "./react";
 import { FlexItem, Flex } from "./Flex";
-import { ContentPosition, contentPositions } from "./types";
+import { ContentPosition } from "./types";
 
 export interface BoxProps {
   valign?: ContentPosition;

@@ -27,20 +27,15 @@
     "build-storybook": "build-storybook",
     "chromatic": "npx chromatic --project-token=2d84217c8047"
   },
-  "publishConfig": {
-    "access": "restricted"
-  },
   "dependencies": {
     "@chakra-ui/system": "^1.7.3",
-    "@emotion/css": "^11.1.3",
-    "csstype": "^3.0.9",
-    "custom-elements-ts": "^0.0.16",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "@emotion/css": "^11.1.3"
   },
   "devDependencies": {
     "@babel/core": "^7.15.0",
     "@babel/plugin-proposal-decorators": "^7.14.5",
+    "@emotion/react": "^11.4.1",
+    "@emotion/styled": "^11.3.0",
     "@storybook/addon-actions": "next",
     "@storybook/addon-essentials": "next",
     "@storybook/addon-links": "next",
@@ -51,9 +46,15 @@
     "chromatic": "^5.9.2",
     "fp-ts": "^2.11.1",
     "html-webpack-plugin": "^5.3.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "typescript": "^4.4.2",
     "webpack": "^5.51.2",
     "webpack-cli": "^4.8.0",
     "webpack-dev-server": "^4.1.0"
+  },
+  "peerDependencies": {
+    "@emotion/styled": "^11.0.0",
+    "react": "^16.0.0 || ^17.0.0"
   }
 }
