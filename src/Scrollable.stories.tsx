@@ -2,14 +2,20 @@ import { demo } from "./animatable-demo";
 import { Scrollable } from "./Scrollable";
 import { contentPositions } from "./types";
 import { storiesOf } from "@storybook/react";
-import styled from "@emotion/styled";
+import { WithChildren } from "./react";
+import { chakra } from "@chakra-ui/system";
 
-const Content = styled.div<{ big?: "row" | "column" }>`
-  min-width: ${({ big }) => (big === "row" ? "800px" : undefined)};
-  min-height: ${({ big }) => (big === "column" ? "800px" : undefined)};
-  padding: 8px;
-  background-color: #f00;
-`;
+const Content = ({
+  big,
+  children,
+}: { big?: "row" | "column" } & WithChildren) => (
+  <chakra.div
+    minWidth={big === "row" ? "800px" : undefined}
+    minHeight={big === "column" ? "800px" : undefined}
+    padding="8px"
+    backgroundColor="#f00"
+  />
+);
 
 const stories = (["column", "row"] as const).flatMap((direction) =>
   [true, false].flatMap((overflow) =>

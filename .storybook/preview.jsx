@@ -1,4 +1,5 @@
-import { Global, css } from "@emotion/react";
+import React from "react";
+import { ChakraProvider } from "@chakra-ui/react";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -13,13 +14,8 @@ export const parameters = {
 
 export const decorators = [
   (Story) => (
-    <>
-      <style>
-        {`html {
-        font-family: system-ui, sans-serif;
-      }`}
-      </style>
+    <ChakraProvider>
       <Story />
-    </>
+    </ChakraProvider>
   ),
 ];

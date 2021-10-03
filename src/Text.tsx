@@ -1,14 +1,18 @@
+import { chakra, HTMLChakraProps } from "@chakra-ui/system";
 import styled from "@emotion/styled";
-import { WithChildren, WithClassName } from "./react";
 
-export interface TextProps extends WithClassName, WithChildren {
+export interface TextOptions {
   ellipsis?: boolean;
 }
 
-export const Text = styled.div<TextProps>`
-  display: inline-block;
-  overflow: hidden;
+export interface TextProps extends TextOptions, HTMLChakraProps<"div"> {}
 
-  white-space: ${({ ellipsis }) => ellipsis && "nowrap"};
-  text-overflow: ${({ ellipsis }) => ellipsis && "ellipsis"};
-`;
+export const Text = ({ ellipsis, ...props }: TextProps) => (
+  <chakra.div
+    {...props}
+    display="inline-block"
+    overflow="hidden"
+    whiteSpace={ellipsis ? "nowrap" : undefined}
+    textOverflow={ellipsis ? "ellipsis" : undefined}
+  />
+);

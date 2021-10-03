@@ -4,15 +4,9 @@ import { Text } from "./Text";
 import { contentPositions } from "./types";
 import { demo } from "./animatable-demo";
 import { storiesOf } from "@storybook/react";
-import styled from "@emotion/styled";
 
 const shortText = "foobar";
 const longText = Array(100).fill("foobar").join(" ");
-
-const ContentContainer = styled(Box)`
-  width: 200px;
-  height: 200px;
-`;
 
 const stories = [true, false].flatMap((overflow) =>
   contentPositions.map(
@@ -20,13 +14,13 @@ const stories = [true, false].flatMap((overflow) =>
       [
         `h=${halign} ow=${overflow}`,
         () => (
-          <ContentContainer halign={halign}>
+          <Box width="200px" height="200px" halign={halign}>
             <Flex direction="column">
               <FlexItem>
                 <Text ellipsis>{overflow ? longText : shortText}</Text>
               </FlexItem>
             </Flex>
-          </ContentContainer>
+          </Box>
         ),
       ] as [string, () => JSX.Element]
   )

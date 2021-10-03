@@ -1,20 +1,23 @@
-import { css } from "@emotion/css";
-import styled from "@emotion/styled";
+import { chakra, HTMLChakraProps } from "@chakra-ui/system";
 import { storiesOf } from "@storybook/react";
-import isChromatic from "chromatic/isChromatic";
 
 import { demo } from "./animatable-demo";
 import { Box } from "./Box";
-import { WithClassName } from "./react";
 import { contentPositions } from "./types";
 
-const Content = styled.div<{
+const Content = ({
+  overflowHidden,
+  ...props
+}: {
   overflowHidden?: boolean;
-}>`
-  padding: 8px;
-  overflow: ${({ overflowHidden }) => (overflowHidden ? "hidden" : "visible")};
-  background-color: #f00;
-`;
+} & HTMLChakraProps<"div">) => (
+  <chakra.div
+    {...props}
+    padding="8px"
+    overflow={overflowHidden ? "hidden" : "visible"}
+    backgroundColor="#f00"
+  />
+);
 
 const stories = contentPositions.flatMap((valign) =>
   contentPositions.map(
