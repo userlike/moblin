@@ -1,3 +1,5 @@
+import { Global, css } from "@emotion/react";
+
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
 
@@ -8,3 +10,16 @@ export const parameters = {
     },
   },
 };
+
+export const decorators = [
+  (Story) => (
+    <>
+      <style>
+        {`html {
+        font-family: system-ui, sans-serif;
+      }`}
+      </style>
+      <Story />
+    </>
+  ),
+];
