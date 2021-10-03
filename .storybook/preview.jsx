@@ -1,5 +1,5 @@
 import React from "react";
-import { ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -12,9 +12,15 @@ export const parameters = {
   },
 };
 
+const theme = extendTheme({
+  fonts: {
+    body: "system-ui, sans-serif",
+  },
+});
+
 export const decorators = [
   (Story) => (
-    <ChakraProvider>
+    <ChakraProvider theme={theme}>
       <Story />
     </ChakraProvider>
   ),
