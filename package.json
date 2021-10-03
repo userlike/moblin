@@ -27,25 +27,23 @@
     "build-storybook": "build-storybook",
     "chromatic": "npx chromatic --project-token=2d84217c8047"
   },
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/plugin-proposal-decorators": "^7.14.5",
     "@chakra-ui/react": "^1.6.8",
     "@chakra-ui/system": "^1.7.3",
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
-    "framer-motion": "^4"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.15.0",
-    "@babel/plugin-proposal-decorators": "^7.14.5",
+    "framer-motion": "^4",
     "@storybook/addon-actions": "^6.4.0-beta.3",
     "@storybook/addon-essentials": "^6.4.0-beta.3",
     "@storybook/addon-links": "^6.4.0-beta.3",
     "@storybook/builder-webpack5": "^6.4.0-beta.3",
-    "@storybook/manager-webpack5": "^6.3.7",
+    "@storybook/manager-webpack5": "^6.4.0-beta.3",
     "@storybook/react": "^6.4.0-beta.3",
     "babel-loader": "^8.2.2",
     "chromatic": "^5.9.2",
-    "fp-ts": "^2.11.1",
     "html-webpack-plugin": "^5.3.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -55,6 +53,7 @@
     "webpack-dev-server": "^4.1.0"
   },
   "peerDependencies": {
+    "@chakra-ui/react": "^1.6.8",
     "react": "^16.0.0 || ^17.0.0"
   }
 }
