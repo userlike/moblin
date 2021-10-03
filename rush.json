@@ -1,0 +1,22 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/rush/v5/rush.schema.json",
+  "rushVersion": "5.54.0",
+  "yarnVersion": "1.22.15",
+  "nodeSupportedVersionRange": ">=12.13.0",
+  "suppressNodeLtsWarning": false,
+  "ensureConsistentVersions": true,
+  "projectFolderMinDepth": 2,
+  "projectFolderMaxDepth": 2,
+  "allowMostlyStandardPackageNames": true,
+  "repository": {
+    "url": "https://github.com/anilanar/moblin",
+    "defaultBranch": "main",
+    "defaultRemote": "origin"
+  },
+  "projects": [
+    {
+      "packageName": "@moblin/chakra-ui",
+      "projectFolder": "packages/chakra-ui"
+    }
+  ]
+}
