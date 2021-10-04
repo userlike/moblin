@@ -42,11 +42,19 @@
   "size-limit": [
     {
       "path": "dist/chakra-ui.cjs.production.min.js",
-      "limit": "10 KB"
+      "limit": "2 KB",
+      "ignore": [
+        "@chakra-ui/system",
+        "react"
+      ]
     },
     {
       "path": "dist/chakra-ui.esm.js",
-      "limit": "10 KB"
+      "limit": "2 KB",
+      "ignore": [
+        "@chakra-ui/system",
+        "react"
+      ]
     }
   ],
   "devDependencies": {
