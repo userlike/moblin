@@ -16,7 +16,8 @@
   "projects": [
     {
       "packageName": "@moblin/chakra-ui",
-      "projectFolder": "packages/chakra-ui"
+      "projectFolder": "packages/chakra-ui",
+      "shouldPublish": true
     }
   ]
 }
