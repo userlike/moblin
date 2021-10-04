@@ -23,7 +23,8 @@
   },
   "peerDependencies": {
     "react": ">=16",
-    "@chakra-ui/react": "^1.6.8"
+    "@chakra-ui/react": "^1.6.0",
+    "@chakra-ui/system": "^1.6.0"
   },
   "husky": {
     "hooks": {
