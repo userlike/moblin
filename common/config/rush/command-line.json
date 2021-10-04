@@ -21,7 +21,8 @@
       "name": "size",
       "summary": "Validate each project's bundle size limits",
       "enableParallelism": true,
-      "ignoreMissingScript": true
+      "ignoreMissingScript": true,
+      "allowWarningsInSuccessfulBuild": true
     }
   ],
 
