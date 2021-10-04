@@ -3,7 +3,7 @@ name: Chromatic
 on: push
 
 jobs:
-  chromatic:
+  chakra-ui:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -14,3 +14,4 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          workingDir: ./packages/chakra-ui

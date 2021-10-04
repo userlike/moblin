@@ -7,8 +7,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node: ["12.x", "14.x", "15.x"]
-        os: [ubuntu-latest, windows-latest, macOS-latest]
+        node: ["14.x"]
+        os: [ubuntu-latest]
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
@@ -19,8 +19,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node }}
-
-      - run: git fetch origin main:refs/remotes/origin/main -a
 
       - name: Rush (changes)
         run: node ./common/scripts/install-run-rush.js change -v
@@ -33,3 +31,6 @@ jobs:
 
       - name: Lint
         run: node ./common/scripts/install-run-rush.js lint
+
+      - name: Size
+        run: node ./common/scripts/install-run-rush.js size
