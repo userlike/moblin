@@ -1,0 +1,17 @@
+{
+  "name": "@moblin/chakra-ui",
+  "entries": [
+    {
+      "version": "0.1.1",
+      "tag": "@moblin/chakra-ui_v0.1.1",
+      "date": "Mon, 04 Oct 2021 16:01:41 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "add @chakra-ui/system to peer dependencies"
+          }
+        ]
+      }
+    }
+  ]
+}
