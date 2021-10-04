@@ -18,6 +18,8 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
 
+      - run: git fetch origin main:refs/remotes/origin/main -a
+
       - name: Rush (changes)
         run: node ./common/scripts/install-run-rush.js change -v
 
