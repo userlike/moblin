@@ -1,0 +1,36 @@
+name: CI
+on: [push]
+
+jobs:
+  chakra-ui:
+    name: chakra-ui - ${{ matrix.node }} - ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        node: ["14.x"]
+        os: [ubuntu-latest]
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Use Node ${{ matrix.node }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Rush (changes)
+        run: node ./common/scripts/install-run-rush.js change -v
+
+      - name: Install
+        run: node ./common/scripts/install-run-rush.js install
+
+      - name: Rebuild
+        run: node ./common/scripts/install-run-rush.js rebuild --verbose
+
+      - name: Lint
+        run: node ./common/scripts/install-run-rush.js lint
+
+      - name: Size
+        run: node ./common/scripts/install-run-rush.js size
