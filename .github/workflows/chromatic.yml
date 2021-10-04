@@ -6,7 +6,7 @@ jobs:
   chromatic:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - name: Rush (install)
         run: node ./common/scripts/install-run-rush.js install
       - name: Publish to Chromatic
