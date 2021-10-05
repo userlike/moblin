@@ -1,9 +1,10 @@
-import { demo } from './animatable-demo';
 import { storiesOf } from '@storybook/react';
+import { ComponentProps } from 'react';
+
 import { Box } from '../src/Box';
 import { Flex, FlexItem } from '../src/Flex';
 import { contentDistributions, contentPositions } from '../src/types';
-import { ComponentProps } from 'react';
+import { demo } from './animatable-demo';
 
 const Item = ({
   big,
@@ -28,7 +29,7 @@ const flexStories = (['column', 'row'] as const).flatMap(direction =>
               direction={direction}
               alignItems={alignItems}
               justifyContent={justifyContent}
-              gap="8px"
+              gap={2}
             >
               <FlexItem>
                 <Item>Foo</Item>
@@ -72,7 +73,7 @@ const flexWrapStories = (['column', 'row'] as const).flatMap(direction =>
                 alignItems={alignItems}
                 justifyContent={justifyContent}
                 alignContent={alignContent}
-                gap="8px"
+                gap={2}
                 wrap
               >
                 <FlexItem>
@@ -117,7 +118,7 @@ const flexAlignSelfStories = (['column', 'row'] as const).flatMap(direction =>
                 direction={direction}
                 alignItems={alignItems}
                 justifyContent={justifyContent}
-                gap="8px"
+                gap={2}
               >
                 <FlexItem alignSelf={alignSelf}>
                   <Item>Foo</Item>

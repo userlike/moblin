@@ -1,26 +1,24 @@
-import { demo } from "./animatable-demo";
-import { Scrollable } from "../src/Scrollable";
-import { contentPositions } from "../src/types";
-import { storiesOf } from "@storybook/react";
-import { WithChildren } from "../src/react";
-import { chakra } from "@chakra-ui/system";
+import { chakra } from '@chakra-ui/system';
+import { storiesOf } from '@storybook/react';
 
-const Content = ({
-  big,
-  children,
-}: { big?: "row" | "column" } & WithChildren) => (
+import { WithChildren } from '../src/react';
+import { Scrollable } from '../src/Scrollable';
+import { contentPositions } from '../src/types';
+import { demo } from './animatable-demo';
+
+const Content = ({ big }: { big?: 'row' | 'column' } & WithChildren) => (
   <chakra.div
-    minWidth={big === "row" ? "800px" : undefined}
-    minHeight={big === "column" ? "800px" : undefined}
+    minWidth={big === 'row' ? '800px' : undefined}
+    minHeight={big === 'column' ? '800px' : undefined}
     padding="8px"
     backgroundColor="#f00"
   />
 );
 
-const stories = (["column", "row"] as const).flatMap((direction) =>
-  [true, false].flatMap((overflow) =>
+const stories = (['column', 'row'] as const).flatMap(direction =>
+  [true, false].flatMap(overflow =>
     contentPositions.map(
-      (justifyContent) =>
+      justifyContent =>
         [
           `d=${direction} ow=${overflow} j=${justifyContent}`,
           () => (
@@ -38,15 +36,15 @@ stories.reduce(
     acc.add(name, story);
     return acc;
   },
-  storiesOf("Scrollable", module)
+  storiesOf('Scrollable', module)
     .addDecorator(demo())
     .addParameters({
-      layout: "centered",
+      layout: 'centered',
       docs: {
         inlineStories: false,
         iframeHeight: 500,
         source: {
-          type: "code",
+          type: 'code',
         },
       },
     })

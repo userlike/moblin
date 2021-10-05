@@ -1,27 +1,27 @@
-import { chakra, HTMLChakraProps } from "@chakra-ui/system";
-import { storiesOf } from "@storybook/react";
+import { chakra, HTMLChakraProps } from '@chakra-ui/system';
+import { storiesOf } from '@storybook/react';
 
-import { demo } from "./animatable-demo";
-import { Box } from "../src/Box";
-import { contentPositions } from "../src/types";
+import { Box } from '../src/Box';
+import { contentPositions } from '../src/types';
+import { demo } from './animatable-demo';
 
 const Content = ({
   overflowHidden,
   ...props
 }: {
   overflowHidden?: boolean;
-} & HTMLChakraProps<"div">) => (
+} & HTMLChakraProps<'div'>) => (
   <chakra.div
     {...props}
     padding="8px"
-    overflow={overflowHidden ? "hidden" : "visible"}
+    overflow={overflowHidden ? 'hidden' : 'visible'}
     backgroundColor="#f00"
   />
 );
 
-const stories = contentPositions.flatMap((valign) =>
+const stories = contentPositions.flatMap(valign =>
   contentPositions.map(
-    (halign) =>
+    halign =>
       [
         `v=${valign} h=${halign}`,
         () => (
@@ -38,15 +38,15 @@ stories.reduce(
     acc.add(name, story);
     return acc;
   },
-  storiesOf("Box", module)
+  storiesOf('Box', module)
     .addDecorator(demo())
     .addParameters({
-      layout: "centered",
+      layout: 'centered',
       docs: {
         inlineStories: false,
         iframeHeight: 500,
         source: {
-          type: "code",
+          type: 'code',
         },
       },
     })

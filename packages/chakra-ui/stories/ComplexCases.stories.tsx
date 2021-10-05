@@ -1,16 +1,19 @@
-import { Box } from "../src/Box";
-import { FlexItem, Flex } from "../src/Flex";
-import { Text } from "../src/Text";
-import { contentPositions } from "../src/types";
-import { demo } from "./animatable-demo";
-import { storiesOf } from "@storybook/react";
+import { storiesOf } from '@storybook/react';
 
-const shortText = "foobar";
-const longText = Array(100).fill("foobar").join(" ");
+import { Box } from '../src/Box';
+import { Flex, FlexItem } from '../src/Flex';
+import { Text } from '../src/Text';
+import { contentPositions } from '../src/types';
+import { demo } from './animatable-demo';
 
-const stories = [true, false].flatMap((overflow) =>
+const shortText = 'foobar';
+const longText = Array(100)
+  .fill('foobar')
+  .join(' ');
+
+const stories = [true, false].flatMap(overflow =>
   contentPositions.map(
-    (halign) =>
+    halign =>
       [
         `h=${halign} ow=${overflow}`,
         () => (
@@ -31,15 +34,15 @@ stories.reduce(
     acc.add(name, story);
     return acc;
   },
-  storiesOf("ComplexStories/TextOverflow", module)
+  storiesOf('ComplexStories/TextOverflow', module)
     .addDecorator(demo())
     .addParameters({
-      layout: "centered",
+      layout: 'centered',
       docs: {
         inlineStories: false,
         iframeHeight: 500,
         source: {
-          type: "code",
+          type: 'code',
         },
       },
     })
