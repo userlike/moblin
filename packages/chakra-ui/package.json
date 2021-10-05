@@ -26,7 +26,7 @@
     "build": "concurrently npm:build:*",
     "test": "jest --env=jsdom --passWithNoTests",
     "lint": "eslint src --ext .ts,.tsx",
-    "prepare": "npm build",
+    "prepare": "npm run build",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "build:esm": "cross-env BABEL_ENV=esm babel src --extensions .ts,.tsx -d dist/esm --source-maps",
