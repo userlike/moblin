@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@moblin/chakra-ui",
+      "comment": "fix typings path in package.json",
+      "type": "patch"
+    }
+  ],
+  "packageName": "@moblin/chakra-ui"
+}
