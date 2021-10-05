@@ -2,7 +2,6 @@ import {
   chakra,
   forwardRef,
   SystemProps,
-  useTheme,
   useToken,
 } from '@chakra-ui/system';
 
@@ -86,7 +85,6 @@ export const Flex = forwardRef<FlexProps, 'div'>(
     },
     ref
   ) => {
-    console.log(useTheme());
     const _gapX: unknown = useToken('space', `${gapX ?? 0}`);
     const _gapY: unknown = useToken('space', `${gapY ?? 0}`);
 
