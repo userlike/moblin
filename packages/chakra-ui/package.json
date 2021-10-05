@@ -32,17 +32,17 @@
     "build:esm": "cross-env BABEL_ENV=esm babel src --extensions .ts,.tsx -d dist/esm --source-maps",
     "build:cjs": "cross-env BABEL_ENV=cjs babel src --extensions .ts,.tsx -d dist/cjs --source-maps",
     "build:types": "tsc --emitDeclarationOnly --declaration --declarationDir dist/types",
-    "rush": "node ../../common/scripts/install-run-rush.js"
+    "rush": "node ../../common/scripts/install-run-rush.js",
+    "lint-staged": "lint-staged"
   },
   "peerDependencies": {
     "react": ">=16",
     "@chakra-ui/react": "^1.6.0",
     "@chakra-ui/system": "^1.6.0"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint"
-    }
+  "lint-staged": {
+    "*.{ts,tsx}": "eslint --fix",
+    "*": "prettier --write"
   },
   "prettier": {
     "printWidth": 80,
@@ -107,6 +107,7 @@
     "cross-env": "~7.0.3",
     "rimraf": "~3.0.2",
     "concurrently": "~6.3.0",
-    "eslint-plugin-testing-library": "~4.12.4"
+    "eslint-plugin-testing-library": "~4.12.4",
+    "lint-staged": "~11.2.0"
   }
 }
