@@ -1,4 +1,10 @@
-import { chakra, forwardRef, SystemProps } from '@chakra-ui/system';
+import {
+  chakra,
+  forwardRef,
+  SystemProps,
+  useTheme,
+  useToken,
+} from '@chakra-ui/system';
 
 import { ContainerProps } from './props';
 import { WithChildren } from './react';
@@ -80,8 +86,9 @@ export const Flex = forwardRef<FlexProps, 'div'>(
     },
     ref
   ) => {
-    const _gapX = `${gapX ?? 0}`;
-    const _gapY = `${gapY ?? 0}`;
+    console.log(useTheme());
+    const _gapX: unknown = useToken('space', `${gapX ?? 0}`);
+    const _gapY: unknown = useToken('space', `${gapY ?? 0}`);
 
     return (
       <chakra.div
@@ -94,8 +101,8 @@ export const Flex = forwardRef<FlexProps, 'div'>(
       >
         <chakra.div
           sx={{
-            '--pcss-flex-gap-x': _gapX,
-            '--pcss-flex-gap-y': _gapY,
+            '--pcss-flex-gap-x': unsafeCoerce(_gapX),
+            '--pcss-flex-gap-y': unsafeCoerce(_gapY),
             '--pcss-flex-align-items': alignItems,
             '--pcss-flex-child-direction':
               direction === 'row' ? 'column' : 'row',

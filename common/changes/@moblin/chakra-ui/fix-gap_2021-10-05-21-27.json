@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@moblin/chakra-ui",
+      "comment": "fix gap not respecting space tokens",
+      "type": "patch"
+    }
+  ],
+  "packageName": "@moblin/chakra-ui"
+}
