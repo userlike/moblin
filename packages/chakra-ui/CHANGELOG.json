@@ -2,6 +2,26 @@
   "name": "@moblin/chakra-ui",
   "entries": [
     {
+      "version": "0.2.0",
+      "tag": "@moblin/chakra-ui_v0.2.0",
+      "date": "Tue, 05 Oct 2021 21:36:21 GMT",
+      "comments": {
+        "minor": [
+          {
+            "comment": "replace tsdx with own tooling, because tsdx seems to be poorly maintained and has become a source of problems"
+          }
+        ],
+        "patch": [
+          {
+            "comment": "replace yarn with pnpm with better compatibility with rush and for better performance"
+          },
+          {
+            "comment": "fix gap not respecting space tokens"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.1.1",
       "tag": "@moblin/chakra-ui_v0.1.1",
       "date": "Mon, 04 Oct 2021 16:01:41 GMT",
