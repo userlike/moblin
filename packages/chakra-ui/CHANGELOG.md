@@ -1,6 +1,13 @@
 # Change Log - @moblin/chakra-ui
 
-This log was last generated on Tue, 05 Oct 2021 21:48:52 GMT and should not be manually modified.
+This log was last generated on Tue, 05 Oct 2021 21:52:45 GMT and should not be manually modified.
+
+## 0.2.2
+Tue, 05 Oct 2021 21:52:45 GMT
+
+### Patches
+
+- fix prepare hook in package.json so that package is built correctly just before publish
 
 ## 0.2.1
 Tue, 05 Oct 2021 21:48:52 GMT
