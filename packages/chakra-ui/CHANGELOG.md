@@ -1,6 +1,13 @@
 # Change Log - @moblin/chakra-ui
 
-This log was last generated on Tue, 05 Oct 2021 21:36:21 GMT and should not be manually modified.
+This log was last generated on Tue, 05 Oct 2021 21:48:52 GMT and should not be manually modified.
+
+## 0.2.1
+Tue, 05 Oct 2021 21:48:52 GMT
+
+### Patches
+
+- fix typings path in package.json
 
 ## 0.2.0
 Tue, 05 Oct 2021 21:36:21 GMT
