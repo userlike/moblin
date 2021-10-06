@@ -1,6 +1,9 @@
 name: Chromatic
-
 on: push
+
+concurrency:
+  group: chromatic-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   chakra-ui:

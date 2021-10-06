@@ -1,6 +1,10 @@
 name: CI
 on: [push]
 
+concurrency:
+  group: main-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   chakra-ui:
     name: chakra-ui - ${{ matrix.node }} - ${{ matrix.os }}
