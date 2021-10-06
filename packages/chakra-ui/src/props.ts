@@ -29,7 +29,19 @@ export type SafeInteractivityProps = Pick<
 
 export type SafeLayoutProps = Pick<
   LayoutProps,
-  'width' | 'height' | 'visibility' | 'w' | 'h'
+  | 'width'
+  | 'height'
+  | 'visibility'
+  | 'w'
+  | 'h'
+  | 'maxWidth'
+  | 'maxW'
+  | 'maxHeight'
+  | 'maxH'
+  | 'minWidth'
+  | 'minW'
+  | 'minHeight'
+  | 'minH'
 >;
 
 export type SafeSpaceProps = Pick<
