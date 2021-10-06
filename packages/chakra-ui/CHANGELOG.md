@@ -1,6 +1,14 @@
 # Change Log - @moblin/chakra-ui
 
-This log was last generated on Wed, 06 Oct 2021 09:00:36 GMT and should not be manually modified.
+This log was last generated on Wed, 06 Oct 2021 09:45:00 GMT and should not be manually modified.
+
+## 0.4.1
+
+Wed, 06 Oct 2021 09:45:00 GMT
+
+### Patches
+
+- fix the case when nullish children are ppassed to List component. nullish children are correctly filtered out and they don't render empty FlexItems anymore, causing wrong gaps.
 
 ## 0.4.0
 
