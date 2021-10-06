@@ -2,6 +2,18 @@
   "name": "@moblin/chakra-ui",
   "entries": [
     {
+      "version": "0.4.0",
+      "tag": "@moblin/chakra-ui_v0.4.0",
+      "date": "Wed, 06 Oct 2021 09:00:36 GMT",
+      "comments": {
+        "minor": [
+          {
+            "comment": "add grow, shrink, basis props to List which are directly passed to auto inserted FlexItem elements"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.3.0",
       "tag": "@moblin/chakra-ui_v0.3.0",
       "date": "Wed, 06 Oct 2021 08:39:35 GMT",

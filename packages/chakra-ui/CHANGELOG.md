@@ -1,6 +1,14 @@
 # Change Log - @moblin/chakra-ui
 
-This log was last generated on Wed, 06 Oct 2021 08:39:35 GMT and should not be manually modified.
+This log was last generated on Wed, 06 Oct 2021 09:00:36 GMT and should not be manually modified.
+
+## 0.4.0
+
+Wed, 06 Oct 2021 09:00:36 GMT
+
+### Minor changes
+
+- add grow, shrink, basis props to List which are directly passed to auto inserted FlexItem elements
 
 ## 0.3.0
 
