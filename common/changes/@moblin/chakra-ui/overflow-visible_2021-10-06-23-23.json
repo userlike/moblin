@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@moblin/chakra-ui",
+      "comment": "implement an alternative layout system based on overflow: visible",
+      "type": "minor"
+    }
+  ],
+  "packageName": "@moblin/chakra-ui"
+}
