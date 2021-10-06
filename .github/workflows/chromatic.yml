@@ -17,3 +17,21 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           workingDir: ./packages/chakra-ui
+      - name: Run tests
+        if: ${{ github.ref != 'refs/heads/main' }}
+        uses: chromaui/action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          workingDir: ./packages/chakra-ui
+          onlyChanged: true
+          exitZeroOnChanges: false
+      - name: Publish
+        if: ${{ github.ref == 'refs/heads/main' }}
+        uses: chromaui/action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          workingDir: ./packages/chakra-ui
+          onlyChanged: true
+          autoAcceptChanges: true
