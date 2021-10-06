@@ -15,7 +15,7 @@ export interface FlexItemProps extends WithChildren {
 export const FlexItem = ({
   alignSelf,
   grow,
-  shrink = 0,
+  shrink = 1,
   basis = 'auto',
   children,
 }: FlexItemProps) => {
@@ -23,8 +23,6 @@ export const FlexItem = ({
     <chakra.div
       display="flex"
       overflow="visible"
-      minW={0}
-      minH={0}
       alignItems="stretch"
       flexDirection={unsafeCoerce('var(--pcss-flex-child-direction)')}
       flexGrow={
@@ -33,6 +31,8 @@ export const FlexItem = ({
       flexShrink={shrink}
       flexBasis={basis}
       justifyContent={alignSelf ?? unsafeCoerce('var(--pcss-flex-align-items)')}
+      minW={shrink > 0 ? 'var(--pcss-flex-child-shrink-width)' : 'auto'}
+      minH={shrink > 0 ? 'var(--pcss-flex-child-shrink-height)' : 'auto'}
       marginLeft="var(--pcss-flex-gap-x)"
       marginTop="var(--pcss-flex-gap-y)"
       sx={{
@@ -45,6 +45,8 @@ export const FlexItem = ({
               : unsafeCoerce('var(--pcss-flex-grandchild-grow)'),
           flexShrink: 1,
           flexBasis: 'auto',
+          minWidth: 'var(--pcss-flex-grandchild-shrink-width)',
+          minHeight: 'var(--pcss-flex-grandchild-shrink-height)',
         },
       }}
     >
@@ -90,8 +92,6 @@ export const Flex = forwardRef<FlexProps, 'div'>(
         {...props}
         display="flex"
         overflow="visible"
-        minW={0}
-        minH={0}
         flexDirection="row"
         alignItems="stretch"
         ref={ref}
@@ -104,14 +104,20 @@ export const Flex = forwardRef<FlexProps, 'div'>(
             '--pcss-flex-child-direction':
               direction === 'row' ? 'column' : 'row',
             '--pcss-flex-child-grow': justifyContent === 'stretch' ? '1' : '0',
+            '--pcss-flex-child-shrink-width':
+              direction === 'row' ? '0' : 'auto',
+            '--pcss-flex-child-shrink-height':
+              direction === 'column' ? '0' : 'auto',
+            '--pcss-flex-grandchild-shrink-width':
+              direction === 'row' ? 'auto' : '0',
+            '--pcss-flex-grandchild-shrink-height':
+              direction === 'column' ? 'auto' : '0',
             '--pcss-flex-grandchild-grow': alignItems === 'stretch' ? '1' : '0',
           }}
           display="flex"
           marginTop={`calc(${_gapY} / -1)`}
           marginLeft={`calc(${_gapX} / -1)`}
           overflow="visible"
-          minW={0}
-          minH={0}
           flexDirection={direction}
           flexWrap={
             wrap === true

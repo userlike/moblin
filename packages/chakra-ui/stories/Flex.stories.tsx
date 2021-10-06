@@ -10,13 +10,7 @@ const Item = ({
   big,
   ...props
 }: { big?: 'row' | 'column' } & ComponentProps<typeof Box>) => (
-  <Box
-    {...props}
-    bg="red.700"
-    color="gray.200"
-    minHeight={big === 'column' ? '8rem' : undefined}
-    minWidth={big === 'row' ? '8rem' : undefined}
-  />
+  <Box {...props} bg="red.700" color="gray.200" />
 );
 
 const flexStories = (['column', 'row'] as const).flatMap((direction) =>
@@ -32,10 +26,10 @@ const flexStories = (['column', 'row'] as const).flatMap((direction) =>
               justifyContent={justifyContent}
               gap={2}
             >
-              <FlexItem>
+              <FlexItem shrink={0} basis="8rem">
                 <Item>Foo</Item>
               </FlexItem>
-              <FlexItem>
+              <FlexItem shrink={0} basis="8rem">
                 <Item>Bar</Item>
               </FlexItem>
             </Flex>
