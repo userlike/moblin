@@ -23,7 +23,7 @@
   },
   "scripts": {
     "prebuild": "rimraf dist",
-    "build": "concurrently npm:build:*",
+    "build": "cross-env NODE_ENV=production concurrently npm:build:*",
     "test": "jest --env=jsdom --passWithNoTests",
     "lint": "eslint src --ext .ts,.tsx",
     "prepare": "npm run build",
