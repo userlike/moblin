@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@moblin/chakra-ui",
+      "comment": "add List component as a shorthand alternative to Flex",
+      "type": "minor"
+    }
+  ],
+  "packageName": "@moblin/chakra-ui"
+}
