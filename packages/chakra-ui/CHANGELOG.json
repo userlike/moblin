@@ -2,6 +2,18 @@
   "name": "@moblin/chakra-ui",
   "entries": [
     {
+      "version": "0.5.2",
+      "tag": "@moblin/chakra-ui_v0.5.2",
+      "date": "Wed, 06 Oct 2021 15:13:24 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "use NODE_ENV=production during build for a proper production build"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.5.1",
       "tag": "@moblin/chakra-ui_v0.5.1",
       "date": "Wed, 06 Oct 2021 14:59:52 GMT",

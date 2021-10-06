@@ -1,6 +1,14 @@
 # Change Log - @moblin/chakra-ui
 
-This log was last generated on Wed, 06 Oct 2021 14:59:52 GMT and should not be manually modified.
+This log was last generated on Wed, 06 Oct 2021 15:13:24 GMT and should not be manually modified.
+
+## 0.5.2
+
+Wed, 06 Oct 2021 15:13:24 GMT
+
+### Patches
+
+- use NODE_ENV=production during build for a proper production build
 
 ## 0.5.1
 
