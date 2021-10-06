@@ -1,6 +1,14 @@
 # Change Log - @moblin/chakra-ui
 
-This log was last generated on Wed, 06 Oct 2021 13:00:39 GMT and should not be manually modified.
+This log was last generated on Wed, 06 Oct 2021 14:59:52 GMT and should not be manually modified.
+
+## 0.5.1
+
+Wed, 06 Oct 2021 14:59:52 GMT
+
+### Patches
+
+- fix kebab-case warnings coming from emotion in Scrollable, caused by wrong usage of margin css prop names
 
 ## 0.5.0
 
