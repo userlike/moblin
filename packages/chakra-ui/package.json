@@ -42,7 +42,7 @@
   },
   "lint-staged": {
     "*.{ts,tsx}": "eslint --fix",
-    "*": "prettier --write"
+    "*.{js,jsx,ts,tsx,json,md}": "prettier --write"
   },
   "prettier": {
     "printWidth": 80,
