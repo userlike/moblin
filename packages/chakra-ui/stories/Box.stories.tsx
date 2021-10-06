@@ -13,15 +13,16 @@ const Content = ({
 } & HTMLChakraProps<'div'>) => (
   <chakra.div
     {...props}
-    padding="8px"
+    padding={2}
     overflow={overflowHidden ? 'hidden' : 'visible'}
-    backgroundColor="#f00"
+    bg="red.700"
+    color="gray.200"
   />
 );
 
-const stories = contentPositions.flatMap(valign =>
+const stories = contentPositions.flatMap((valign) =>
   contentPositions.map(
-    halign =>
+    (halign) =>
       [
         `v=${valign} h=${halign}`,
         () => (
