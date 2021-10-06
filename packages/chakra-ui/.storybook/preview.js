@@ -7,7 +7,7 @@ export const parameters = {
 };
 
 export const decorators = [
-  Story => (
+  (Story) => (
     <ChakraProvider>
       <Story />
     </ChakraProvider>

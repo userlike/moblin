@@ -1,9 +1,16 @@
-const BABEL_ENV = process.env.BABEL_ENV;
-const isCommonJS = BABEL_ENV !== undefined && BABEL_ENV === 'cjs';
-const isESM = BABEL_ENV !== undefined && BABEL_ENV === 'esm';
+const TARGET_ENV = process.env.TARGET_ENV;
+const isCommonJS = TARGET_ENV === 'cjs';
+const isESM = TARGET_ENV === 'esm';
 
-module.exports = api => {
-  api.cache(() => process.env.NODE_ENV);
+const targets = {
+  esm: { esmodules: true },
+  test: {
+    node: 'current',
+  },
+};
+
+module.exports = (api) => {
+  api.cache(() => `${process.env.NODE_ENV}-${TARGET_ENV}`);
 
   return {
     babelrc: false,
@@ -12,9 +19,10 @@ module.exports = api => {
         '@babel/env',
         {
           loose: true,
-          modules: isCommonJS ? 'commonjs' : false,
+          modules: isCommonJS || api.env('test') ? 'commonjs' : false,
           targets: {
-            esmodules: isESM ? true : undefined,
+            ...(isESM && targets.esm),
+            ...(api.env('test') && targets.test),
           },
         },
       ],
@@ -22,7 +30,7 @@ module.exports = api => {
         '@babel/preset-react',
         {
           runtime: 'automatic',
-          development: process.env.NODE_ENV !== 'production',
+          development: !api.env('production'),
         },
       ],
       '@babel/preset-typescript',

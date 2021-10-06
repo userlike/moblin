@@ -10,16 +10,16 @@ interface DemoOptions {
 
 const resize = keyframes({
   '0%': {
-    width: '200px',
-    height: '200px',
+    width: '12rem',
+    height: '12rem',
   },
   '50%': {
-    width: '400px',
-    height: '400px',
+    width: '24rem',
+    height: '24rem',
   },
   '100%': {
-    width: '200px',
-    height: '200px',
+    width: '12rem',
+    height: '12rem',
   },
 });
 
@@ -31,12 +31,13 @@ const DemoContainer = ({
   <chakra.div
     {...props}
     position="relative"
-    padding="32px"
-    backgroundColor="#0f0"
+    padding={8}
+    bg="green.300"
+    color="black"
     __css={{
       '& > div:first-of-type': {
-        width: '200px',
-        height: '200px',
+        width: '12rem',
+        height: '12rem',
         willChange: 'width, height',
         animationName: animate ? resize.toString() : 'none',
         animationDuration: '2s',
@@ -46,14 +47,17 @@ const DemoContainer = ({
   />
 );
 
-export const demo = ({
-  title = 'Container',
-  animate = !isChromatic(),
-}: DemoOptions = {}): S.Decorator => Story => (
-  <DemoContainer animate={animate}>
-    <Story />
-    <chakra.div position="absolute" top="8px" left="8px">
-      {title}
-    </chakra.div>
-  </DemoContainer>
-);
+export const demo =
+  ({
+    title = 'Container',
+    animate = !isChromatic(),
+  }: DemoOptions = {}): S.Decorator =>
+  (Story) =>
+    (
+      <DemoContainer animate={animate}>
+        <Story />
+        <chakra.div position="absolute" top="0.5rem" left="0.5rem">
+          {title}
+        </chakra.div>
+      </DemoContainer>
+    );

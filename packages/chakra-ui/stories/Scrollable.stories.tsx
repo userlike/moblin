@@ -8,17 +8,18 @@ import { demo } from './animatable-demo';
 
 const Content = ({ big }: { big?: 'row' | 'column' } & WithChildren) => (
   <chakra.div
-    minWidth={big === 'row' ? '800px' : undefined}
-    minHeight={big === 'column' ? '800px' : undefined}
-    padding="8px"
-    backgroundColor="#f00"
+    minWidth={big === 'row' ? '48rem' : undefined}
+    minHeight={big === 'column' ? '48rem' : undefined}
+    padding={2}
+    bg="red.700"
+    color="gray.200"
   />
 );
 
-const stories = (['column', 'row'] as const).flatMap(direction =>
-  [true, false].flatMap(overflow =>
+const stories = (['column', 'row'] as const).flatMap((direction) =>
+  [true, false].flatMap((overflow) =>
     contentPositions.map(
-      justifyContent =>
+      (justifyContent) =>
         [
           `d=${direction} ow=${overflow} j=${justifyContent}`,
           () => (

@@ -12,16 +12,17 @@ const Item = ({
 }: { big?: 'row' | 'column' } & ComponentProps<typeof Box>) => (
   <Box
     {...props}
-    backgroundColor="#f00"
-    minHeight={big === 'column' ? '150px' : undefined}
-    minWidth={big === 'row' ? '150px' : undefined}
+    bg="red.700"
+    color="gray.200"
+    minHeight={big === 'column' ? '8rem' : undefined}
+    minWidth={big === 'row' ? '8rem' : undefined}
   />
 );
 
-const flexStories = (['column', 'row'] as const).flatMap(direction =>
-  contentPositions.flatMap(alignItems =>
+const flexStories = (['column', 'row'] as const).flatMap((direction) =>
+  contentPositions.flatMap((alignItems) =>
     contentDistributions.map(
-      justifyContent =>
+      (justifyContent) =>
         [
           `d=${direction[0]} a=${alignItems} j=${justifyContent}`,
           () => (
@@ -60,11 +61,11 @@ flexStories.reduce(
     })
 );
 
-const flexWrapStories = (['column', 'row'] as const).flatMap(direction =>
-  contentPositions.flatMap(alignItems =>
-    contentDistributions.flatMap(justifyContent =>
+const flexWrapStories = (['column', 'row'] as const).flatMap((direction) =>
+  contentPositions.flatMap((alignItems) =>
+    contentDistributions.flatMap((justifyContent) =>
       contentDistributions.map(
-        alignContent =>
+        (alignContent) =>
           [
             `d=${direction[0]} a=${alignItems} j=${justifyContent} w=${alignContent}`,
             () => (
@@ -106,11 +107,11 @@ flexWrapStories.reduce(
     })
 );
 
-const flexAlignSelfStories = (['column', 'row'] as const).flatMap(direction =>
-  contentPositions.flatMap(alignItems =>
-    contentDistributions.flatMap(justifyContent =>
+const flexAlignSelfStories = (['column', 'row'] as const).flatMap((direction) =>
+  contentPositions.flatMap((alignItems) =>
+    contentDistributions.flatMap((justifyContent) =>
       contentPositions.map(
-        alignSelf =>
+        (alignSelf) =>
           [
             `d=${direction[0]} a=${alignItems} j=${justifyContent} as=${alignSelf}`,
             () => (

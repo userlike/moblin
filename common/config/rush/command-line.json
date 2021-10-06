@@ -23,6 +23,14 @@
       "enableParallelism": true,
       "ignoreMissingScript": true,
       "allowWarningsInSuccessfulBuild": true
+    },
+    {
+      "name": "lint-staged",
+      "commandKind": "bulk",
+      "summary": "Used by the pre-commit Git hook. This command invokes lint-staged.",
+      "safeForSimultaneousRushProcesses": false,
+      "ignoreMissingScript": true,
+      "enableParallelism": false
     }
   ],
 

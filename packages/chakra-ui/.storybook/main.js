@@ -1,11 +1,32 @@
+const path = require('path');
+
 module.exports = {
   stories: ['../stories/**/*.stories.@(ts|tsx|js|jsx)'],
   addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
-  // https://storybook.js.org/docs/react/configure/typescript#mainjs-configuration
-  typescript: {
-    check: true, // type-check stories during Storybook build
-  },
   features: {
     previewCsfV3: true,
+  },
+  webpackFinal: async (config) => {
+    return {
+      ...config,
+      resolve: {
+        ...config.resolve,
+        alias: {
+          ...config.resolve.alias,
+          '@emotion/core': path.resolve(
+            __dirname,
+            '../node_modules/@emotion/react'
+          ),
+          'emotion-theming': path.resolve(
+            __dirname,
+            '../node_modules/@emotion/react'
+          ),
+          '@emotion/styled': path.resolve(
+            __dirname,
+            '../node_modules/@emotion/styled'
+          ),
+        },
+      },
+    };
   },
 };
