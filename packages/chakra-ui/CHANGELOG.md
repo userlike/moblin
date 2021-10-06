@@ -1,8 +1,23 @@
 # Change Log - @moblin/chakra-ui
 
-This log was last generated on Tue, 05 Oct 2021 21:52:45 GMT and should not be manually modified.
+This log was last generated on Wed, 06 Oct 2021 08:39:35 GMT and should not be manually modified.
+
+## 0.3.0
+
+Wed, 06 Oct 2021 08:39:35 GMT
+
+### Minor changes
+
+- add color, positioning and typography props to ContainerProps
+- add List component as a shorthand alternative to Flex
+- add Box component which is an alias to a div with overflow hidden, so that users can use flow layout when they want or need
+
+### Patches
+
+- remove leftover console.log
 
 ## 0.2.2
+
 Tue, 05 Oct 2021 21:52:45 GMT
 
 ### Patches
@@ -10,6 +25,7 @@ Tue, 05 Oct 2021 21:52:45 GMT
 - fix prepare hook in package.json so that package is built correctly just before publish
 
 ## 0.2.1
+
 Tue, 05 Oct 2021 21:48:52 GMT
 
 ### Patches
@@ -17,6 +33,7 @@ Tue, 05 Oct 2021 21:48:52 GMT
 - fix typings path in package.json
 
 ## 0.2.0
+
 Tue, 05 Oct 2021 21:36:21 GMT
 
 ### Minor changes
@@ -29,9 +46,9 @@ Tue, 05 Oct 2021 21:36:21 GMT
 - fix gap not respecting space tokens
 
 ## 0.1.1
+
 Mon, 04 Oct 2021 16:01:41 GMT
 
 ### Patches
 
 - add @chakra-ui/system to peer dependencies
-

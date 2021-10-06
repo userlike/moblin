@@ -2,6 +2,29 @@
   "name": "@moblin/chakra-ui",
   "entries": [
     {
+      "version": "0.3.0",
+      "tag": "@moblin/chakra-ui_v0.3.0",
+      "date": "Wed, 06 Oct 2021 08:39:35 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "remove leftover console.log"
+          }
+        ],
+        "minor": [
+          {
+            "comment": "add color, positioning and typography props to ContainerProps"
+          },
+          {
+            "comment": "add List component as a shorthand alternative to Flex"
+          },
+          {
+            "comment": "add Box component which is an alias to a div with overflow hidden, so that users can use flow layout when they want or need"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.2.2",
       "tag": "@moblin/chakra-ui_v0.2.2",
       "date": "Tue, 05 Oct 2021 21:52:45 GMT",
