@@ -34,9 +34,9 @@ export const Scrollable = forwardRef<ScrollableProps, 'div'>(
 );
 
 const marginStartProp = (direction: 'row' | 'column') =>
-  direction === 'row' ? 'margin-left' : 'margin-top';
+  direction === 'row' ? 'marginLeft' : 'marginTop';
 const marginEndProp = (direction: 'row' | 'column') =>
-  direction === 'row' ? 'margin-right' : 'margin-bottom';
+  direction === 'row' ? 'marginRight' : 'marginBottom';
 
 const marginStart = (justifyContent: ContentPosition) =>
   justifyContent === 'stretch' || justifyContent === 'flex-start'

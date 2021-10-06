@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@moblin/chakra-ui",
+      "comment": "fix kebab-case warnings coming from emotion in Scrollable, caused by wrong usage of margin css prop names",
+      "type": "patch"
+    }
+  ],
+  "packageName": "@moblin/chakra-ui"
+}
