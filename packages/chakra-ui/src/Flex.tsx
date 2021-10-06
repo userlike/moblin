@@ -1,9 +1,4 @@
-import {
-  chakra,
-  forwardRef,
-  SystemProps,
-  useToken,
-} from '@chakra-ui/system';
+import { chakra, forwardRef, SystemProps, useToken } from '@chakra-ui/system';
 
 import { ContainerProps } from './props';
 import { WithChildren } from './react';
@@ -27,7 +22,9 @@ export const FlexItem = ({
   return (
     <chakra.div
       display="flex"
-      overflow="hidden"
+      overflow="visible"
+      minW={0}
+      minH={0}
       alignItems="stretch"
       flexDirection={unsafeCoerce('var(--pcss-flex-child-direction)')}
       flexGrow={
@@ -92,7 +89,9 @@ export const Flex = forwardRef<FlexProps, 'div'>(
       <chakra.div
         {...props}
         display="flex"
-        overflow="hidden"
+        overflow="visible"
+        minW={0}
+        minH={0}
         flexDirection="row"
         alignItems="stretch"
         ref={ref}
@@ -110,7 +109,9 @@ export const Flex = forwardRef<FlexProps, 'div'>(
           display="flex"
           marginTop={`calc(${_gapY} / -1)`}
           marginLeft={`calc(${_gapX} / -1)`}
-          overflow="hidden"
+          overflow="visible"
+          minW={0}
+          minH={0}
           flexDirection={direction}
           flexWrap={
             wrap === true
