@@ -39,3 +39,12 @@ export const WithGap = {
 export const PureText = {
   render,
 };
+
+export const FlexItemProps = {
+  render,
+  args: {
+    grow: 0,
+    shrink: 0,
+    basis: '3rem',
+  },
+};

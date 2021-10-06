@@ -71,5 +71,5 @@ export interface WithClassName {
 }
 
 export interface WithChildren {
-  children: ReactNode;
+  children?: ReactNode;
 }

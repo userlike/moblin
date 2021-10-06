@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@moblin/chakra-ui",
+      "comment": "add grow, shrink, basis props to List which are directly passed to auto inserted FlexItem elements",
+      "type": "minor"
+    }
+  ],
+  "packageName": "@moblin/chakra-ui"
+}
