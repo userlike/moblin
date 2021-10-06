@@ -126,7 +126,10 @@ export const Flex = forwardRef<FlexProps, 'div'>(
               ? 'wrap-reverse'
               : 'nowrap'
           }
-          flex="1 1 auto"
+          flexGrow={1}
+          flexShrink={1}
+          minW={0}
+          flexBasis="auto"
           alignItems="stretch"
           alignContent={alignContent}
           justifyContent={justifyContent}

@@ -3,14 +3,14 @@ import { ComponentProps } from 'react';
 
 import { Box } from '../src/Box';
 import { Flex, FlexItem } from '../src/Flex';
+import { WithChildren } from '../src/react';
 import { contentDistributions, contentPositions } from '../src/types';
 import { demo } from './animatable-demo';
 
-const Item = ({
-  big,
-  ...props
-}: { big?: 'row' | 'column' } & ComponentProps<typeof Box>) => (
-  <Box {...props} bg="red.700" color="gray.200" />
+const Item = ({ children }: WithChildren) => (
+  <Box bg="red.700" color="gray.200">
+    {children}
+  </Box>
 );
 
 const flexStories = (['column', 'row'] as const).flatMap((direction) =>
@@ -26,10 +26,10 @@ const flexStories = (['column', 'row'] as const).flatMap((direction) =>
               justifyContent={justifyContent}
               gap={2}
             >
-              <FlexItem shrink={0} basis="8rem">
+              <FlexItem>
                 <Item>Foo</Item>
               </FlexItem>
-              <FlexItem shrink={0} basis="8rem">
+              <FlexItem>
                 <Item>Bar</Item>
               </FlexItem>
             </Flex>
@@ -71,11 +71,11 @@ const flexWrapStories = (['column', 'row'] as const).flatMap((direction) =>
                 gap={2}
                 wrap
               >
-                <FlexItem>
-                  <Item big={direction}>Foo</Item>
+                <FlexItem shrink={0} basis="8rem">
+                  <Item>Foo</Item>
                 </FlexItem>
-                <FlexItem>
-                  <Item big={direction}>Bar</Item>
+                <FlexItem shrink={0} basis="8rem">
+                  <Item>Bar</Item>
                 </FlexItem>
               </Flex>
             ),

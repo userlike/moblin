@@ -15,7 +15,7 @@ const stories = [true, false].flatMap((overflow) =>
       [
         `h=${halign} ow=${overflow}`,
         () => (
-          <Box width="8rem" height="8rem" halign={halign}>
+          <Box halign={halign}>
             <Flex direction="column">
               <FlexItem>
                 <Text ellipsis>{overflow ? longText : shortText}</Text>
