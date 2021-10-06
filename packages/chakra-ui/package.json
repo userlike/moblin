@@ -50,24 +50,6 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "size-limit": [
-    {
-      "path": "dist/chakra-ui.cjs.production.min.js",
-      "limit": "2 KB",
-      "ignore": [
-        "@chakra-ui/system",
-        "react"
-      ]
-    },
-    {
-      "path": "dist/chakra-ui.esm.js",
-      "limit": "2 KB",
-      "ignore": [
-        "@chakra-ui/system",
-        "react"
-      ]
-    }
-  ],
   "devDependencies": {
     "@babel/core": "~7.15.5",
     "@chakra-ui/react": "~1.6.8",
@@ -108,6 +90,7 @@
     "rimraf": "~3.0.2",
     "concurrently": "~6.3.0",
     "eslint-plugin-testing-library": "~4.12.4",
+    "lint-staged": "~11.2.0",
     "@testing-library/react": "~12.1.2",
     "@jest/globals": "~27.2.4"
   }
