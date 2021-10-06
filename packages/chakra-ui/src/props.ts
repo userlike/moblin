@@ -2,16 +2,19 @@ import {
   As,
   BackgroundProps,
   BorderProps,
+  ColorProps,
   EffectProps,
   FilterProps,
   HTMLChakraProps,
   InteractivityProps,
   LayoutProps,
+  PositionProps,
   SpaceProps,
   StyleProps,
   TextDecorationProps,
   TransformProps,
   TransitionProps,
+  TypographyProps,
 } from '@chakra-ui/system';
 
 export type SafeEffectProps = Pick<
@@ -63,11 +66,14 @@ export type ContainerProps<T extends As> = Omit<
 > &
   BackgroundProps &
   BorderProps &
+  ColorProps &
   SafeEffectProps &
   FilterProps &
   SafeInteractivityProps &
   SafeLayoutProps &
+  PositionProps &
   SafeSpaceProps &
   TextDecorationProps &
   TransformProps &
-  TransitionProps;
+  TransitionProps &
+  TypographyProps;
