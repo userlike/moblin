@@ -30,11 +30,11 @@ export const List = ({
         <FlexItem key={c.key} grow={grow} shrink={shrink} basis={basis}>
           {c}
         </FlexItem>
-      ) : (
+      ) : c != null ? (
         <FlexItem grow={grow} shrink={shrink} basis={basis}>
           {c}
         </FlexItem>
-      )
+      ) : null
     )}
   </Flex>
 );

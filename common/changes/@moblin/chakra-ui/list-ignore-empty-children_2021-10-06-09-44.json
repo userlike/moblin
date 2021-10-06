@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@moblin/chakra-ui",
+      "comment": "fix the case when nullish children are ppassed to List component. nullish children are correctly filtered out and they don't render empty FlexItems anymore, causing wrong gaps.",
+      "type": "patch"
+    }
+  ],
+  "packageName": "@moblin/chakra-ui"
+}
