@@ -2,6 +2,18 @@
   "name": "@moblin/chakra-ui",
   "entries": [
     {
+      "version": "0.5.0",
+      "tag": "@moblin/chakra-ui_v0.5.0",
+      "date": "Wed, 06 Oct 2021 13:00:39 GMT",
+      "comments": {
+        "minor": [
+          {
+            "comment": "add min/max width/height props to ContainerProps because they are as safe as width/height are"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.4.1",
       "tag": "@moblin/chakra-ui_v0.4.1",
       "date": "Wed, 06 Oct 2021 09:45:00 GMT",

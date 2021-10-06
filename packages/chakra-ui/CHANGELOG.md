@@ -1,6 +1,14 @@
 # Change Log - @moblin/chakra-ui
 
-This log was last generated on Wed, 06 Oct 2021 09:45:00 GMT and should not be manually modified.
+This log was last generated on Wed, 06 Oct 2021 13:00:39 GMT and should not be manually modified.
+
+## 0.5.0
+
+Wed, 06 Oct 2021 13:00:39 GMT
+
+### Minor changes
+
+- add min/max width/height props to ContainerProps because they are as safe as width/height are
 
 ## 0.4.1
 
