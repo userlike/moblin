@@ -29,8 +29,8 @@
     "prepare": "npm run build",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "build:esm": "cross-env BABEL_ENV=esm babel src --extensions .ts,.tsx -d dist/esm --source-maps",
-    "build:cjs": "cross-env BABEL_ENV=cjs babel src --extensions .ts,.tsx -d dist/cjs --source-maps",
+    "build:esm": "cross-env TARGET_ENV=esm babel src --extensions .ts,.tsx -d dist/esm --source-maps",
+    "build:cjs": "cross-env TARGET_ENV=cjs babel src --extensions .ts,.tsx -d dist/cjs --source-maps",
     "build:types": "tsc --emitDeclarationOnly --declaration --declarationDir dist/types",
     "rush": "node ../../common/scripts/install-run-rush.js",
     "lint-staged": "lint-staged"
@@ -108,6 +108,7 @@
     "rimraf": "~3.0.2",
     "concurrently": "~6.3.0",
     "eslint-plugin-testing-library": "~4.12.4",
-    "lint-staged": "~11.2.0"
+    "@testing-library/react": "~12.1.2",
+    "@jest/globals": "~27.2.4"
   }
 }
