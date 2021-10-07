@@ -1,8 +1,8 @@
 import { forwardRef } from '@chakra-ui/system';
 
-import { ContentPosition } from '../src/types';
 import { Flex, FlexItem } from './Flex';
 import { ContainerProps } from './props';
+import { ContentPosition } from './types';
 import { __DEV__ } from './utils';
 
 export interface BoxOptions {
