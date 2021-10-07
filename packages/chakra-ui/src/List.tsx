@@ -19,8 +19,8 @@ export interface ListProps extends FlexProps {
  * does not support containing more than 1 element.
  */
 export const List = forwardRef<ListProps, 'div'>(
-  ({ children, grow, shrink, basis, ...props }: ListProps) => (
-    <Flex {...props}>
+  ({ children, grow, shrink, basis, ...props }: ListProps, ref) => (
+    <Flex ref={ref} {...props}>
       {Children.map(children, (c) =>
         isValidElement(c) ? (
           <FlexItem key={c.key} grow={grow} shrink={shrink} basis={basis}>
