@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@moblin/chakra-ui",
+      "comment": "allow all effect props in container props because they are allowed with overflow:visible based layout system",
+      "type": "minor"
+    }
+  ],
+  "packageName": "@moblin/chakra-ui"
+}

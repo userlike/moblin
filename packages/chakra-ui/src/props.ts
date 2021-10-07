@@ -17,11 +17,6 @@ import {
   TypographyProps,
 } from '@chakra-ui/system';
 
-export type SafeEffectProps = Pick<
-  EffectProps,
-  'mixBlendMode' | 'backgroundBlendMode' | 'bgBlendMode' | 'opacity'
->;
-
 export type SafeInteractivityProps = Pick<
   InteractivityProps,
   'appearance' | 'userSelect' | 'pointerEvents' | 'resize' | 'cursor'
@@ -79,7 +74,7 @@ export type ContainerProps<T extends As> = Omit<
   BackgroundProps &
   BorderProps &
   ColorProps &
-  SafeEffectProps &
+  EffectProps &
   FilterProps &
   SafeInteractivityProps &
   SafeLayoutProps &
