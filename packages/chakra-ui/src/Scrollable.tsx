@@ -2,6 +2,7 @@ import { chakra, forwardRef } from '@chakra-ui/system';
 
 import { ContainerProps } from './props';
 import { ContentPosition } from './types';
+import { __DEV__ } from './utils';
 
 export interface ScrollableOptions {
   direction?: 'row' | 'column';
@@ -32,6 +33,10 @@ export const Scrollable = forwardRef<ScrollableProps, 'div'>(
     />
   )
 );
+
+if (__DEV__) {
+  Scrollable.displayName = 'Scrollable';
+}
 
 const marginStartProp = (direction: 'row' | 'column') =>
   direction === 'row' ? 'marginLeft' : 'marginTop';

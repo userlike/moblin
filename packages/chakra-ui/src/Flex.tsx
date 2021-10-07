@@ -3,7 +3,7 @@ import { chakra, forwardRef, SystemProps, useToken } from '@chakra-ui/system';
 import { ContainerProps } from './props';
 import { WithChildren } from './react';
 import { AlignContent, AlignItems, AlignSelf, JustifyContent } from './types';
-import { unsafeCoerce } from './utils';
+import { __DEV__, unsafeCoerce } from './utils';
 
 export interface FlexItemProps extends WithChildren {
   alignSelf?: AlignSelf;
@@ -54,6 +54,10 @@ export const FlexItem = ({
     </chakra.div>
   );
 };
+
+if (__DEV__) {
+  FlexItem.displayName = 'FlexItem';
+}
 
 export interface FlexOptions {
   direction: 'row' | 'column';
@@ -140,3 +144,7 @@ export const Flex = forwardRef<FlexProps, 'div'>(
     );
   }
 );
+
+if (__DEV__) {
+  Flex.displayName = 'Flex';
+}

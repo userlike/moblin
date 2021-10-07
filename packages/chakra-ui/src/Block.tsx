@@ -1,6 +1,7 @@
 import { chakra, forwardRef } from '@chakra-ui/system';
 
 import { ContainerProps } from './props';
+import { __DEV__ } from './utils';
 
 export interface BlockProps extends ContainerProps<'div'> {}
 
@@ -12,3 +13,7 @@ export interface BlockProps extends ContainerProps<'div'> {}
 export const Block = forwardRef<BlockProps, 'div'>((props, ref) => (
   <chakra.div ref={ref} {...props} display="block" overflow="hidden" />
 ));
+
+if (__DEV__) {
+  Block.displayName = 'Block';
+}

@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@moblin/chakra-ui",
+      "comment": "add display names to components in dev environment",
+      "type": "minor"
+    }
+  ],
+  "packageName": "@moblin/chakra-ui"
+}

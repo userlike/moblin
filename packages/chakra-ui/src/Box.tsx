@@ -3,6 +3,7 @@ import { forwardRef } from '@chakra-ui/system';
 import { ContentPosition } from '../src/types';
 import { Flex, FlexItem } from './Flex';
 import { ContainerProps } from './props';
+import { __DEV__ } from './utils';
 
 export interface BoxOptions {
   valign?: ContentPosition;
@@ -26,3 +27,7 @@ export const Box = forwardRef<BoxProps, 'div'>(
     );
   }
 );
+
+if (__DEV__) {
+  Box.displayName = 'Box';
+}
