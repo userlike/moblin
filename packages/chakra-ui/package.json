@@ -31,9 +31,12 @@
     "build-storybook": "build-storybook",
     "build:esm": "cross-env TARGET_ENV=esm babel src --extensions .ts,.tsx -d dist/esm --source-maps",
     "build:cjs": "cross-env TARGET_ENV=cjs babel src --extensions .ts,.tsx -d dist/cjs --source-maps",
-    "build:types": "tsc --emitDeclarationOnly --declaration --declarationDir dist/types",
+    "build:types": "tsc",
     "rush": "node ../../common/scripts/install-run-rush.js",
     "lint-staged": "lint-staged"
+  },
+  "dependencies": {
+    "@moblin/core": "^0.0.1"
   },
   "peerDependencies": {
     "react": ">=16",
@@ -67,7 +70,6 @@
     "chromatic": "~5.9.2",
     "eslint-plugin-simple-import-sort": "~7.0.0",
     "framer-motion": "~4.1.17",
-    "husky": "~7.0.2",
     "react": "~17.0.2",
     "react-dom": "~17.0.2",
     "react-is": "~17.0.2",

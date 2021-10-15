@@ -1,8 +1,7 @@
 import { chakra, forwardRef } from '@chakra-ui/system';
+import { __DEV__, ContentPosition } from '@moblin/core';
 
 import { ContainerProps } from './props';
-import { ContentPosition } from './types';
-import { __DEV__ } from './utils';
 
 export interface ScrollableOptions {
   direction?: 'row' | 'column';

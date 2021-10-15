@@ -1,8 +1,10 @@
 {
   "include": ["src/**/*"],
   "compilerOptions": {
-    "composite": true,
+    "outDir": "dist/esm",
     "incremental": true,
+    "composite": true,
+    "rootDir": "src",
     "target": "ES5",
     "module": "esnext",
     "lib": ["dom", "esnext"],
@@ -22,7 +24,6 @@
     "declarationMap": true,
     "emitDeclarationOnly": true,
     "declaration": true,
-    "declarationDir": "dist/types"
-  },
-  "references": [{ "path": "../core" }]
+     "declarationDir": "dist/types"
+  }
 }

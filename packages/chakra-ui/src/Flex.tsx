@@ -1,9 +1,15 @@
 import { chakra, forwardRef, SystemProps, useToken } from '@chakra-ui/system';
+import {
+  __DEV__,
+  AlignContent,
+  AlignItems,
+  AlignSelf,
+  JustifyContent,
+  unsafeCoerce,
+} from '@moblin/core';
 
 import { ContainerProps } from './props';
 import { WithChildren } from './react';
-import { AlignContent, AlignItems, AlignSelf, JustifyContent } from './types';
-import { __DEV__, unsafeCoerce } from './utils';
 
 export interface FlexItemProps extends WithChildren {
   alignSelf?: AlignSelf;
@@ -36,13 +42,14 @@ export const FlexItem = ({
       marginLeft="var(--pcss-flex-gap-x)"
       marginTop="var(--pcss-flex-gap-y)"
       sx={{
+        '--pcss-flex-grandchild-grow':
+          alignSelf === 'stretch'
+            ? '1'
+            : alignSelf !== undefined
+            ? '0'
+            : 'inherit',
         '& > *': {
-          flexGrow:
-            alignSelf === 'stretch'
-              ? 1
-              : alignSelf !== undefined
-              ? 0
-              : unsafeCoerce('var(--pcss-flex-grandchild-grow)'),
+          flexGrow: unsafeCoerce('var(--pcss-flex-grandchild-grow)'),
           flexShrink: 1,
           flexBasis: 'auto',
           minWidth: 'var(--pcss-flex-grandchild-shrink-width)',

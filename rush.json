@@ -18,6 +18,16 @@
       "packageName": "@moblin/chakra-ui",
       "projectFolder": "packages/chakra-ui",
       "shouldPublish": true
+    },
+    {
+      "packageName": "@moblin/core",
+      "projectFolder": "packages/core",
+      "shouldPublish": false
+    },
+    {
+      "packageName": "@moblin/web",
+      "projectFolder": "packages/web",
+      "shouldPublish": false
     }
   ]
 }

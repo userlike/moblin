@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "lib": ["ES2015", "DOM"],
+    "composite": true,
+    "incremental": true,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "declarationDir": "dist/types",
+    "experimentalDecorators": true
+  },
+  "references": [{ "path": "../core" }],
+  "include": ["src/**/*"],
+  "exclude": ["node_modules/*", "__sapper__/*", "public/*"]
+}
