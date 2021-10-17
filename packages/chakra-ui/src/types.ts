@@ -26,3 +26,11 @@ export const contentDistributions: (ContentPosition | ContentDistribution)[] = [
   'space-between',
   'space-evenly',
 ];
+
+export interface MoblinTheme {
+  moblin?: {
+    Scrollable?: {
+      overflowType?: 'normal' | 'overlay';
+    };
+  };
+}
