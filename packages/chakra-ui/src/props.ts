@@ -37,6 +37,9 @@ export type SafeLayoutProps = Pick<
   | 'minW'
   | 'minHeight'
   | 'minH'
+  | 'overflow'
+  | 'overflowX'
+  | 'overflowY'
 >;
 
 export type SafeSpaceProps = Pick<
