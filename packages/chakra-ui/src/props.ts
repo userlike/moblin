@@ -40,6 +40,7 @@ export type SafeLayoutProps = Pick<
   | 'overflow'
   | 'overflowX'
   | 'overflowY'
+  | 'isolation'
 >;
 
 export type SafeSpaceProps = Pick<
