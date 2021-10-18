@@ -95,7 +95,6 @@ export const Flex = forwardRef<FlexProps, 'div'>(
       <chakra.div
         {...props}
         display="flex"
-        overflow="visible"
         flexDirection="row"
         alignItems="stretch"
         ref={ref}
