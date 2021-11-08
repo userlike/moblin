@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@moblin/chakra-ui",
+      "comment": "fix gap token values producing invalid css",
+      "type": "patch"
+    }
+  ],
+  "packageName": "@moblin/chakra-ui"
+}

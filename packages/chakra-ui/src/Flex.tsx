@@ -77,7 +77,7 @@ export const Flex = forwardRef<FlexProps, 'div'>(
     {
       children,
       direction,
-      gap,
+      gap = 0,
       gapX = gap,
       gapY = gap,
       alignItems = 'stretch',
@@ -88,8 +88,8 @@ export const Flex = forwardRef<FlexProps, 'div'>(
     },
     ref
   ) => {
-    const _gapX: unknown = useToken('space', `${gapX ?? 0}`);
-    const _gapY: unknown = useToken('space', `${gapY ?? 0}`);
+    const _gapX: unknown = useToken('space', `${gapX}`, unsafeCoerce(gapX));
+    const _gapY: unknown = useToken('space', `${gapY}`, unsafeCoerce(gapY));
 
     return (
       <chakra.div
