@@ -80,10 +80,10 @@ export type ContainerProps<T extends As> = Omit<
   ColorProps &
   EffectProps &
   FilterProps &
-  SafeInteractivityProps &
-  SafeLayoutProps &
+  InteractivityProps &
+  LayoutProps &
   PositionProps &
-  SafeSpaceProps &
+  SpaceProps &
   TextDecorationProps &
   TransformProps &
   TransitionProps &
