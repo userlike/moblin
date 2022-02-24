@@ -2,6 +2,44 @@
   "name": "@moblin/chakra-ui",
   "entries": [
     {
+      "version": "0.6.0",
+      "tag": "@moblin/chakra-ui_v0.6.0",
+      "date": "Thu, 24 Feb 2022 13:23:30 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "fix gap token values producing invalid css"
+          },
+          {
+            "comment": "fix BoxProps types referring to a missing file"
+          }
+        ],
+        "minor": [
+          {
+            "comment": "allow unsafe styling props, such as margins. update all deps."
+          },
+          {
+            "comment": "add overflow and isolation props"
+          },
+          {
+            "comment": "implement an alternative layout system based on overflow: visible"
+          },
+          {
+            "comment": "make flex items shrink by default"
+          },
+          {
+            "comment": "allow all effect props in container props because they are allowed with overflow:visible based layout system"
+          },
+          {
+            "comment": "add display names to components in dev environment"
+          },
+          {
+            "comment": "add moblin theme slice and themeable overflow type property for Scrollable"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.5.2",
       "tag": "@moblin/chakra-ui_v0.5.2",
       "date": "Wed, 06 Oct 2021 15:13:24 GMT",

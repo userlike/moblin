@@ -1,6 +1,25 @@
 # Change Log - @moblin/chakra-ui
 
-This log was last generated on Wed, 06 Oct 2021 15:13:24 GMT and should not be manually modified.
+This log was last generated on Thu, 24 Feb 2022 13:23:30 GMT and should not be manually modified.
+
+## 0.6.0
+
+Thu, 24 Feb 2022 13:23:30 GMT
+
+### Minor changes
+
+- allow unsafe styling props, such as margins. update all deps.
+- add overflow and isolation props
+- implement an alternative layout system based on overflow: visible
+- make flex items shrink by default
+- allow all effect props in container props because they are allowed with overflow:visible based layout system
+- add display names to components in dev environment
+- add moblin theme slice and themeable overflow type property for Scrollable
+
+### Patches
+
+- fix gap token values producing invalid css
+- fix BoxProps types referring to a missing file
 
 ## 0.5.2
 
