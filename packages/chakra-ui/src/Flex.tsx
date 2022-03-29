@@ -45,8 +45,6 @@ export const FlexItem = ({
               : unsafeCoerce('var(--pcss-flex-grandchild-grow)'),
           flexShrink: 1,
           flexBasis: 'auto',
-          minWidth: 'var(--pcss-flex-grandchild-shrink-width)',
-          minHeight: 'var(--pcss-flex-grandchild-shrink-height)',
         },
       }}
     >
@@ -111,10 +109,6 @@ export const Flex = forwardRef<FlexProps, 'div'>(
               direction === 'row' ? '0' : 'auto',
             '--pcss-flex-child-shrink-height':
               direction === 'column' ? '0' : 'auto',
-            '--pcss-flex-grandchild-shrink-width':
-              direction === 'row' ? 'auto' : '0',
-            '--pcss-flex-grandchild-shrink-height':
-              direction === 'column' ? 'auto' : '0',
             '--pcss-flex-grandchild-grow': alignItems === 'stretch' ? '1' : '0',
           }}
           display="flex"
