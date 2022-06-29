@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@moblin/chakra-ui",
+      "comment": "make minimum react version v18 and minimum chakra-ui version v2",
+      "type": "major"
+    }
+  ],
+  "packageName": "@moblin/chakra-ui"
+}
