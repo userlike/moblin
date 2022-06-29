@@ -5,28 +5,9 @@ module.exports = {
   addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
   features: {
     previewCsfV3: true,
+    emotionAlias: false,
   },
-  webpackFinal: async (config) => {
-    return {
-      ...config,
-      resolve: {
-        ...config.resolve,
-        alias: {
-          ...config.resolve.alias,
-          '@emotion/core': path.resolve(
-            __dirname,
-            '../node_modules/@emotion/react'
-          ),
-          'emotion-theming': path.resolve(
-            __dirname,
-            '../node_modules/@emotion/react'
-          ),
-          '@emotion/styled': path.resolve(
-            __dirname,
-            '../node_modules/@emotion/styled'
-          ),
-        },
-      },
-    };
+  core: {
+    builder: 'webpack5',
   },
 };

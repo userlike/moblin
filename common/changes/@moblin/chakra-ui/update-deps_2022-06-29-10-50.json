@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@moblin/chakra-ui",
+      "comment": "upgrade dev deps",
+      "type": "none"
+    }
+  ],
+  "packageName": "@moblin/chakra-ui"
+}
