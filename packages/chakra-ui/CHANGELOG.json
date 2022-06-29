@@ -2,6 +2,23 @@
   "name": "@moblin/chakra-ui",
   "entries": [
     {
+      "version": "1.0.0",
+      "tag": "@moblin/chakra-ui_v1.0.0",
+      "date": "Wed, 29 Jun 2022 11:02:48 GMT",
+      "comments": {
+        "major": [
+          {
+            "comment": "make minimum react version v18 and minimum chakra-ui version v2"
+          }
+        ],
+        "none": [
+          {
+            "comment": "upgrade dev deps"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.6.0",
       "tag": "@moblin/chakra-ui_v0.6.0",
       "date": "Thu, 24 Feb 2022 13:23:30 GMT",

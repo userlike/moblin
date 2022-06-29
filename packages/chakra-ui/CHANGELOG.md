@@ -1,6 +1,14 @@
 # Change Log - @moblin/chakra-ui
 
-This log was last generated on Thu, 24 Feb 2022 13:23:30 GMT and should not be manually modified.
+This log was last generated on Wed, 29 Jun 2022 11:02:48 GMT and should not be manually modified.
+
+## 1.0.0
+
+Wed, 29 Jun 2022 11:02:48 GMT
+
+### Breaking changes
+
+- make minimum react version v18 and minimum chakra-ui version v2
 
 ## 0.6.0
 
