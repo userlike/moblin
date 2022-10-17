@@ -1,6 +1,14 @@
 # Change Log - @moblin/chakra-ui
 
-This log was last generated on Wed, 29 Jun 2022 11:02:48 GMT and should not be manually modified.
+This log was last generated on Mon, 17 Oct 2022 13:58:54 GMT and should not be manually modified.
+
+## 1.1.0
+
+Mon, 17 Oct 2022 13:58:54 GMT
+
+### Minor changes
+
+- add scroll related css rules to ContainerProps
 
 ## 1.0.0
 
