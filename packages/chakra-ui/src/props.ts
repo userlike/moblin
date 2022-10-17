@@ -9,6 +9,7 @@ import {
   InteractivityProps,
   LayoutProps,
   PositionProps,
+  ScrollProps,
   SpaceProps,
   StyleProps,
   TextDecorationProps,
@@ -83,6 +84,7 @@ export type ContainerProps<T extends As> = Omit<
   InteractivityProps &
   LayoutProps &
   PositionProps &
+  ScrollProps &
   SpaceProps &
   TextDecorationProps &
   TransformProps &
