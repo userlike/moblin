@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@moblin/chakra-ui",
+      "comment": "replace negative margin based flex gap with native flex gap",
+      "type": "major"
+    }
+  ],
+  "packageName": "@moblin/chakra-ui"
+}
