@@ -2,6 +2,18 @@
   "name": "@moblin/chakra-ui",
   "entries": [
     {
+      "version": "2.0.0",
+      "tag": "@moblin/chakra-ui_v2.0.0",
+      "date": "Tue, 18 Oct 2022 10:11:25 GMT",
+      "comments": {
+        "major": [
+          {
+            "comment": "replace negative margin based flex gap with native flex gap"
+          }
+        ]
+      }
+    },
+    {
       "version": "1.1.0",
       "tag": "@moblin/chakra-ui_v1.1.0",
       "date": "Mon, 17 Oct 2022 13:58:54 GMT",

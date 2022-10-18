@@ -1,6 +1,14 @@
 # Change Log - @moblin/chakra-ui
 
-This log was last generated on Mon, 17 Oct 2022 13:58:54 GMT and should not be manually modified.
+This log was last generated on Tue, 18 Oct 2022 10:11:25 GMT and should not be manually modified.
+
+## 2.0.0
+
+Tue, 18 Oct 2022 10:11:25 GMT
+
+### Breaking changes
+
+- replace negative margin based flex gap with native flex gap
 
 ## 1.1.0
 
