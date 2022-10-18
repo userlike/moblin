@@ -1,4 +1,4 @@
-import { chakra, forwardRef, SystemProps, useToken } from '@chakra-ui/system';
+import { chakra, forwardRef, SystemProps } from '@chakra-ui/system';
 
 import { ContainerProps } from './props';
 import { WithChildren } from './react';
@@ -33,8 +33,6 @@ export const FlexItem = ({
       justifyContent={alignSelf ?? unsafeCoerce('var(--pcss-flex-align-items)')}
       minW={shrink > 0 ? 'var(--pcss-flex-child-shrink-width)' : 'auto'}
       minH={shrink > 0 ? 'var(--pcss-flex-child-shrink-height)' : 'auto'}
-      marginLeft="var(--pcss-flex-gap-x)"
-      marginTop="var(--pcss-flex-gap-y)"
       sx={{
         '& > *': {
           flexGrow:
@@ -88,9 +86,6 @@ export const Flex = forwardRef<FlexProps, 'div'>(
     },
     ref
   ) => {
-    const _gapX: unknown = useToken('space', `${gapX}`, unsafeCoerce(gapX));
-    const _gapY: unknown = useToken('space', `${gapY}`, unsafeCoerce(gapY));
-
     return (
       <chakra.div
         {...props}
@@ -101,8 +96,6 @@ export const Flex = forwardRef<FlexProps, 'div'>(
       >
         <chakra.div
           sx={{
-            '--pcss-flex-gap-x': unsafeCoerce(_gapX),
-            '--pcss-flex-gap-y': unsafeCoerce(_gapY),
             '--pcss-flex-align-items': alignItems,
             '--pcss-flex-child-direction':
               direction === 'row' ? 'column' : 'row',
@@ -118,8 +111,6 @@ export const Flex = forwardRef<FlexProps, 'div'>(
             '--pcss-flex-grandchild-grow': alignItems === 'stretch' ? '1' : '0',
           }}
           display="flex"
-          marginTop={`calc(${_gapY} / -1)`}
-          marginLeft={`calc(${_gapX} / -1)`}
           overflow="visible"
           flexDirection={direction}
           flexWrap={
@@ -129,6 +120,8 @@ export const Flex = forwardRef<FlexProps, 'div'>(
               ? 'wrap-reverse'
               : 'nowrap'
           }
+          columnGap={gapX}
+          rowGap={gapY}
           flexGrow={1}
           flexShrink={1}
           minW={0}
