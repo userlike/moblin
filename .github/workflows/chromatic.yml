@@ -7,6 +7,7 @@ concurrency:
 
 jobs:
   chakra-ui:
+    environment: chromatic
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
