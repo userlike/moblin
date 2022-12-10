@@ -1,0 +1,22 @@
+{
+  "name": "@moblin/web",
+  "version": "0.0.1",
+  "scripts": {
+    "build": "../dev/bin.mjs build",
+    "lint": "../dev/bin.mjs lint",
+    "storybook": "../storybook-web/node_modules/.bin/start-storybook -p 6007",
+    "build-storybook": "../storybook-web/node_modules/.bin/build-storybook"
+  },
+  "devDependencies": {
+    "lit-html": "^2.4.0",
+    "tslib": "^2.4.0",
+    "typescript": "^4.8.4"
+  },
+  "dependencies": {
+    "@moblin/core": "workspace:*",
+    "lit": "^2.4.0"
+  },
+  "peerDependencies": {
+    "tslib": ">=2"
+  }
+}

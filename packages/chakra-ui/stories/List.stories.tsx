@@ -65,3 +65,20 @@ export const EmptyChildren = {
     gap: '1rem',
   },
 };
+
+export const FalsyChildren = {
+  render: (props: ListProps) => (
+    <List bg="blue.300" color="white" {...props}>
+      {false}
+      <Block bg="red.500">Test 1</Block>
+      {false}
+      <Block bg="blue.500">Test 2</Block>
+      {false}
+      <Block bg="yellow.500">Test 3</Block>
+      {false}
+    </List>
+  ),
+  args: {
+    gap: '1rem',
+  },
+};

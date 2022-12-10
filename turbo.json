@@ -1,0 +1,33 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "pipeline": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**"],
+      "inputs": ["../dev/*", "package.json", "tsconfig.json", "src/**/*"]
+    },
+    "storybook": {
+      "cache": false
+    },
+    "build-storybook": {
+      "dependsOn": ["^build"],
+      "outputs": ["storybook-static/**"],
+      "inputs": [
+        "../storybook-*/package.json",
+        "package.json",
+        "src/**/*",
+        "stories/**/*"
+      ]
+    },
+    "lint": {
+      "outputs": [],
+      "inputs": [
+        "../dev/package.json",
+        "../dev/eslint-config.js",
+        "package.json",
+        "src/**/*",
+        "stories/**/*"
+      ]
+    }
+  }
+}

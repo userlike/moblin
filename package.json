@@ -1,0 +1,7 @@
+{
+  "name": "test",
+  "dependencies": {
+    "@changesets/cli": "^2.25.2",
+    "turbo": "^1.6.3"
+  }
+}
