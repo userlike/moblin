@@ -1,9 +1,9 @@
+import { contentPositions } from '@moblin/core';
 import { storiesOf } from '@storybook/react';
 
 import { Box } from '../src/Box';
 import { Flex, FlexItem } from '../src/Flex';
 import { Text } from '../src/Text';
-import { contentPositions } from '../src/types';
 import { demo } from './animatable-demo';
 
 const shortText = 'foobar';

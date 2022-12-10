@@ -1,4 +1,4 @@
-name: Chromatic
+name: chromatic
 on: push
 
 concurrency:
@@ -7,35 +7,29 @@ concurrency:
 
 jobs:
   chakra-ui:
-    environment: chromatic
+    env:
+      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - name: Rush (install)
-        run: node ./common/scripts/install-run-rush.js install
-      - name: Publish to Chromatic
+      - run: corepack enable pnpm
+      - run: pnpm install
+      - run: pnpm turbo run build-storybook
+      - name: Chromatic - chakra-ui
         uses: chromaui/action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN_CHAKRA_UI }}
           workingDir: ./packages/chakra-ui
-      - name: Run tests
-        if: ${{ github.ref != 'refs/heads/main' }}
-        uses: chromaui/action@v1
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          workingDir: ./packages/chakra-ui
-          onlyChanged: true
-          exitZeroOnChanges: false
-      - name: Publish
-        if: ${{ github.ref == 'refs/heads/main' }}
-        uses: chromaui/action@v1
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          workingDir: ./packages/chakra-ui
-          onlyChanged: true
-          autoAcceptChanges: true
+          autoAcceptChanges: main
+          storybookBuildDir: storybook-static
+      # - name: Chromatic - web
+      #   uses: chromaui/action@v1
+      #   with:
+      #     token: ${{ secrets.GITHUB_TOKEN }}
+      #     projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN_WEB }}
+      #     workingDir: ./packages/web
+      #     autoAcceptChanges: main
+      #     storybookBuildDir: storybook-static

@@ -1,9 +1,9 @@
 import { chakra } from '@chakra-ui/system';
+import { contentPositions } from '@moblin/core';
 import { storiesOf } from '@storybook/react';
 
 import { WithChildren } from '../src/react';
 import { Scrollable } from '../src/Scrollable';
-import { contentPositions } from '../src/types';
 import { demo } from './animatable-demo';
 
 const Content = ({ big }: { big?: 'row' | 'column' } & WithChildren) => (

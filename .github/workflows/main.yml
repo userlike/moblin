@@ -1,4 +1,4 @@
-name: CI
+name: build_lint
 on: [push]
 
 concurrency:
@@ -6,35 +6,25 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  chakra-ui:
+  build-lint:
     name: chakra-ui - ${{ matrix.node }} - ${{ matrix.os }}
+    env:
+      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node: ["14.x"]
+        node: ["18.x"]
         os: [ubuntu-latest]
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
-
       - name: Use Node ${{ matrix.node }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node }}
-
-      - name: Rush (changes)
-        run: node ./common/scripts/install-run-rush.js change -v
-
-      - name: Install
-        run: node ./common/scripts/install-run-rush.js install
-
-      - name: Rebuild
-        run: node ./common/scripts/install-run-rush.js rebuild --verbose
-
-      - name: Lint
-        run: node ./common/scripts/install-run-rush.js lint
-
-      - name: Size
-        run: node ./common/scripts/install-run-rush.js size
+      - run: corepack enable pnpm
+      - run: pnpm install
+      - run: pnpm turbo run build
+      - run: pnpm turbo run lint

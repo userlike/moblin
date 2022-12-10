@@ -1,10 +1,9 @@
+import { contentDistributions, contentPositions } from '@moblin/core';
 import { storiesOf } from '@storybook/react';
-import { ComponentProps } from 'react';
 
 import { Box } from '../src/Box';
 import { Flex, FlexItem } from '../src/Flex';
 import { WithChildren } from '../src/react';
-import { contentDistributions, contentPositions } from '../src/types';
 import { demo } from './animatable-demo';
 
 const Item = ({ children }: WithChildren) => (

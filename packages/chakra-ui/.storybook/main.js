@@ -1,13 +1,15 @@
-const path = require('path');
-
 module.exports = {
-  stories: ['../stories/**/*.stories.@(ts|tsx|js|jsx)'],
-  addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
-  features: {
-    previewCsfV3: true,
-    emotionAlias: false,
-  },
+  stories: [
+    "../stories/**/*.stories.mdx",
+    "../stories/**/*.stories.@(js|jsx|ts|tsx)",
+  ],
+  addons: [
+    "@storybook/addon-links",
+    "@storybook/addon-essentials",
+    "@storybook/addon-interactions",
+  ],
+  framework: "@storybook/react",
   core: {
-    builder: 'webpack5',
+    builder: "webpack5",
   },
 };
