@@ -1,10 +1,8 @@
-import { contentDistributions, contentPositions } from '@moblin/core';
-import { storiesOf } from '@storybook/react';
+import { contentDistributions, contentPositions } from "@moblin/core";
+import { storiesOf } from "@storybook/react";
 
-import { Box } from '../src/Box';
-import { Flex, FlexItem } from '../src/Flex';
-import { WithChildren } from '../src/react';
-import { demo } from './animatable-demo';
+import { Box, Flex, FlexItem, WithChildren } from "@moblin/chakra-ui";
+import { demo } from "./animatable-demo";
 
 const Item = ({ children }: WithChildren) => (
   <Box bg="red.700" color="gray.200">
@@ -12,7 +10,7 @@ const Item = ({ children }: WithChildren) => (
   </Box>
 );
 
-const flexStories = (['column', 'row'] as const).flatMap((direction) =>
+const flexStories = (["column", "row"] as const).flatMap((direction) =>
   contentPositions.flatMap((alignItems) =>
     contentDistributions.map(
       (justifyContent) =>
@@ -43,10 +41,10 @@ flexStories.reduce(
     acc.add(name, story);
     return acc;
   },
-  storiesOf('Flex', module)
+  storiesOf("Flex", module)
     .addDecorator(demo())
     .addParameters({
-      layout: 'centered',
+      layout: "centered",
       docs: {
         inlineStories: false,
         iframeHeight: 500,
@@ -54,7 +52,7 @@ flexStories.reduce(
     })
 );
 
-const flexWrapStories = (['column', 'row'] as const).flatMap((direction) =>
+const flexWrapStories = (["column", "row"] as const).flatMap((direction) =>
   contentPositions.flatMap((alignItems) =>
     contentDistributions.flatMap((justifyContent) =>
       contentDistributions.map(
@@ -89,10 +87,10 @@ flexWrapStories.reduce(
     acc.add(name, story);
     return acc;
   },
-  storiesOf('Flex (wrap)', module)
+  storiesOf("Flex (wrap)", module)
     .addDecorator(demo())
     .addParameters({
-      layout: 'centered',
+      layout: "centered",
       docs: {
         inlineStories: false,
         iframeHeight: 500,
@@ -100,7 +98,7 @@ flexWrapStories.reduce(
     })
 );
 
-const flexAlignSelfStories = (['column', 'row'] as const).flatMap((direction) =>
+const flexAlignSelfStories = (["column", "row"] as const).flatMap((direction) =>
   contentPositions.flatMap((alignItems) =>
     contentDistributions.flatMap((justifyContent) =>
       contentPositions.map(
@@ -133,10 +131,10 @@ flexAlignSelfStories.reduce(
     acc.add(name, story);
     return acc;
   },
-  storiesOf('Flex (alignSelf)', module)
+  storiesOf("Flex (alignSelf)", module)
     .addDecorator(demo())
     .addParameters({
-      layout: 'centered',
+      layout: "centered",
       docs: {
         inlineStories: false,
         iframeHeight: 500,

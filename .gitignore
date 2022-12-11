@@ -70,5 +70,3 @@ tsconfig.tsbuildinfo
 packages/*/dist
 
 .turbo
-
-storybook-static

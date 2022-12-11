@@ -10,21 +10,25 @@ jobs:
     name: chakra-ui - ${{ matrix.node }} - ${{ matrix.os }}
     env:
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+      TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         node: ["18.x"]
         os: [ubuntu-latest]
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v3
         with:
-          fetch-depth: 0
+          fetch-depth: 2
+      - uses: pnpm/action-setup@v2.0.1
+        with:
+          version: 7.18.1
       - name: Use Node ${{ matrix.node }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
-      - run: corepack enable pnpm
+          cache: "pnpm"
       - run: pnpm install
       - run: pnpm turbo run build
       - run: pnpm turbo run lint

@@ -2,7 +2,7 @@ import { chakra, HTMLChakraProps } from '@chakra-ui/system';
 import { contentPositions } from '@moblin/core';
 import { storiesOf } from '@storybook/react';
 
-import { Box } from '../src/Box';
+import { Box } from '@moblin/chakra-ui';
 import { demo } from './animatable-demo';
 
 const Content = ({

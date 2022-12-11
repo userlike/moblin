@@ -1,12 +1,9 @@
-import { Box, ChakraProvider } from '@chakra-ui/react';
-
-import { Block } from '../src/Block';
-import { List, ListProps } from '../src/List';
+import { Block, List, ListProps } from "@moblin/chakra-ui";
 
 export default {
   component: List,
   args: {
-    direction: 'column',
+    direction: "column",
   },
 };
 
@@ -25,7 +22,7 @@ export const Default = {
 export const Horizontal = {
   render,
   args: {
-    direction: 'row',
+    direction: "row",
   },
 };
 
@@ -45,7 +42,7 @@ export const FlexItemProps = {
   args: {
     grow: 0,
     shrink: 0,
-    basis: '3rem',
+    basis: "3rem",
   },
 };
 
@@ -62,7 +59,7 @@ export const EmptyChildren = {
     </List>
   ),
   args: {
-    gap: '1rem',
+    gap: "1rem",
   },
 };
 
@@ -79,6 +76,6 @@ export const FalsyChildren = {
     </List>
   ),
   args: {
-    gap: '1rem',
+    gap: "1rem",
   },
 };

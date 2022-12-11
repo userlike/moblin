@@ -7,17 +7,12 @@
       "inputs": ["../dev/*", "package.json", "tsconfig.json", "src/**/*"]
     },
     "storybook": {
-      "cache": false
+      "cache": false,
+      "dependsOn": ["^build"]
     },
     "build-storybook": {
       "dependsOn": ["^build"],
-      "outputs": ["storybook-static/**"],
-      "inputs": [
-        "../storybook-*/package.json",
-        "package.json",
-        "src/**/*",
-        "stories/**/*"
-      ]
+      "outputs": ["dist/**"]
     },
     "lint": {
       "outputs": [],
@@ -25,8 +20,7 @@
         "../dev/package.json",
         "../dev/eslint-config.js",
         "package.json",
-        "src/**/*",
-        "stories/**/*"
+        "src/**/*"
       ]
     }
   }

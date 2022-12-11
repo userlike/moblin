@@ -16,9 +16,7 @@
   },
   "scripts": {
     "build": "../dev/bin.mjs build",
-    "lint": "../dev/bin.mjs lint",
-    "storybook": "../storybook-react/node_modules/.bin/start-storybook -p 6006",
-    "build-storybook": "../storybook-react/node_modules/.bin/build-storybook"
+    "lint": "../dev/bin.mjs lint"
   },
   "dependencies": {
     "@moblin/core": "workspace:*"

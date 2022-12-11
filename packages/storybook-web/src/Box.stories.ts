@@ -1,9 +1,10 @@
+import "@moblin/web";
+
 import { contentPositions } from "@moblin/core";
 import { storiesOf } from "@storybook/web-components";
 import { html, TemplateResult } from "lit";
 import { styleMap } from "lit/directives/style-map.js";
 
-import "../src/Box";
 import { demo } from "./animatable-demo";
 
 const content = ({

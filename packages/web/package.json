@@ -1,11 +1,22 @@
 {
   "name": "@moblin/web",
   "version": "0.0.1",
+  "description": "Moblin layout system",
+  "author": "Anil Anar",
+  "license": "MIT",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/types/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "sideEffects": true,
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "../dev/bin.mjs build",
-    "lint": "../dev/bin.mjs lint",
-    "storybook": "../storybook-web/node_modules/.bin/start-storybook -p 6007",
-    "build-storybook": "../storybook-web/node_modules/.bin/build-storybook"
+    "lint": "../dev/bin.mjs lint"
   },
   "devDependencies": {
     "lit-html": "^2.4.0",
