@@ -1,8 +1,6 @@
+import "@moblin/web";
+
 import { html } from "lit";
-import "../src/Box";
-import "../src/Flex";
-import "../src/FlexItem";
-import "../src/Test";
 
 export default {};
 
@@ -17,6 +15,4 @@ export const Foo = () => html`
   </x-flex>
 `;
 
-export const Bar = () => html`
-  <x-test-2>Hello world</x-test-2>
-`;
+export const Bar = () => html` <x-test-2>Hello world</x-test-2> `;

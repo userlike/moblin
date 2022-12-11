@@ -1,11 +1,9 @@
+import "@moblin/web";
+
 import { contentDistributions, contentPositions } from "@moblin/core";
+import { storiesOf } from "@storybook/web-components";
 import { html, TemplateResult } from "lit";
 import { styleMap } from "lit/directives/style-map.js";
-import { storiesOf } from "@storybook/web-components";
-
-import "../src/Flex";
-import "../src/FlexItem";
-import "../src/Box";
 
 import { demo } from "./animatable-demo";
 

@@ -9,12 +9,21 @@ jobs:
   chakra-ui:
     env:
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+      TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v3
         with:
-          fetch-depth: 0
-      - run: corepack enable pnpm
+          fetch-depth: 2
+      - uses: pnpm/action-setup@v2.0.1
+        with:
+          version: 7.18.1
+      - name: Use Node ${{ matrix.node }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+          cache: 'pnpm'
       - run: pnpm install
       - run: pnpm turbo run build-storybook
       - name: Chromatic - chakra-ui
@@ -22,9 +31,9 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN_CHAKRA_UI }}
-          workingDir: ./packages/chakra-ui
+          workingDir: ./packages/storybook-chakra-ui
           autoAcceptChanges: main
-          storybookBuildDir: storybook-static
+          storybookBuildDir: dist
       # - name: Chromatic - web
       #   uses: chromaui/action@v1
       #   with:
@@ -32,4 +41,4 @@ jobs:
       #     projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN_WEB }}
       #     workingDir: ./packages/web
       #     autoAcceptChanges: main
-      #     storybookBuildDir: storybook-static
+      #     storybookBuildDir: dist
