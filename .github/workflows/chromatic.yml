@@ -24,6 +24,7 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
           cache: 'pnpm'
+      - run: echo ${{ secrets.CHROMATIC_PROJECT_TOKEN_CHAKRA_UI }}
       - run: pnpm install
       - run: pnpm turbo run build-storybook
       - name: Chromatic - chakra-ui
