@@ -1,5 +1,12 @@
 # @moblin/web
 
+## 0.0.2-next.1
+
+### Patch Changes
+
+- Updated dependencies [dd34c0b]
+  - @moblin/core@0.0.2-next.1
+
 ## 0.0.2-next.0
 
 ### Patch Changes

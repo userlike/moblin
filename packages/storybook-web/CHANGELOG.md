@@ -1,5 +1,13 @@
 # @moblin/storybook-web
 
+## 1.0.1-next.1
+
+### Patch Changes
+
+- Updated dependencies [dd34c0b]
+  - @moblin/core@0.0.2-next.1
+  - @moblin/web@0.0.2-next.1
+
 ## 1.0.1-next.0
 
 ### Patch Changes

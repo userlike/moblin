@@ -1,7 +1,7 @@
 {
   "name": "@moblin/storybook-web",
   "private": true,
-  "version": "1.0.1-next.0",
+  "version": "1.0.1-next.1",
   "scripts": {
     "dev": "pnpm storybook",
     "storybook": "start-storybook --quiet -p 6007",

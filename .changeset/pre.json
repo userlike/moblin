@@ -10,6 +10,7 @@
     "@moblin/dev": "1.0.0"
   },
   "changesets": [
+    "light-trees-cheer",
     "loud-bugs-decide",
     "loud-chairs-talk"
   ]
