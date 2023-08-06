@@ -1,7 +1,7 @@
 ---
 "@moblin/chakra-ui": minor
 "@moblin/core": patch
-"@moblin/storybook-react": patch
+"@moblin/storybook-chakra-ui": patch
 "@moblin/storybook-web": patch
 "@moblin/web": patch
 ---

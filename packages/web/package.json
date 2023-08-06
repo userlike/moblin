@@ -15,6 +15,7 @@
     "access": "public"
   },
   "scripts": {
+    "dev": "../dev/bin.mjs dev",
     "build": "../dev/bin.mjs build",
     "lint": "../dev/bin.mjs lint"
   },

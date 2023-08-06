@@ -10,16 +10,18 @@
   "files": [
     "dist"
   ],
-  "sideEffects": false,
+  "sideEffects": true,
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
+    "dev": "../dev/bin.mjs dev",
     "build": "../dev/bin.mjs build",
     "lint": "../dev/bin.mjs lint"
   },
   "dependencies": {
-    "@moblin/core": "workspace:*"
+    "@moblin/core": "workspace:*",
+    "@moblin/web": "workspace:*"
   },
   "devDependencies": {
     "@chakra-ui/react": "^2.3.5",

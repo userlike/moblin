@@ -1,4 +1,9 @@
-import { chakra, forwardRef, SystemProps } from '@chakra-ui/system';
+import {
+  shouldForwardProp,
+  styled,
+  SystemProps,
+  useToken,
+} from "@chakra-ui/system";
 import {
   __DEV__,
   AlignContent,
@@ -6,143 +11,89 @@ import {
   AlignSelf,
   JustifyContent,
   unsafeCoerce,
-} from '@moblin/core';
+} from "@moblin/core";
+import { Flex as FlexElement, FlexItem as FlexItemElement } from "@moblin/web";
+import { forwardRef } from "react";
 
-import { ContainerProps } from './props';
-import { WithChildren } from './react';
+import { ContainerProps } from "./props";
+import { WithChildren } from "./react";
+import { reactify } from "./reactify";
 
 export interface FlexItemProps extends WithChildren {
   alignSelf?: AlignSelf;
   grow?: number;
   shrink?: number;
-  basis?: SystemProps['flexBasis'];
+  basis?: SystemProps["flexBasis"];
 }
 
-export const FlexItem = ({
-  alignSelf,
-  grow,
-  shrink = 1,
-  basis = 'auto',
-  children,
-}: FlexItemProps) => {
-  return (
-    <chakra.div
-      display="flex"
-      overflow="visible"
-      alignItems="stretch"
-      flexDirection={unsafeCoerce('var(--pcss-flex-child-direction)')}
-      flexGrow={
-        grow !== undefined ? grow : unsafeCoerce('var(--pcss-flex-child-grow)')
-      }
-      flexShrink={shrink}
-      flexBasis={basis}
-      justifyContent={alignSelf ?? unsafeCoerce('var(--pcss-flex-align-items)')}
-      minW={shrink > 0 ? 'var(--pcss-flex-child-shrink-width)' : 'auto'}
-      minH={shrink > 0 ? 'var(--pcss-flex-child-shrink-height)' : 'auto'}
-      sx={{
-        '& > *': {
-          flexGrow:
-          alignSelf === 'stretch'
-              ? 1
-            : alignSelf !== undefined
-              ? 0
-              : unsafeCoerce('var(--pcss-flex-grandchild-grow)'),
-          flexShrink: 1,
-          flexBasis: 'auto',
-          minWidth: 'var(--pcss-flex-grandchild-shrink-width)',
-          minHeight: 'var(--pcss-flex-grandchild-shrink-height)',
-        },
-      }}
-    >
-      {children}
-    </chakra.div>
-  );
-};
+export const FlexItemRaw = reactify("x-flex-item", [
+  ["alignSelf", "align-self"],
+]);
+
+export const FlexItem = forwardRef<FlexItemElement, FlexItemProps>(
+  ({ basis, ...props }, ref) => {
+    const basisToken = useToken("space", unsafeCoerce<string>(basis));
+    return <FlexItemRaw {...props} basis={basisToken} ref={ref} />;
+  }
+);
 
 if (__DEV__) {
-  FlexItem.displayName = 'FlexItem';
+  FlexItem.displayName = "FlexItem";
 }
 
 export interface FlexOptions {
-  direction: 'row' | 'column';
-  gap?: SystemProps['margin'];
-  gapX?: SystemProps['margin'];
-  gapY?: SystemProps['margin'];
+  direction: "row" | "column";
+  gap?: SystemProps["margin"];
+  gapX?: SystemProps["margin"];
+  gapY?: SystemProps["margin"];
   justifyContent?: JustifyContent;
   alignItems?: AlignItems;
   alignContent?: AlignContent;
-  wrap?: boolean | 'reverse';
+  wrap?: boolean | "reverse";
 }
+//
+export interface FlexProps extends FlexOptions, ContainerProps<"x-flex"> {}
 
-export interface FlexProps extends FlexOptions, ContainerProps<'div'> {}
+const FlexRaw = styled(reactify("x-flex"), {
+  shouldForwardProp: (prop) => prop === "gap" || shouldForwardProp(prop),
+});
 
-export const Flex = forwardRef<FlexProps, 'div'>(
+export const Flex = forwardRef<FlexElement, FlexProps>(
   (
     {
-      children,
       direction,
-      gap = 0,
+      gap,
       gapX = gap,
       gapY = gap,
-      alignItems = 'stretch',
-      justifyContent = 'flex-start',
-      alignContent = 'flex-start',
-      wrap = false,
+      justifyContent,
+      alignItems,
+      alignContent,
+      wrap,
       ...props
     },
     ref
   ) => {
+    const [gapXToken, gapYToken] = useToken(
+      "space",
+      unsafeCoerce<string[]>([gapX, gapY])
+    );
+
     return (
-      <chakra.div
+      <FlexRaw
         {...props}
-        display="flex"
-        flexDirection="row"
-        alignItems="stretch"
+        direction={direction}
+        column-gap={gapXToken}
+        row-gap={gapYToken}
+        align-items={alignItems}
+        justify-content={justifyContent}
+        align-content={alignContent}
+        wrap={wrap}
         ref={ref}
-      >
-        <chakra.div
-          sx={{
-            '--pcss-flex-align-items': alignItems,
-            '--pcss-flex-child-direction':
-              direction === 'row' ? 'column' : 'row',
-            '--pcss-flex-child-grow': justifyContent === 'stretch' ? '1' : '0',
-            '--pcss-flex-child-shrink-width':
-              direction === 'row' ? '0' : 'auto',
-            '--pcss-flex-child-shrink-height':
-              direction === 'column' ? '0' : 'auto',
-            '--pcss-flex-grandchild-shrink-width':
-              direction === 'row' ? 'auto' : '0',
-            '--pcss-flex-grandchild-shrink-height':
-              direction === 'column' ? 'auto' : '0',
-            '--pcss-flex-grandchild-grow': alignItems === 'stretch' ? '1' : '0',
-          }}
-          display="flex"
-          overflow="visible"
-          flexDirection={direction}
-          flexWrap={
-            wrap === true
-              ? 'wrap'
-              : wrap === 'reverse'
-              ? 'wrap-reverse'
-              : 'nowrap'
-          }
-          columnGap={gapX}
-          rowGap={gapY}
-          flexGrow={1}
-          flexShrink={1}
-          minW={0}
-          flexBasis="auto"
-          alignItems="stretch"
-          alignContent={alignContent}
-          justifyContent={justifyContent}
-        >
-          {children}
-        </chakra.div>
-      </chakra.div>
+      />
     );
   }
 );
 
 if (__DEV__) {
-  Flex.displayName = 'Flex';
+  Flex.displayName = "Flex";
 }

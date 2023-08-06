@@ -1,39 +1,61 @@
 import "./Flex";
 import "./FlexItem";
 
-import type { ContentPosition } from "@moblin/core";
-import { html, LitElement } from "lit";
-import { customElement, property } from "lit/decorators.js";
-import { styleMap } from "lit/directives/style-map.js";
+import { css,html, LitElement } from "lit";
+import { customElement } from "lit/decorators.js";
 
 @customElement("x-box")
 export class Box extends LitElement {
-  @property()
-  valign: ContentPosition = "stretch";
+  static styles = css`
+    :host {
+      display: flex;
+      align-items: stretch;
+      justify-content: stretch;
+    }
 
-  @property()
-  halign: ContentPosition = "stretch";
+    :host([valign="flex-start"]) {
+      align-items: flex-start;
+    }
 
+    :host([valign="center"]) {
+      align-items: center;
+    }
+
+    :host([valign="flex-end"]) {
+      align-items: flex-end;
+    }
+
+    :host([valign="stretch"]) {
+      align-items: stretch;
+    }
+
+    :host([halign="flex-start"]) {
+      justify-content: flex-start;
+    }
+
+    :host([halign="center"]) {
+      justify-content: center;
+    }
+
+    :host([halign="flex-end"]) {
+      justify-content: flex-end;
+    }
+
+    :host([halign="stretch"]) {
+      justify-content: stretch;
+    }
+
+    ::slotted(*) {
+      flex-grow: 1;
+      flex-shrink: 1;
+      min-width: 0;
+    }
+
+    :host([halign]:not([halign="stretch"])) ::slotted(*) {
+      flex-grow: 0;
+    }
+  `;
   render() {
-    return html`
-      <style>
-        :host {
-          display: block;
-        }
-      </style>
-      <x-flex
-        direction="column"
-        justify-content="${this.valign}"
-        align-items="${this.halign}"
-        style=${styleMap({
-          width: "100%",
-          height: "100%",
-        })}
-      >
-        <x-flex-item>
-          <slot />
-        </x-flex-item>
-      </x-flex>
-    `;
+    return html` <slot /> `;
   }
 }

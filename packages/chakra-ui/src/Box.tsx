@@ -1,30 +1,20 @@
-import { forwardRef } from "@chakra-ui/system";
-import { __DEV__, ContentPosition } from "@moblin/core";
+import "@moblin/web";
 
-import { Flex, FlexItem } from "./Flex";
+import { chakra, ChakraComponent } from "@chakra-ui/system";
+import { __DEV__, AlignItems } from "@moblin/core";
+
 import { ContainerProps } from "./props";
+import { reactify } from "./reactify";
 
 export interface BoxOptions {
-  valign?: ContentPosition;
-  halign?: ContentPosition;
+  valign?: AlignItems;
+  halign?: AlignItems;
 }
 
-export interface BoxProps extends BoxOptions, ContainerProps<"div"> {}
+export interface BoxProps extends ContainerProps<"x-box"> {}
 
-export const Box = forwardRef<BoxProps, "div">(
-  ({ children, halign = "stretch", valign = "stretch", ...props }, ref) => {
-    return (
-      <Flex
-        {...props}
-        ref={ref}
-        direction="column"
-        justifyContent={valign}
-        alignItems={halign}
-      >
-        <FlexItem>{children}</FlexItem>
-      </Flex>
-    );
-  }
+export const Box: ChakraComponent<"x-box", BoxProps> = chakra(
+  reactify("x-box", [])
 );
 
 if (__DEV__) {
