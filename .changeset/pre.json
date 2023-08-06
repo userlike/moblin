@@ -6,7 +6,11 @@
     "@moblin/core": "0.0.1",
     "@moblin/storybook-chakra-ui": "1.0.0",
     "@moblin/storybook-web": "1.0.0",
-    "@moblin/web": "0.0.1"
+    "@moblin/web": "0.0.1",
+    "@moblin/dev": "1.0.0"
   },
-  "changesets": []
+  "changesets": [
+    "loud-bugs-decide",
+    "loud-chairs-talk"
+  ]
 }
