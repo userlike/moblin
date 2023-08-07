@@ -52,3 +52,12 @@ export * from "./List";
 export * from "./react";
 export * from "./Scrollable";
 export * from "./Text";
+export type {
+  AlignContent,
+  AlignItems,
+  AlignSelf,
+  ContentDistribution,
+  ContentPosition,
+  JustifyContent,
+  MoblinTheme,
+} from "@moblin/core";
