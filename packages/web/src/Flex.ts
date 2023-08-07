@@ -4,9 +4,6 @@ import { customElement, property } from "lit/decorators.js";
 @customElement("x-flex")
 export class Flex extends LitElement {
   @property({ attribute: true })
-  direction: "row" | "row-reverse" | "column" | "column-reverse" = "row";
-
-  @property({ attribute: true })
   gap?: string;
 
   @property({ attribute: "column-gap" })
@@ -33,7 +30,7 @@ export class Flex extends LitElement {
      * Direction
      * ===================================
      */
-    :host([direction="row"]) {
+    :host(:not([direction])), :host([direction="row"]) {
       flex-direction: row;
       --moblin-direction: column;
     }
@@ -179,7 +176,7 @@ export class Flex extends LitElement {
     /**
      * x-flex-item and child min width/height normalization
      */
-    :host([direction="row"]), :host([direction="row-reverse"]) {
+    :host(:not([direction])), :host([direction="row"]), :host([direction="row-reverse"]) {
       --moblin-item-min-width: 0;
       --moblin-item-min-height: auto;
       --moblin-child-min-width: auto;

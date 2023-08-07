@@ -44,7 +44,7 @@ if (__DEV__) {
 }
 
 export interface FlexOptions {
-  direction: "row" | "column";
+  direction?: "row" | "column";
   gap?: SystemProps["margin"];
   gapX?: SystemProps["margin"];
   gapY?: SystemProps["margin"];
