@@ -16,7 +16,7 @@ import { Flex as FlexElement, FlexItem as FlexItemElement } from "@moblin/web";
 import { forwardRef } from "react";
 
 import { ContainerProps } from "./props";
-import { WithChildren } from "./react";
+import { WithChildren, WithClassName } from "./react";
 import { reactify } from "./reactify";
 
 export { FlexElement, FlexItemElement };
@@ -54,7 +54,10 @@ export interface FlexOptions {
   wrap?: boolean | "reverse";
 }
 //
-export interface FlexProps extends FlexOptions, ContainerProps<"x-flex"> {}
+export interface FlexProps
+  extends FlexOptions,
+    Omit<ContainerProps<"x-flex">, "class">,
+    WithClassName {}
 
 const FlexRaw = styled(reactify("x-flex"), {
   shouldForwardProp: (prop) => prop === "gap" || shouldForwardProp(prop),
@@ -71,6 +74,7 @@ export const Flex = forwardRef<FlexElement, FlexProps>(
       alignItems,
       alignContent,
       wrap,
+      className,
       ...props
     },
     ref

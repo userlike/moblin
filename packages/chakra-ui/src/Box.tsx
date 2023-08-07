@@ -3,6 +3,7 @@ import { __DEV__, AlignItems } from "@moblin/core";
 import { Box as BoxElement } from "@moblin/web";
 
 import { ContainerProps } from "./props";
+import { WithClassName } from "./react";
 import { reactify } from "./reactify";
 
 export { BoxElement };
@@ -12,7 +13,9 @@ export interface BoxOptions {
   halign?: AlignItems;
 }
 
-export interface BoxProps extends ContainerProps<"x-box"> {}
+export interface BoxProps
+  extends Omit<ContainerProps<"x-box">, "class">,
+    WithClassName {}
 
 export const Box: ChakraComponent<"x-box", BoxProps> = chakra(
   reactify("x-box", [])
