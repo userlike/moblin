@@ -1,10 +1,11 @@
-import "@moblin/web";
-
 import { chakra, ChakraComponent } from "@chakra-ui/system";
 import { __DEV__, AlignItems } from "@moblin/core";
+import { Box as BoxElement } from "@moblin/web";
 
 import { ContainerProps } from "./props";
 import { reactify } from "./reactify";
+
+export { BoxElement };
 
 export interface BoxOptions {
   valign?: AlignItems;

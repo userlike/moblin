@@ -19,6 +19,8 @@ import { ContainerProps } from "./props";
 import { WithChildren } from "./react";
 import { reactify } from "./reactify";
 
+export { FlexElement, FlexItemElement };
+
 export interface FlexItemProps extends WithChildren {
   alignSelf?: AlignSelf;
   grow?: number;
