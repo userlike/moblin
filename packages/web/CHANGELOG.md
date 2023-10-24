@@ -1,5 +1,11 @@
 # @moblin/web
 
+## 0.0.2-next.3
+
+### Patch Changes
+
+- fix flex by reintroducing intermediate flex root el to normalize flex usages
+
 ## 0.0.2-next.2
 
 ### Patch Changes
