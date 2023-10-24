@@ -1,5 +1,11 @@
 # @moblin/web
 
+## 0.0.2-next.2
+
+### Patch Changes
+
+- try fix cases that potentially broke due to lack of intermediate root el in flex
+
 ## 0.0.2-next.1
 
 ### Patch Changes
