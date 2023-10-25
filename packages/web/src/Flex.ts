@@ -224,6 +224,7 @@ export class Flex extends LitElement {
      */
     slot {
       all: inherit;
+      display: contents;
     }
   `;
 
