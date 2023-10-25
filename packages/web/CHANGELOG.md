@@ -1,5 +1,11 @@
 # @moblin/web
 
+## 0.0.2-next.5
+
+### Patch Changes
+
+- fix extended inheritance
+
 ## 0.0.2-next.4
 
 ### Patch Changes

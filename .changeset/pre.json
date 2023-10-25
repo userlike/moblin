@@ -10,6 +10,7 @@
     "@moblin/dev": "1.0.0"
   },
   "changesets": [
+    "calm-readers-wave",
     "cuddly-pears-jam",
     "fuzzy-trees-glow",
     "hungry-terms-cheer",
