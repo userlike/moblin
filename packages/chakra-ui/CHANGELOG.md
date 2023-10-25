@@ -1,5 +1,12 @@
 # @moblin/chakra-ui
 
+## 2.1.0-next.4
+
+### Patch Changes
+
+- Updated dependencies
+  - @moblin/web@0.0.2-next.4
+
 ## 2.1.0-next.3
 
 ### Patch Changes

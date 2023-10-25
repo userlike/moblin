@@ -1,5 +1,11 @@
 # @moblin/web
 
+## 0.0.2-next.4
+
+### Patch Changes
+
+- try extended style inheritance by applying all: inherit to slot elements
+
 ## 0.0.2-next.3
 
 ### Patch Changes
