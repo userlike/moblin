@@ -42,6 +42,13 @@ export class FlexItem extends LitElement {
     }
 
     /* =================================== */
+
+    /**
+     * extended inheritance
+     */
+    slot {
+      all: inherit;
+    }
   `;
 
   render() {

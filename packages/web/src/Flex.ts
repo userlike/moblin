@@ -218,6 +218,13 @@ export class Flex extends LitElement {
       min-height: var(--moblin-item-min-height);
     }
     /* =================================== */
+
+    /**
+     * extended inheritance
+     */
+    slot {
+      all: inherit;
+    }
   `;
 
   render() {
