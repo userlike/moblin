@@ -13,18 +13,14 @@ export class Flex extends LitElement {
   rowGap?: string;
 
   static styles = css`
-    /**
-     * Display
-     * ===================================
-     */
     :host {
       display: flex;
+      align-items: stretch;
     }
 
     :host([inline]) {
       display: inline-flex;
     }
-    /* =================================== */
 
     /**
      * Direction
@@ -48,11 +44,6 @@ export class Flex extends LitElement {
     :host([direction="column-reverse"]) {
       flex-direction: column-reverse;
       --moblin-direction: row;
-    }
-
-    ::slotted(x-flex-item) {
-      --moblin-direction: inherit;
-      flex-direction: var(--moblin-direction);
     }
 
     /* =================================== */
@@ -144,33 +135,6 @@ export class Flex extends LitElement {
       --moblin-child-grow: 1;
     }
 
-    ::slotted(x-flex-item) {
-      --moblin-align: inherit;
-    }
-
-    ::slotted(x-flex-item[align-self="flex-start"]) {
-      --moblin-align: flex-start;
-      --moblin-child-grow: 0;
-    }
-
-    ::slotted(x-flex-item[align-self="flex-end"]) {
-      --moblin-align: flex-end;
-      --moblin-child-grow: 0;
-    }
-
-    ::slotted(x-flex-item[align-self="center"]) {
-      --moblin-align: center;
-      --moblin-child-grow: 0;
-    }
-
-    ::slotted(x-flex-item[align-self="stretch"]) {
-      --moblin-align: stretch;
-      --moblin-child-grow: 1;
-    }
-
-    ::slotted(x-flex-item) {
-      justify-content: var(--moblin-align);
-    }
     /* =================================== */
 
     /**
@@ -190,12 +154,6 @@ export class Flex extends LitElement {
       --moblin-child-min-height: auto;
     }
 
-    ::slotted(x-flex-item:not([shrink="0"])) {
-      --moblin-item-min-width: inherit;
-      --moblin-item-min-height: inherit;
-      min-width: var(--moblin-item-min-width);
-      min-height: var(--moblin-item-min-height);
-    }
     /* =================================== */
 
     /**

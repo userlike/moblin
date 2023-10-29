@@ -22,14 +22,13 @@ export const Example = () => html`
     }
 
     .c2 {
-      // min-width: 100px;
       background: green;
     }
   </style>
 
-  <x-flex style="flex-direction:row;align-items:flex-end;">
+  <x-flex direction="row" align-items="flex-end">
     <x-flex-item>
-      <x-flex style="flex-direction:column;">
+      <x-flex direction="column">
         <x-flex-item> C1.1 </x-flex-item>
         <x-flex-item> C1.2 </x-flex-item>
       </x-flex>
