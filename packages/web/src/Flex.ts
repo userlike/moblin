@@ -23,21 +23,13 @@ export class Flex extends LitElement {
     }
 
     /**
-     * Root base styles
-     */
-    .root {
-      display: flex;
-      flex-basis: auto;
-      flex-grow: 1;
-      flex-shrink: 1;
-      min-width: 0;
-      align-items: stretch;
-    }
-
-    /**
      * Display
      * ===================================
      */
+    .root {
+      display: flex;
+    }
+
     :host([inline]) .root {
       display: inline-flex;
     }
