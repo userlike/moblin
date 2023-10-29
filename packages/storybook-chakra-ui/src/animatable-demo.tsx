@@ -35,7 +35,7 @@ const DemoContainer = ({
     bg="green.300"
     color="black"
     __css={{
-      '& > div:first-of-type': {
+      '& > *': {
         width: '12rem',
         height: '12rem',
         willChange: 'width, height',

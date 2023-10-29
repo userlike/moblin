@@ -1,12 +1,16 @@
 {
   "name": "@moblin/core",
-  "version": "0.0.1",
+  "version": "0.0.2-next.1",
   "author": "Anil Anar",
   "license": "MIT",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/types/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
+    "dev": "../dev/bin.mjs dev",
     "build": "../dev/bin.mjs build",
     "lint": "../dev/bin.mjs lint"
   },

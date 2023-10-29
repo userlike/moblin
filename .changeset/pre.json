@@ -1,0 +1,21 @@
+{
+  "mode": "pre",
+  "tag": "next",
+  "initialVersions": {
+    "@moblin/chakra-ui": "2.0.0",
+    "@moblin/core": "0.0.1",
+    "@moblin/storybook-chakra-ui": "1.0.0",
+    "@moblin/storybook-web": "1.0.0",
+    "@moblin/web": "0.0.1",
+    "@moblin/dev": "1.0.0"
+  },
+  "changesets": [
+    "calm-readers-wave",
+    "cuddly-pears-jam",
+    "fuzzy-trees-glow",
+    "hungry-terms-cheer",
+    "light-trees-cheer",
+    "loud-bugs-decide",
+    "loud-chairs-talk"
+  ]
+}

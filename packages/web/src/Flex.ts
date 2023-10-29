@@ -1,94 +1,180 @@
-import type { AlignContent, AlignItems, JustifyContent } from "@moblin/core";
 import { css, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
-import { styleMap } from "lit/directives/style-map.js";
 
 @customElement("x-flex")
 export class Flex extends LitElement {
-  @property()
-  direction: "row" | "column" = "row";
+  @property({ attribute: true })
+  gap?: string;
 
-  @property({ attribute: "justify-content" })
-  justifyContent: JustifyContent = "flex-start";
+  @property({ attribute: "column-gap" })
+  columnGap?: string;
 
-  @property({ attribute: "align-items" })
-  alignItems: AlignItems = "stretch";
+  @property({ attribute: "row-gap" })
+  rowGap?: string;
 
-  @property({ attribute: "align-content" })
-  alignContent: AlignContent = "flex-start";
+  static styles = css`
+    :host {
+      display: flex;
+      align-items: stretch;
+    }
 
-  @property()
-  wrap: "wrap" | "wrap-reverse" | "nowrap" = "nowrap";
+    :host([inline]) {
+      display: inline-flex;
+    }
 
-  @property()
-  gap: string = "0";
+    /**
+     * Direction
+     * ===================================
+     */
+    :host(:not([direction])), :host([direction="row"]) {
+      flex-direction: row;
+      --moblin-direction: column;
+    }
 
-  @property({ attribute: "gap-x" })
-  gapX: string;
+    :host([direction="row-reverse"]) {
+      flex-direction: row-reverse;
+      --moblin-direction: column;
+    }
 
-  @property({ attribute: "gap-y" })
-  gapY: string;
+    :host([direction="column"]) {
+      flex-direction: column;
+      --moblin-direction: row;
+    }
+
+    :host([direction="column-reverse"]) {
+      flex-direction: column-reverse;
+      --moblin-direction: row;
+    }
+
+    /* =================================== */
+
+    /**
+     * Wrap
+     * ===================================
+     */
+    :host([wrap]) {
+      flex-wrap: wrap;
+    }
+
+    :host([wrap="reverse"]) {
+      flex-wrap: wrap-reverse;
+    }
+    /* =================================== */
+
+    /**
+     * Align content
+     * ===================================
+     */
+    :host([align-content="flex-start"]) {
+      align-content: flex-start;
+    }
+    :host([align-content="flex-end"]) {
+      align-content: flex-end;
+    }
+    :host([align-content="center"]) {
+      align-content: center;
+    }
+    :host([align-content="space-between"]) {
+      align-content: space-between;
+    }
+    :host([align-content="space-around"]) {
+      align-content: space-around;
+    }
+    :host([align-content="space-evenly"]) {
+      align-content: space-evenly;
+    }
+    /* =================================== */
+
+    /**
+     * Justify content
+     * ===================================
+     */
+    :host([justify-content="flex-start"]) {
+      justify-content: flex-start;
+    }
+    :host([justify-content="flex-end"]) {
+      justify-content: flex-end;
+    }
+    :host([justify-content="center"]) {
+      justify-content: center;
+    }
+    :host([justify-content="space-between"]) {
+      justify-content: space-between;
+    }
+    :host([justify-content="space-around"]) {
+      justify-content: space-around;
+    }
+    :host([justify-content="space-evenly"]) {
+      justify-content: space-evenly;
+    }
+    /* =================================== */
+
+    /**
+     * Align items
+     * ===================================
+     */
+
+    :host([align-items="flex-start"]) {
+      --moblin-align: flex-start;
+      --moblin-child-grow: 0;
+    }
+
+    :host([align-items="flex-end"]) {
+      --moblin-align: flex-end;
+      --moblin-child-grow: 0;
+    }
+
+    :host([align-items="center"]) {
+      --moblin-align: center;
+      --moblin-child-grow: 0;
+    }
+
+    :host([align-items="stretch"]),
+    :host(:not([align-items])) {
+      --moblin-align: stretch;
+      --moblin-child-grow: 1;
+    }
+
+    /* =================================== */
+
+    /**
+     * x-flex-item and child min width/height normalization
+     */
+    :host(:not([direction])), :host([direction="row"]), :host([direction="row-reverse"]) {
+      --moblin-item-min-width: 0;
+      --moblin-item-min-height: auto;
+      --moblin-child-min-width: auto;
+      --moblin-child-min-height: 0;
+    }
+
+    :host([direction="column"]), :host([direction="column-reverse"]) {
+      --moblin-item-min-width: auto;
+      --moblin-item-min-height: 0;
+      --moblin-child-min-width: 0;
+      --moblin-child-min-height: auto;
+    }
+
+    /* =================================== */
+
+    /**
+     * extended inheritance
+     */
+    slot {
+      all: inherit;
+      display: contents;
+    }
+  `;
 
   render() {
-    return html`
+    const gap = html`
       <style>
         :host {
-          display: block;
-        }
-
-        ::slotted(*) {
-          --moblin-flex-align-items: ${this.alignItems};
-          --moblin-flex-child-direction: ${this.direction === "row"
-            ? "column"
-            : "row"};
-          --moblin-flex-child-grow: ${this.justifyContent === "stretch"
-            ? "1"
-            : "0"};
-          --moblin-flex-child-shrink-width: ${this.direction === "row"
-            ? "0"
-            : "auto"};
-          --moblin-flex-child-shrink-height: ${this.direction === "column"
-            ? "0"
-            : "auto"};
-          --moblin-flex-grandchild-shrink-width: ${this.direction === "row"
-            ? "auto"
-            : "0"};
-          --moblin-flex-grandchild-shrink-height: ${this.direction === "column"
-            ? "auto"
-            : "0"};
-          --moblin-flex-grandchild-grow: ${this.alignItems === "stretch"
-            ? "1"
-            : "0"};
+          column-gap: ${this.columnGap || this.gap || "0"};
+          row-gap: ${this.rowGap || this.gap || "0"};
         }
       </style>
-      <div
-        style=${styleMap({
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "stretch",
-          width: "100%",
-          height: "100%",
-        })}
-      >
-        <div
-          style=${styleMap({
-            display: "flex",
-            flexDirection: this.direction,
-            flexWrap: this.wrap,
-            columnGap: this.gapX ?? this.gap,
-            rowGap: this.gapY ?? this.gap,
-            flexGrow: "1",
-            flexShrink: "1",
-            minWidth: "0",
-            flexBasis: "auto",
-            alignItems: "stretch",
-            alignContent: this.alignContent,
-            justifyContent: this.justifyContent,
-          })}
-        >
-          <slot />
-        </div>
-      </div>
     `;
+
+    return html`${gap} <slot />`;
   }
 }
