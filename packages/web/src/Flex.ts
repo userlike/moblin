@@ -14,23 +14,14 @@ export class Flex extends LitElement {
 
   static styles = css`
     /**
-     * Host acts as a normalizer to handle edge cases of flex layout.
-     */
-    :host {
-      display: flex;
-      flex-direction: row;
-      align-items: stretch;
-    }
-
-    /**
      * Display
      * ===================================
      */
-    .root {
+    :host {
       display: flex;
     }
 
-    :host([inline]) .root {
+    :host([inline]) {
       display: inline-flex;
     }
     /* =================================== */
@@ -39,23 +30,22 @@ export class Flex extends LitElement {
      * Direction
      * ===================================
      */
-    :host(:not([direction])) .root,
-    :host([direction="row"]) .root {
+    :host(:not([direction])), :host([direction="row"]) {
       flex-direction: row;
       --moblin-direction: column;
     }
 
-    :host([direction="row-reverse"]) .root {
+    :host([direction="row-reverse"]) {
       flex-direction: row-reverse;
       --moblin-direction: column;
     }
 
-    :host([direction="column"]) .root {
+    :host([direction="column"]) {
       flex-direction: column;
       --moblin-direction: row;
     }
 
-    :host([direction="column-reverse"]) .root {
+    :host([direction="column-reverse"]) {
       flex-direction: column-reverse;
       --moblin-direction: row;
     }
@@ -71,11 +61,11 @@ export class Flex extends LitElement {
      * Wrap
      * ===================================
      */
-    :host([wrap]) .root {
+    :host([wrap]) {
       flex-wrap: wrap;
     }
 
-    :host([wrap="reverse"]) .root {
+    :host([wrap="reverse"]) {
       flex-wrap: wrap-reverse;
     }
     /* =================================== */
@@ -84,22 +74,22 @@ export class Flex extends LitElement {
      * Align content
      * ===================================
      */
-    :host([align-content="flex-start"]) .root {
+    :host([align-content="flex-start"]) {
       align-content: flex-start;
     }
-    :host([align-content="flex-end"]) .root {
+    :host([align-content="flex-end"]) {
       align-content: flex-end;
     }
-    :host([align-content="center"]) .root {
+    :host([align-content="center"]) {
       align-content: center;
     }
-    :host([align-content="space-between"]) .root {
+    :host([align-content="space-between"]) {
       align-content: space-between;
     }
-    :host([align-content="space-around"]) .root {
+    :host([align-content="space-around"]) {
       align-content: space-around;
     }
-    :host([align-content="space-evenly"]) .root {
+    :host([align-content="space-evenly"]) {
       align-content: space-evenly;
     }
     /* =================================== */
@@ -108,22 +98,22 @@ export class Flex extends LitElement {
      * Justify content
      * ===================================
      */
-    :host([justify-content="flex-start"]) .root {
+    :host([justify-content="flex-start"]) {
       justify-content: flex-start;
     }
-    :host([justify-content="flex-end"]) .root {
+    :host([justify-content="flex-end"]) {
       justify-content: flex-end;
     }
-    :host([justify-content="center"]) .root {
+    :host([justify-content="center"]) {
       justify-content: center;
     }
-    :host([justify-content="space-between"]) .root {
+    :host([justify-content="space-between"]) {
       justify-content: space-between;
     }
-    :host([justify-content="space-around"]) .root {
+    :host([justify-content="space-around"]) {
       justify-content: space-around;
     }
-    :host([justify-content="space-evenly"]) .root {
+    :host([justify-content="space-evenly"]) {
       justify-content: space-evenly;
     }
     /* =================================== */
@@ -133,23 +123,23 @@ export class Flex extends LitElement {
      * ===================================
      */
 
-    :host([align-items="flex-start"]) .root {
+    :host([align-items="flex-start"]) {
       --moblin-align: flex-start;
       --moblin-child-grow: 0;
     }
 
-    :host([align-items="flex-end"]) .root {
+    :host([align-items="flex-end"]) {
       --moblin-align: flex-end;
       --moblin-child-grow: 0;
     }
 
-    :host([align-items="center"]) .root {
+    :host([align-items="center"]) {
       --moblin-align: center;
       --moblin-child-grow: 0;
     }
 
-    :host([align-items="stretch"]) .root,
-    :host(:not([align-items])) .root {
+    :host([align-items="stretch"]),
+    :host(:not([align-items])) {
       --moblin-align: stretch;
       --moblin-child-grow: 1;
     }
@@ -186,17 +176,14 @@ export class Flex extends LitElement {
     /**
      * x-flex-item and child min width/height normalization
      */
-    :host(:not([direction])) .root,
-    :host([direction="row"]) .root,
-    :host([direction="row-reverse"]) .root {
+    :host(:not([direction])), :host([direction="row"]), :host([direction="row-reverse"]) {
       --moblin-item-min-width: 0;
       --moblin-item-min-height: auto;
       --moblin-child-min-width: auto;
       --moblin-child-min-height: 0;
     }
 
-    :host([direction="column"]) .root,
-    :host([direction="column-reverse"]) .root {
+    :host([direction="column"]), :host([direction="column-reverse"]) {
       --moblin-item-min-width: auto;
       --moblin-item-min-height: 0;
       --moblin-child-min-width: 0;
@@ -223,14 +210,13 @@ export class Flex extends LitElement {
   render() {
     const gap = html`
       <style>
-        .root {
+        :host {
           column-gap: ${this.columnGap || this.gap || "0"};
           row-gap: ${this.rowGap || this.gap || "0"};
         }
       </style>
     `;
 
-    return html`${gap}
-      <div class="root"><slot /></div>`;
+    return html`${gap} <slot />`;
   }
 }
