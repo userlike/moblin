@@ -6,6 +6,10 @@
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/types/index.d.ts",
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "../dev/bin.mjs build",
     "lint": "../dev/bin.mjs lint"
