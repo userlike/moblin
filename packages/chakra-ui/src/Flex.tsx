@@ -64,7 +64,7 @@ if (__DEV__) {
 }
 
 export interface FlexOptions {
-  direction: 'row' | 'column';
+  direction: 'row' | 'column' | 'row-reverse' | 'column-reverse';
   gap?: SystemProps['margin'];
   gapX?: SystemProps['margin'];
   gapY?: SystemProps['margin'];
