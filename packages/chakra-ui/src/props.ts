@@ -16,60 +16,60 @@ import {
   TransformProps,
   TransitionProps,
   TypographyProps,
-} from '@chakra-ui/system';
+} from "@chakra-ui/system";
 
 export type SafeInteractivityProps = Pick<
   InteractivityProps,
-  'appearance' | 'userSelect' | 'pointerEvents' | 'resize' | 'cursor'
+  "appearance" | "userSelect" | "pointerEvents" | "resize" | "cursor"
 >;
 
 export type SafeLayoutProps = Pick<
   LayoutProps,
-  | 'width'
-  | 'height'
-  | 'visibility'
-  | 'w'
-  | 'h'
-  | 'maxWidth'
-  | 'maxW'
-  | 'maxHeight'
-  | 'maxH'
-  | 'minWidth'
-  | 'minW'
-  | 'minHeight'
-  | 'minH'
-  | 'overflow'
-  | 'overflowX'
-  | 'overflowY'
-  | 'isolation'
+  | "width"
+  | "height"
+  | "visibility"
+  | "w"
+  | "h"
+  | "maxWidth"
+  | "maxW"
+  | "maxHeight"
+  | "maxH"
+  | "minWidth"
+  | "minW"
+  | "minHeight"
+  | "minH"
+  | "overflow"
+  | "overflowX"
+  | "overflowY"
+  | "isolation"
 >;
 
 export type SafeSpaceProps = Pick<
   SpaceProps,
-  | 'p'
-  | 'padding'
-  | 'paddingBlock'
-  | 'paddingBlockEnd'
-  | 'paddingBlockStart'
-  | 'paddingBottom'
-  | 'paddingEnd'
-  | 'paddingInline'
-  | 'paddingInlineEnd'
-  | 'paddingInlineStart'
-  | 'paddingLeft'
-  | 'paddingRight'
-  | 'paddingStart'
-  | 'paddingTop'
-  | 'paddingX'
-  | 'paddingY'
-  | 'pb'
-  | 'pe'
-  | 'pl'
-  | 'pr'
-  | 'ps'
-  | 'pt'
-  | 'px'
-  | 'py'
+  | "p"
+  | "padding"
+  | "paddingBlock"
+  | "paddingBlockEnd"
+  | "paddingBlockStart"
+  | "paddingBottom"
+  | "paddingEnd"
+  | "paddingInline"
+  | "paddingInlineEnd"
+  | "paddingInlineStart"
+  | "paddingLeft"
+  | "paddingRight"
+  | "paddingStart"
+  | "paddingTop"
+  | "paddingX"
+  | "paddingY"
+  | "pb"
+  | "pe"
+  | "pl"
+  | "pr"
+  | "ps"
+  | "pt"
+  | "px"
+  | "py"
 >;
 
 export type ContainerProps<T extends As> = Omit<

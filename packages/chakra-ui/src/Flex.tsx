@@ -1,4 +1,4 @@
-import { chakra, forwardRef, SystemProps } from '@chakra-ui/system';
+import { chakra, forwardRef, SystemProps } from "@chakra-ui/system";
 import {
   __DEV__,
   AlignContent,
@@ -6,52 +6,55 @@ import {
   AlignSelf,
   JustifyContent,
   unsafeCoerce,
-} from '@moblin/core';
+} from "@moblin/core";
 
-import { ContainerProps } from './props';
-import { WithChildren } from './react';
+import { ContainerProps } from "./props";
+import { WithChildren } from "./react";
 
 export interface FlexItemProps extends WithChildren {
   alignSelf?: AlignSelf;
   grow?: number;
   shrink?: number;
-  basis?: SystemProps['flexBasis'];
+  basis?: SystemProps["flexBasis"];
+  overflowAnchor?: "auto" | "none";
 }
 
 export const FlexItem = ({
   alignSelf,
   grow,
   shrink = 1,
-  basis = 'auto',
+  basis = "auto",
   children,
+  overflowAnchor,
 }: FlexItemProps) => {
   return (
     <chakra.div
       display="flex"
       overflow="visible"
       alignItems="stretch"
-      flexDirection={unsafeCoerce('var(--pcss-flex-child-direction)')}
+      flexDirection={unsafeCoerce("var(--pcss-flex-child-direction)")}
       flexGrow={
-        grow !== undefined ? grow : unsafeCoerce('var(--pcss-flex-child-grow)')
+        grow !== undefined ? grow : unsafeCoerce("var(--pcss-flex-child-grow)")
       }
       flexShrink={shrink}
       flexBasis={basis}
-      justifyContent={alignSelf ?? unsafeCoerce('var(--pcss-flex-align-items)')}
-      minW={shrink > 0 ? 'var(--pcss-flex-child-shrink-width)' : 'auto'}
-      minH={shrink > 0 ? 'var(--pcss-flex-child-shrink-height)' : 'auto'}
+      justifyContent={alignSelf ?? unsafeCoerce("var(--pcss-flex-align-items)")}
+      minW={shrink > 0 ? "var(--pcss-flex-child-shrink-width)" : "auto"}
+      minH={shrink > 0 ? "var(--pcss-flex-child-shrink-height)" : "auto"}
       sx={{
-        '& > *': {
+        "& > *": {
           flexGrow:
-          alignSelf === 'stretch'
+            alignSelf === "stretch"
               ? 1
-            : alignSelf !== undefined
+              : alignSelf !== undefined
               ? 0
-              : unsafeCoerce('var(--pcss-flex-grandchild-grow)'),
+              : unsafeCoerce("var(--pcss-flex-grandchild-grow)"),
           flexShrink: 1,
-          flexBasis: 'auto',
-          minWidth: 'var(--pcss-flex-grandchild-shrink-width)',
-          minHeight: 'var(--pcss-flex-grandchild-shrink-height)',
+          flexBasis: "auto",
+          minWidth: "var(--pcss-flex-grandchild-shrink-width)",
+          minHeight: "var(--pcss-flex-grandchild-shrink-height)",
         },
+        overflowAnchor,
       }}
     >
       {children}
@@ -60,23 +63,24 @@ export const FlexItem = ({
 };
 
 if (__DEV__) {
-  FlexItem.displayName = 'FlexItem';
+  FlexItem.displayName = "FlexItem";
 }
 
 export interface FlexOptions {
-  direction: 'row' | 'column' | 'row-reverse' | 'column-reverse';
-  gap?: SystemProps['margin'];
-  gapX?: SystemProps['margin'];
-  gapY?: SystemProps['margin'];
+  direction: "row" | "column" | "row-reverse" | "column-reverse";
+  gap?: SystemProps["margin"];
+  gapX?: SystemProps["margin"];
+  gapY?: SystemProps["margin"];
   justifyContent?: JustifyContent;
   alignItems?: AlignItems;
   alignContent?: AlignContent;
-  wrap?: boolean | 'reverse';
+  wrap?: boolean | "reverse";
+  overflowAnchor?: "auto" | "none";
 }
 
-export interface FlexProps extends FlexOptions, ContainerProps<'div'> {}
+export interface FlexProps extends FlexOptions, ContainerProps<"div"> {}
 
-export const Flex = forwardRef<FlexProps, 'div'>(
+export const Flex = forwardRef<FlexProps, "div">(
   (
     {
       children,
@@ -84,10 +88,11 @@ export const Flex = forwardRef<FlexProps, 'div'>(
       gap = 0,
       gapX = gap,
       gapY = gap,
-      alignItems = 'stretch',
-      justifyContent = 'flex-start',
-      alignContent = 'flex-start',
+      alignItems = "stretch",
+      justifyContent = "flex-start",
+      alignContent = "flex-start",
       wrap = false,
+      overflowAnchor,
       ...props
     },
     ref
@@ -99,32 +104,35 @@ export const Flex = forwardRef<FlexProps, 'div'>(
         flexDirection="row"
         alignItems="stretch"
         ref={ref}
+        sx={{
+          overflowAnchor,
+        }}
       >
         <chakra.div
           sx={{
-            '--pcss-flex-align-items': alignItems,
-            '--pcss-flex-child-direction':
-              direction === 'row' ? 'column' : 'row',
-            '--pcss-flex-child-grow': justifyContent === 'stretch' ? '1' : '0',
-            '--pcss-flex-child-shrink-width':
-              direction === 'row' ? '0' : 'auto',
-            '--pcss-flex-child-shrink-height':
-              direction === 'column' ? '0' : 'auto',
-            '--pcss-flex-grandchild-shrink-width':
-              direction === 'row' ? 'auto' : '0',
-            '--pcss-flex-grandchild-shrink-height':
-              direction === 'column' ? 'auto' : '0',
-            '--pcss-flex-grandchild-grow': alignItems === 'stretch' ? '1' : '0',
+            "--pcss-flex-align-items": alignItems,
+            "--pcss-flex-child-direction":
+              direction === "row" ? "column" : "row",
+            "--pcss-flex-child-grow": justifyContent === "stretch" ? "1" : "0",
+            "--pcss-flex-child-shrink-width":
+              direction === "row" ? "0" : "auto",
+            "--pcss-flex-child-shrink-height":
+              direction === "column" ? "0" : "auto",
+            "--pcss-flex-grandchild-shrink-width":
+              direction === "row" ? "auto" : "0",
+            "--pcss-flex-grandchild-shrink-height":
+              direction === "column" ? "auto" : "0",
+            "--pcss-flex-grandchild-grow": alignItems === "stretch" ? "1" : "0",
           }}
           display="flex"
           overflow="visible"
           flexDirection={direction}
           flexWrap={
             wrap === true
-              ? 'wrap'
-              : wrap === 'reverse'
-              ? 'wrap-reverse'
-              : 'nowrap'
+              ? "wrap"
+              : wrap === "reverse"
+              ? "wrap-reverse"
+              : "nowrap"
           }
           columnGap={gapX}
           rowGap={gapY}
@@ -144,5 +152,5 @@ export const Flex = forwardRef<FlexProps, 'div'>(
 );
 
 if (__DEV__) {
-  Flex.displayName = 'Flex';
+  Flex.displayName = "Flex";
 }

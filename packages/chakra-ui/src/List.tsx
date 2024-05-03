@@ -1,13 +1,13 @@
-import { forwardRef, SystemProps } from '@chakra-ui/system';
-import { __DEV__ } from '@moblin/core';
-import { Children, isValidElement } from 'react';
+import { forwardRef, SystemProps } from "@chakra-ui/system";
+import { __DEV__ } from "@moblin/core";
+import { Children, isValidElement } from "react";
 
-import { Flex, FlexItem, FlexProps } from './Flex';
+import { Flex, FlexItem, FlexProps } from "./Flex";
 
 export interface ListProps extends FlexProps {
   grow?: number;
   shrink?: number;
-  basis?: SystemProps['flexBasis'];
+  basis?: SystemProps["flexBasis"];
 }
 
 /**
@@ -18,7 +18,7 @@ export interface ListProps extends FlexProps {
  * because it will be wrapped by a single `FlexItem` and `FlexItem`
  * does not support containing more than 1 element.
  */
-export const List = forwardRef<ListProps, 'div'>(
+export const List = forwardRef<ListProps, "div">(
   ({ children, grow, shrink, basis, ...props }: ListProps, ref) => (
     <Flex ref={ref} {...props}>
       {Children.map(children, (c) =>
@@ -37,5 +37,5 @@ export const List = forwardRef<ListProps, 'div'>(
 );
 
 if (__DEV__) {
-  List.displayName = 'List';
+  List.displayName = "List";
 }

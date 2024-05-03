@@ -9,10 +9,21 @@ export interface BoxOptions {
   halign?: ContentPosition;
 }
 
-export interface BoxProps extends BoxOptions, ContainerProps<"div"> {}
+export interface BoxProps extends BoxOptions, ContainerProps<"div"> {
+  overflowAnchor?: "auto" | "none";
+}
 
 export const Box = forwardRef<BoxProps, "div">(
-  ({ children, halign = "stretch", valign = "stretch", ...props }, ref) => {
+  (
+    {
+      children,
+      halign = "stretch",
+      valign = "stretch",
+      overflowAnchor,
+      ...props
+    },
+    ref
+  ) => {
     return (
       <Flex
         {...props}
@@ -20,6 +31,9 @@ export const Box = forwardRef<BoxProps, "div">(
         direction="column"
         justifyContent={valign}
         alignItems={halign}
+        sx={{
+          overflowAnchor,
+        }}
       >
         <FlexItem>{children}</FlexItem>
       </Flex>

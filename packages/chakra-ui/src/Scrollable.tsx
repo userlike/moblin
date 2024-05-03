@@ -12,6 +12,7 @@ import { ContainerProps } from "./props";
 export interface ScrollableOptions {
   direction?: "row" | "column" | "row-reverse" | "column-reverse";
   justifyContent?: ContentPosition;
+  overflowAnchor?: "auto" | "none";
 }
 
 export interface ScrollableProps
@@ -19,7 +20,7 @@ export interface ScrollableProps
     ContainerProps<"div"> {}
 
 export const Scrollable = forwardRef<ScrollableProps, "div">(
-  ({ direction = "column", justifyContent = "flex-start", ...props }, ref) => {
+  ({ direction = "column", justifyContent = "flex-start", overflowAnchor, ...props }, ref) => {
     const theme: MoblinTheme = unsafeCoerce(useTheme());
     const scrollMode =
       theme.moblin?.Scrollable?.overflowType === "overlay" ? "overlay" : "auto";
@@ -42,6 +43,7 @@ export const Scrollable = forwardRef<ScrollableProps, "div">(
         flexDirection={direction}
         alignItems="stretch"
         sx={{
+          overflowAnchor,
           "& > *": {
             flex: justifyContent === "stretch" ? "1 0 auto" : "0 0 auto",
             [marginStartProp(direction)]: marginStart(justifyContent),
