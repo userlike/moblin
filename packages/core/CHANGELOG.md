@@ -1,5 +1,11 @@
 # @moblin/core
 
+## 0.1.2
+
+### Patch Changes
+
+- 338ad90: fix publishing script
+
 ## 0.1.1
 
 ### Patch Changes

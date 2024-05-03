@@ -1,5 +1,13 @@
 # @moblin/chakra-ui
 
+## 2.2.1
+
+### Patch Changes
+
+- 338ad90: fix publishing script
+- Updated dependencies [338ad90]
+  - @moblin/core@0.1.2
+
 ## 2.2.0
 
 ### Minor Changes

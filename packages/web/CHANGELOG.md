@@ -1,5 +1,13 @@
 # @moblin/web
 
+## 0.1.2
+
+### Patch Changes
+
+- 338ad90: fix publishing script
+- Updated dependencies [338ad90]
+  - @moblin/core@0.1.2
+
 ## 0.1.1
 
 ### Patch Changes
