@@ -16,7 +16,8 @@
   },
   "scripts": {
     "build": "../dev/bin.mjs build",
-    "lint": "../dev/bin.mjs lint"
+    "lint": "../dev/bin.mjs lint",
+    "prepare": "pnpm build"
   },
   "devDependencies": {
     "lit-html": "^2.4.0",
