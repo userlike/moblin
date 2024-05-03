@@ -16,8 +16,7 @@
   },
   "scripts": {
     "build": "../dev/bin.mjs build",
-    "lint": "../dev/bin.mjs lint",
-    "prepare": "pnpm build"
+    "lint": "../dev/bin.mjs lint"
   },
   "dependencies": {
     "@moblin/core": "workspace:*"

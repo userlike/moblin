@@ -12,8 +12,7 @@
   },
   "scripts": {
     "build": "../dev/bin.mjs build",
-    "lint": "../dev/bin.mjs lint",
-    "prepare": "pnpm build"
+    "lint": "../dev/bin.mjs lint"
   },
   "devDependencies": {
     "tslib": "^2.4.0",

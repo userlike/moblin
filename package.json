@@ -1,5 +1,9 @@
 {
-  "name": "test",
+  "name": "moblin",
+  "scripts": {
+    "version": "changeset version",
+    "release": "turbo build && changeset publish"
+  },
   "dependencies": {
     "@changesets/cli": "^2.25.2",
     "turbo": "1.11.3"
