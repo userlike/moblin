@@ -1,5 +1,11 @@
 # @moblin/core
 
+## 0.1.3
+
+### Patch Changes
+
+- 3f587a6: fix publishing
+
 ## 0.1.2
 
 ### Patch Changes

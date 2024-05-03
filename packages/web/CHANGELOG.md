@@ -1,5 +1,13 @@
 # @moblin/web
 
+## 0.1.3
+
+### Patch Changes
+
+- 3f587a6: fix publishing
+- Updated dependencies [3f587a6]
+  - @moblin/core@0.1.3
+
 ## 0.1.2
 
 ### Patch Changes

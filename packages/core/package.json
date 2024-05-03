@@ -1,6 +1,6 @@
 {
   "name": "@moblin/core",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "author": "Anil Anar",
   "license": "MIT",
   "main": "dist/cjs/index.js",

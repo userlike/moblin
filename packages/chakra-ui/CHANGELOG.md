@@ -1,5 +1,13 @@
 # @moblin/chakra-ui
 
+## 2.2.2
+
+### Patch Changes
+
+- 3f587a6: fix publishing
+- Updated dependencies [3f587a6]
+  - @moblin/core@0.1.3
+
 ## 2.2.1
 
 ### Patch Changes
