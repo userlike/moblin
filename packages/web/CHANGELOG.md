@@ -1,5 +1,12 @@
 # @moblin/web
 
+## 0.1.1
+
+### Patch Changes
+
+- Updated dependencies [4bdf5d6]
+  - @moblin/core@0.1.1
+
 ## 0.1.0
 
 ### Minor Changes

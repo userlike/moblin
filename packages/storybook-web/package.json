@@ -1,7 +1,7 @@
 {
   "name": "@moblin/storybook-web",
   "private": true,
-  "version": "1.1.0",
+  "version": "1.1.1",
   "scripts": {
     "storybook": "start-storybook --quiet -p 6007",
     "build-storybook": "build-storybook --quiet -o dist",

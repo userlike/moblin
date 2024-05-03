@@ -1,5 +1,18 @@
 # @moblin/chakra-ui
 
+## 2.2.0
+
+### Minor Changes
+
+- 54dd898: add reverse directions to Scrollable
+- d91c1ac: add overflowAnchor prop to all releavant components
+
+### Patch Changes
+
+- f378602: update dev deps
+- Updated dependencies [4bdf5d6]
+  - @moblin/core@0.1.1
+
 ## 2.1.0
 
 ### Minor Changes
