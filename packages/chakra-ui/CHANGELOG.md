@@ -1,5 +1,13 @@
 # @moblin/chakra-ui
 
+## 2.2.3
+
+### Patch Changes
+
+- fix reverse flex layouts
+- Updated dependencies
+  - @moblin/core@0.1.4
+
 ## 2.2.2
 
 ### Patch Changes

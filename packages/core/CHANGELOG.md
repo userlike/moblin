@@ -1,5 +1,11 @@
 # @moblin/core
 
+## 0.1.4
+
+### Patch Changes
+
+- fix reverse flex layouts
+
 ## 0.1.3
 
 ### Patch Changes
