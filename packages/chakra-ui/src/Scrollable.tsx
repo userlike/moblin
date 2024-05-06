@@ -3,6 +3,9 @@ import { chakra, forwardRef } from "@chakra-ui/system";
 import {
   __DEV__,
   ContentPosition,
+  FlexDirection,
+  isHorizontal,
+  isVertical,
   MoblinTheme,
   unsafeCoerce,
 } from "@moblin/core";
@@ -10,7 +13,7 @@ import {
 import { ContainerProps } from "./props";
 
 export interface ScrollableOptions {
-  direction?: "row" | "column" | "row-reverse" | "column-reverse";
+  direction?: FlexDirection;
   justifyContent?: ContentPosition;
   overflowAnchor?: "auto" | "none";
 }
@@ -20,7 +23,15 @@ export interface ScrollableProps
     ContainerProps<"div"> {}
 
 export const Scrollable = forwardRef<ScrollableProps, "div">(
-  ({ direction = "column", justifyContent = "flex-start", overflowAnchor, ...props }, ref) => {
+  (
+    {
+      direction = "column",
+      justifyContent = "flex-start",
+      overflowAnchor,
+      ...props
+    },
+    ref
+  ) => {
     const theme: MoblinTheme = unsafeCoerce(useTheme());
     const scrollMode =
       theme.moblin?.Scrollable?.overflowType === "overlay" ? "overlay" : "auto";
@@ -31,15 +42,9 @@ export const Scrollable = forwardRef<ScrollableProps, "div">(
         ref={ref}
         display="flex"
         overflowX={
-          direction === "row" || direction === "row-reverse"
-            ? unsafeCoerce(scrollMode)
-            : "hidden"
+          isHorizontal(direction) ? unsafeCoerce(scrollMode) : "hidden"
         }
-        overflowY={
-          direction === "column" || direction === "column-reverse"
-            ? unsafeCoerce(scrollMode)
-            : "hidden"
-        }
+        overflowY={isVertical(direction) ? unsafeCoerce(scrollMode) : "hidden"}
         flexDirection={direction}
         alignItems="stretch"
         sx={{
@@ -59,30 +64,12 @@ if (__DEV__) {
   Scrollable.displayName = "Scrollable";
 }
 
-const marginStartProp = (
-  direction: "row" | "column" | "row-reverse" | "column-reverse"
-) => {
-  switch (direction) {
-    case "row":
-    case "row-reverse":
-      return "marginInlineStart";
-    case "column":
-    case "column-reverse":
-      return "marginBlockStart";
-  }
+const marginStartProp = (direction: FlexDirection) => {
+  return isHorizontal(direction) ? "marginInlineStart" : "marginBlockStart";
 };
 
-const marginEndProp = (
-  direction: "row" | "column" | "row-reverse" | "column-reverse"
-) => {
-  switch (direction) {
-    case "row":
-    case "row-reverse":
-      return "marginInlineEnd";
-    case "column":
-    case "column-reverse":
-      return "marginBlockEnd";
-  }
+const marginEndProp = (direction: FlexDirection) => {
+  return isHorizontal(direction) ? "marginInlineEnd" : "marginBlockEnd";
 };
 
 const marginStart = (justifyContent: ContentPosition) =>

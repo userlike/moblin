@@ -4,6 +4,9 @@ import {
   AlignContent,
   AlignItems,
   AlignSelf,
+  FlexDirection,
+  isHorizontal,
+  isVertical,
   JustifyContent,
   unsafeCoerce,
 } from "@moblin/core";
@@ -67,7 +70,7 @@ if (__DEV__) {
 }
 
 export interface FlexOptions {
-  direction: "row" | "column" | "row-reverse" | "column-reverse";
+  direction: FlexDirection;
   gap?: SystemProps["margin"];
   gapX?: SystemProps["margin"];
   gapY?: SystemProps["margin"];
@@ -111,17 +114,22 @@ export const Flex = forwardRef<FlexProps, "div">(
         <chakra.div
           sx={{
             "--pcss-flex-align-items": alignItems,
-            "--pcss-flex-child-direction":
-              direction === "row" ? "column" : "row",
+            "--pcss-flex-child-direction": isHorizontal(direction)
+              ? "column"
+              : "row",
             "--pcss-flex-child-grow": justifyContent === "stretch" ? "1" : "0",
-            "--pcss-flex-child-shrink-width":
-              direction === "row" ? "0" : "auto",
-            "--pcss-flex-child-shrink-height":
-              direction === "column" ? "0" : "auto",
-            "--pcss-flex-grandchild-shrink-width":
-              direction === "row" ? "auto" : "0",
-            "--pcss-flex-grandchild-shrink-height":
-              direction === "column" ? "auto" : "0",
+            "--pcss-flex-child-shrink-width": isHorizontal(direction)
+              ? "0"
+              : "auto",
+            "--pcss-flex-child-shrink-height": isVertical(direction)
+              ? "0"
+              : "auto",
+            "--pcss-flex-grandchild-shrink-width": isHorizontal(direction)
+              ? "auto"
+              : "0",
+            "--pcss-flex-grandchild-shrink-height": isVertical(direction)
+              ? "auto"
+              : "0",
             "--pcss-flex-grandchild-grow": alignItems === "stretch" ? "1" : "0",
           }}
           display="flex"

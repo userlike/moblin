@@ -1,3 +1,5 @@
+export type FlexDirection = 'row' | 'column' | 'row-reverse' | 'column-reverse';
+
 export type ContentDistribution =
   | 'space-around'
   | 'space-between'
