@@ -28,6 +28,7 @@ export const Scrollable = forwardRef<ScrollableProps, "div">(
       direction = "column",
       justifyContent = "flex-start",
       overflowAnchor,
+      __css,
       ...props
     },
     ref
@@ -48,7 +49,9 @@ export const Scrollable = forwardRef<ScrollableProps, "div">(
         flexDirection={direction}
         alignItems="stretch"
         __css={{
+          ...__css,
           overflowAnchor,
+          // ignore __css['& > *'] on purpose.
           "& > *": {
             flex: justifyContent === "stretch" ? "1 0 auto" : "0 0 auto",
             [marginStartProp(direction)]: marginStart(justifyContent),

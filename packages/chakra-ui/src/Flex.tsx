@@ -96,6 +96,7 @@ export const Flex = forwardRef<FlexProps, "div">(
       alignContent = "flex-start",
       wrap = false,
       overflowAnchor,
+      __css,
       ...props
     },
     ref
@@ -108,6 +109,7 @@ export const Flex = forwardRef<FlexProps, "div">(
         alignItems="stretch"
         ref={ref}
         __css={{
+          ...__css,
           overflowAnchor,
         }}
       >

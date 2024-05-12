@@ -20,6 +20,7 @@ export const Box = forwardRef<BoxProps, "div">(
       halign = "stretch",
       valign = "stretch",
       overflowAnchor,
+      __css,
       ...props
     },
     ref
@@ -32,6 +33,7 @@ export const Box = forwardRef<BoxProps, "div">(
         justifyContent={valign}
         alignItems={halign}
         __css={{
+          ...__css,
           overflowAnchor,
         }}
       >
