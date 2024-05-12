@@ -47,7 +47,7 @@ export const Scrollable = forwardRef<ScrollableProps, "div">(
         overflowY={isVertical(direction) ? unsafeCoerce(scrollMode) : "hidden"}
         flexDirection={direction}
         alignItems="stretch"
-        sx={{
+        __css={{
           overflowAnchor,
           "& > *": {
             flex: justifyContent === "stretch" ? "1 0 auto" : "0 0 auto",

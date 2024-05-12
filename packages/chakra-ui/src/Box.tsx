@@ -31,7 +31,7 @@ export const Box = forwardRef<BoxProps, "div">(
         direction="column"
         justifyContent={valign}
         alignItems={halign}
-        sx={{
+        __css={{
           overflowAnchor,
         }}
       >
