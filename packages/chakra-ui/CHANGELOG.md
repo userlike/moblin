@@ -1,5 +1,11 @@
 # @moblin/chakra-ui
 
+## 2.2.6
+
+### Patch Changes
+
+- add back \_\_css prop support
+
 ## 2.2.5
 
 ### Patch Changes
