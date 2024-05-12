@@ -74,7 +74,7 @@ export type SafeSpaceProps = Pick<
 
 export type ContainerProps<T extends As> = Omit<
   HTMLChakraProps<T>,
-  keyof StyleProps | "__css"
+  keyof StyleProps
 > &
   BackgroundProps &
   BorderProps &
