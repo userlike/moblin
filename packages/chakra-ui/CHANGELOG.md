@@ -1,5 +1,11 @@
 # @moblin/chakra-ui
 
+## 2.2.4
+
+### Patch Changes
+
+- 192e40f: fix sx prop not working
+
 ## 2.2.3
 
 ### Patch Changes
