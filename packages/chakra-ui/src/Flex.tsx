@@ -44,7 +44,7 @@ export const FlexItem = ({
       justifyContent={alignSelf ?? unsafeCoerce("var(--pcss-flex-align-items)")}
       minW={shrink > 0 ? "var(--pcss-flex-child-shrink-width)" : "auto"}
       minH={shrink > 0 ? "var(--pcss-flex-child-shrink-height)" : "auto"}
-      sx={{
+      __css={{
         "& > *": {
           flexGrow:
             alignSelf === "stretch"
@@ -107,12 +107,12 @@ export const Flex = forwardRef<FlexProps, "div">(
         flexDirection="row"
         alignItems="stretch"
         ref={ref}
-        sx={{
+        __css={{
           overflowAnchor,
         }}
       >
         <chakra.div
-          sx={{
+          __css={{
             "--pcss-flex-align-items": alignItems,
             "--pcss-flex-child-direction": isHorizontal(direction)
               ? "column"
