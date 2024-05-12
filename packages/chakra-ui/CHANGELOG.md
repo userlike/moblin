@@ -1,5 +1,11 @@
 # @moblin/chakra-ui
 
+## 2.2.5
+
+### Patch Changes
+
+- 75590e9: fix build
+
 ## 2.2.4
 
 ### Patch Changes
