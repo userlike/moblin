@@ -72,6 +72,34 @@ export type SafeSpaceProps = Pick<
   | "py"
 >;
 
+export type SafeFlexItemProps = Pick<
+  SpaceProps,
+  | "m"
+  | "margin"
+  | "mt"
+  | "marginBlockStart"
+  | "marginTop"
+  | "mr"
+  | "marginInlineEnd"
+  | "marginEnd"
+  | "me"
+  | "marginRight"
+  | "mb"
+  | "marginBlockEnd"
+  | "marginBottom"
+  | "ml"
+  | "marginInlineStart"
+  | "marginStart"
+  | "ms"
+  | "marginLeft"
+  | "mx"
+  | "marginInline"
+  | "marginX"
+  | "my"
+  | "marginBlock"
+  | "marginY"
+>;
+
 export type ContainerProps<T extends As> = Omit<
   HTMLChakraProps<T>,
   keyof StyleProps
