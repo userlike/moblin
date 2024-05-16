@@ -11,10 +11,10 @@ import {
   unsafeCoerce,
 } from "@moblin/core";
 
-import { ContainerProps } from "./props";
+import { ContainerProps, SafeFlexItemProps } from "./props";
 import { WithChildren } from "./react";
 
-export interface FlexItemProps extends WithChildren {
+export interface FlexItemProps extends WithChildren, SafeFlexItemProps {
   alignSelf?: AlignSelf;
   grow?: number;
   shrink?: number;
@@ -29,6 +29,7 @@ export const FlexItem = ({
   basis = "auto",
   children,
   overflowAnchor,
+  ...props
 }: FlexItemProps) => {
   return (
     <chakra.div
@@ -59,6 +60,7 @@ export const FlexItem = ({
         },
         overflowAnchor,
       }}
+      {...props}
     >
       {children}
     </chakra.div>
