@@ -1,5 +1,11 @@
 # @moblin/chakra-ui
 
+## 2.2.7
+
+### Patch Changes
+
+- 33969ed: add margin props to flex item
+
 ## 2.2.6
 
 ### Patch Changes
