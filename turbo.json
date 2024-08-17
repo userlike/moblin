@@ -6,6 +6,9 @@
       "outputs": ["dist/**"],
       "inputs": ["../dev/*", "package.json", "tsconfig.json", "src/**/*"]
     },
+    "dev": {
+      "cache": false
+    },
     "storybook": {
       "cache": false,
       "dependsOn": ["^build"]

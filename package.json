@@ -2,7 +2,11 @@
   "name": "moblin",
   "scripts": {
     "version": "changeset version",
-    "release": "turbo build && changeset publish"
+    "release": "turbo build && changeset publish",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "dev": "turbo run dev",
+    "build-storybook": "turbo run build-storybook"
   },
   "dependencies": {
     "@changesets/cli": "^2.25.2",

@@ -1,27 +1,27 @@
-import { chakra, HTMLChakraProps } from '@chakra-ui/system';
-import { contentPositions } from '@moblin/core';
-import { storiesOf } from '@storybook/react';
+import { chakra, HTMLChakraProps } from "@chakra-ui/system";
+import { Box } from "@moblin/chakra-ui";
+import { alignItems } from "@moblin/core";
+import { storiesOf } from "@storybook/react";
 
-import { Box } from '@moblin/chakra-ui';
-import { demo } from './animatable-demo';
+import { demo } from "./animatable-demo";
 
 const Content = ({
   overflowHidden,
   ...props
 }: {
   overflowHidden?: boolean;
-} & HTMLChakraProps<'div'>) => (
+} & HTMLChakraProps<"div">) => (
   <chakra.div
     {...props}
     padding={2}
-    overflow={overflowHidden ? 'hidden' : 'visible'}
+    overflow={overflowHidden ? "hidden" : "visible"}
     bg="red.700"
     color="gray.200"
   />
 );
 
-const stories = contentPositions.flatMap((valign) =>
-  contentPositions.map(
+const stories = alignItems.flatMap((valign) =>
+  alignItems.map(
     (halign) =>
       [
         `v=${valign} h=${halign}`,
@@ -39,15 +39,15 @@ stories.reduce(
     acc.add(name, story);
     return acc;
   },
-  storiesOf('Box', module)
+  storiesOf("Box", module)
     .addDecorator(demo())
     .addParameters({
-      layout: 'centered',
+      layout: "centered",
       docs: {
         inlineStories: false,
         iframeHeight: 500,
         source: {
-          type: 'code',
+          type: "code",
         },
       },
     })

@@ -2,10 +2,7 @@ import { useTheme } from "@chakra-ui/react";
 import { chakra, forwardRef } from "@chakra-ui/system";
 import {
   __DEV__,
-  ContentPosition,
-  FlexDirection,
-  isHorizontal,
-  isVertical,
+  JustifyContent,
   MoblinTheme,
   unsafeCoerce,
 } from "@moblin/core";
@@ -13,9 +10,8 @@ import {
 import { ContainerProps } from "./props";
 
 export interface ScrollableOptions {
-  direction?: FlexDirection;
-  justifyContent?: ContentPosition;
-  overflowAnchor?: "auto" | "none";
+  direction?: "row" | "column";
+  justifyContent?: JustifyContent;
 }
 
 export interface ScrollableProps
@@ -23,16 +19,7 @@ export interface ScrollableProps
     ContainerProps<"div"> {}
 
 export const Scrollable = forwardRef<ScrollableProps, "div">(
-  (
-    {
-      direction = "column",
-      justifyContent = "flex-start",
-      overflowAnchor,
-      __css,
-      ...props
-    },
-    ref
-  ) => {
+  ({ direction = "column", justifyContent = "flex-start", ...props }, ref) => {
     const theme: MoblinTheme = unsafeCoerce(useTheme());
     const scrollMode =
       theme.moblin?.Scrollable?.overflowType === "overlay" ? "overlay" : "auto";
@@ -42,18 +29,13 @@ export const Scrollable = forwardRef<ScrollableProps, "div">(
         {...props}
         ref={ref}
         display="flex"
-        overflowX={
-          isHorizontal(direction) ? unsafeCoerce(scrollMode) : "hidden"
-        }
-        overflowY={isVertical(direction) ? unsafeCoerce(scrollMode) : "hidden"}
+        overflowX={direction === "row" ? unsafeCoerce(scrollMode) : "hidden"}
+        overflowY={direction === "column" ? unsafeCoerce(scrollMode) : "hidden"}
         flexDirection={direction}
         alignItems="stretch"
-        __css={{
-          ...__css,
-          overflowAnchor,
-          // ignore __css['& > *'] on purpose.
+        sx={{
           "& > *": {
-            flex: justifyContent === "stretch" ? "1 0 auto" : "0 0 auto",
+            flex: "0 0 auto",
             [marginStartProp(direction)]: marginStart(justifyContent),
             [marginEndProp(direction)]: marginEnd(justifyContent),
           },
@@ -67,18 +49,13 @@ if (__DEV__) {
   Scrollable.displayName = "Scrollable";
 }
 
-const marginStartProp = (direction: FlexDirection) => {
-  return isHorizontal(direction) ? "marginInlineStart" : "marginBlockStart";
-};
+const marginStartProp = (direction: "row" | "column") =>
+  direction === "row" ? "marginLeft" : "marginTop";
+const marginEndProp = (direction: "row" | "column") =>
+  direction === "row" ? "marginRight" : "marginBottom";
 
-const marginEndProp = (direction: FlexDirection) => {
-  return isHorizontal(direction) ? "marginInlineEnd" : "marginBlockEnd";
-};
+const marginStart = (justifyContent: JustifyContent) =>
+  justifyContent === "flex-start" ? "0" : "auto";
 
-const marginStart = (justifyContent: ContentPosition) =>
-  justifyContent === "stretch" || justifyContent === "flex-start"
-    ? "0"
-    : "auto";
-
-const marginEnd = (justifyContent: ContentPosition) =>
-  justifyContent === "stretch" || justifyContent === "flex-end" ? "0" : "auto";
+const marginEnd = (justifyContent: JustifyContent) =>
+  justifyContent === "flex-end" ? "0" : "auto";

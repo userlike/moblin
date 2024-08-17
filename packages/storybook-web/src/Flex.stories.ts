@@ -1,6 +1,11 @@
 import "@moblin/web";
 
-import { contentDistributions, contentPositions } from "@moblin/core";
+import {
+  alignContent,
+  alignItems,
+  alignSelf,
+  justifyContent,
+} from "@moblin/core";
 import { storiesOf } from "@storybook/web-components";
 import { html, TemplateResult } from "lit";
 import { styleMap } from "lit/directives/style-map.js";
@@ -19,8 +24,8 @@ const item = (content: string) => html`
 `;
 
 const flexStories = (["column", "row"] as const).flatMap((direction) =>
-  contentPositions.flatMap((alignItems) =>
-    contentDistributions.map(
+  alignItems.flatMap((alignItems) =>
+    justifyContent.map(
       (justifyContent) =>
         [
           `d=${direction[0]} a=${alignItems} j=${justifyContent}`,
@@ -57,9 +62,9 @@ flexStories.reduce(
 );
 
 const flexWrapStories = (["column", "row"] as const).flatMap((direction) =>
-  contentPositions.flatMap((alignItems) =>
-    contentDistributions.flatMap((justifyContent) =>
-      contentDistributions.map(
+  alignItems.flatMap((alignItems) =>
+    justifyContent.flatMap((justifyContent) =>
+      alignContent.map(
         (alignContent) =>
           [
             `d=${direction[0]} a=${alignItems} j=${justifyContent} w=${alignContent}`,
@@ -70,7 +75,7 @@ const flexWrapStories = (["column", "row"] as const).flatMap((direction) =>
                 justify-content="${justifyContent}"
                 align-content="${alignContent}"
                 gap="0.5rem"
-                wrap="wrap"
+                wrap
               >
                 <x-flex-item shrink="0" basis="8rem">
                   ${item("Foo")}
@@ -103,17 +108,17 @@ flexWrapStories.reduce(
 );
 
 const flexAlignSelfStories = (["column", "row"] as const).flatMap((direction) =>
-  contentPositions.flatMap((alignItems) =>
-    contentDistributions.flatMap((justifyContent) =>
-      contentPositions.map(
+  alignItems.flatMap((alignItems) =>
+    justifyContent.flatMap((justifyContent) =>
+      alignSelf.map(
         (alignSelf) =>
           [
             `d=${direction[0]} a=${alignItems} j=${justifyContent} as=${alignSelf}`,
             () => html`
               <x-flex
-                direction=${direction}
-                align-items=${alignItems}
-                justify-content=${justifyContent}
+                direction="${direction}"
+                align-items="${alignItems}"
+                justify-content="${justifyContent}"
                 gap="0.5rem"
               >
                 <x-flex-item align-self=${alignSelf}>

@@ -1,7 +1,7 @@
+import { Box, Flex, FlexItem, Text } from "@moblin/chakra-ui";
 import { contentPositions } from "@moblin/core";
 import { storiesOf } from "@storybook/react";
 
-import { Box, Flex, FlexItem, Text } from "@moblin/chakra-ui";
 import { demo } from "./animatable-demo";
 
 const shortText = "foobar";

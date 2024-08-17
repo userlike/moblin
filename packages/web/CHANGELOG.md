@@ -1,5 +1,13 @@
 # @moblin/web
 
+## 0.1.5-next.0
+
+### Patch Changes
+
+- impl web components
+- Updated dependencies
+  - @moblin/core@0.1.5-next.0
+
 ## 0.1.4
 
 ### Patch Changes

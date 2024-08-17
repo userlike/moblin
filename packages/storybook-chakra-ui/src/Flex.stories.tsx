@@ -1,7 +1,12 @@
-import { contentDistributions, contentPositions } from "@moblin/core";
+import { Box, BoxProps, Flex, FlexItem } from "@moblin/chakra-ui";
+import {
+  alignContent,
+  alignItems,
+  alignSelf,
+  justifyContent,
+} from "@moblin/core";
 import { storiesOf } from "@storybook/react";
 
-import { Box, BoxProps, Flex, FlexItem } from "@moblin/chakra-ui";
 import { demo } from "./animatable-demo";
 
 const Item = (props: BoxProps) => (
@@ -9,8 +14,8 @@ const Item = (props: BoxProps) => (
 );
 
 const flexStories = (["column", "row"] as const).flatMap((direction) =>
-  contentPositions.flatMap((alignItems) =>
-    contentDistributions.map(
+  alignItems.flatMap((alignItems) =>
+    justifyContent.map(
       (justifyContent) =>
         [
           `d=${direction[0]} a=${alignItems} j=${justifyContent}`,
@@ -51,8 +56,8 @@ flexStories.reduce(
 );
 
 const overflowStories = (["column", "row"] as const).flatMap((direction) =>
-  contentPositions.flatMap((alignItems) =>
-    contentDistributions.map(
+  alignItems.flatMap((alignItems) =>
+    justifyContent.map(
       (justifyContent) =>
         [
           `d=${direction[0]} a=${alignItems} j=${justifyContent}`,
@@ -103,9 +108,9 @@ overflowStories.reduce(
 );
 
 const flexWrapStories = (["column", "row"] as const).flatMap((direction) =>
-  contentPositions.flatMap((alignItems) =>
-    contentDistributions.flatMap((justifyContent) =>
-      contentDistributions.map(
+  alignItems.flatMap((alignItems) =>
+    justifyContent.flatMap((justifyContent) =>
+      alignContent.map(
         (alignContent) =>
           [
             `d=${direction[0]} a=${alignItems} j=${justifyContent} w=${alignContent}`,
@@ -149,9 +154,9 @@ flexWrapStories.reduce(
 );
 
 const flexAlignSelfStories = (["column", "row"] as const).flatMap((direction) =>
-  contentPositions.flatMap((alignItems) =>
-    contentDistributions.flatMap((justifyContent) =>
-      contentPositions.map(
+  alignItems.flatMap((alignItems) =>
+    justifyContent.flatMap((justifyContent) =>
+      alignSelf.map(
         (alignSelf) =>
           [
             `d=${direction[0]} a=${alignItems} j=${justifyContent} as=${alignSelf}`,

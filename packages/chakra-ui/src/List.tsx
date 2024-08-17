@@ -1,13 +1,13 @@
-import { forwardRef, SystemProps } from "@chakra-ui/system";
+import { forwardRef } from "@chakra-ui/system";
 import { __DEV__ } from "@moblin/core";
-import { Children, isValidElement } from "react";
+import { Children, ComponentProps, isValidElement } from "react";
 
-import { Flex, FlexItem, FlexProps } from "./Flex";
+import { Flex, FlexItem } from "./Flex";
 
-export interface ListProps extends FlexProps {
+export interface ListProps extends ComponentProps<typeof Flex> {
   grow?: number;
   shrink?: number;
-  basis?: SystemProps["flexBasis"];
+  basis?: string;
 }
 
 /**

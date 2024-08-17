@@ -1,6 +1,6 @@
 {
   "name": "@moblin/chakra-ui",
-  "version": "2.2.7",
+  "version": "2.2.8-next.0",
   "description": "Moblin layout system for chakra-ui",
   "author": "Anil Anar",
   "license": "MIT",
@@ -10,16 +10,18 @@
   "files": [
     "dist"
   ],
-  "sideEffects": false,
+  "sideEffects": true,
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
+    "dev": "../dev/bin.mjs dev",
     "build": "../dev/bin.mjs build",
     "lint": "../dev/bin.mjs lint"
   },
   "dependencies": {
-    "@moblin/core": "workspace:*"
+    "@moblin/core": "workspace:*",
+    "@moblin/web": "workspace:*"
   },
   "devDependencies": {
     "@chakra-ui/react": "^2.8.2",
