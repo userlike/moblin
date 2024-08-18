@@ -1,5 +1,11 @@
 # @moblin/chakra-ui
 
+## 2.2.8-next.1
+
+### Patch Changes
+
+- e5c9659: unallow as
+
 ## 2.2.8-next.0
 
 ### Patch Changes

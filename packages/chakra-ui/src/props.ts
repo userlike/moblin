@@ -102,7 +102,7 @@ export type SafeFlexItemProps = Pick<
 
 export type ContainerProps<T extends As> = Omit<
   HTMLChakraProps<T>,
-  keyof StyleProps
+  keyof StyleProps | "as"
 > &
   BackgroundProps &
   BorderProps &
