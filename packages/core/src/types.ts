@@ -7,13 +7,13 @@ export type ContentDistribution =
 
 export type ContentPosition = "center" | "flex-end" | "flex-start";
 
-export type AlignContent = ContentDistribution | ContentPosition;
+export type AlignContent = "stretch" | ContentDistribution | ContentPosition;
 
 export type AlignItems = "stretch" | ContentPosition;
 
 export type AlignSelf = "stretch" | ContentPosition;
 
-export type JustifyContent = ContentDistribution | ContentPosition;
+export type JustifyContent = "stretch" | ContentDistribution | ContentPosition;
 
 export const contentPositions: ContentPosition[] = [
   "flex-start",

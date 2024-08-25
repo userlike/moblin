@@ -26,7 +26,8 @@ export class Flex extends LitElement {
      * Direction
      * ===================================
      */
-    :host(:not([direction])), :host([direction="row"]) {
+    :host(:not([direction])),
+    :host([direction="row"]) {
       flex-direction: row;
       --moblin-direction: column;
     }
@@ -83,6 +84,9 @@ export class Flex extends LitElement {
     :host([align-content="space-evenly"]) {
       align-content: space-evenly;
     }
+    :host([align-content="stretch"]) {
+      align-content: stretch;
+    }
     /* =================================== */
 
     /**
@@ -106,6 +110,9 @@ export class Flex extends LitElement {
     }
     :host([justify-content="space-evenly"]) {
       justify-content: space-evenly;
+    }
+    :host([justify-content="stretch"]) {
+      justify-content: stretch;
     }
     /* =================================== */
 
@@ -140,14 +147,17 @@ export class Flex extends LitElement {
     /**
      * x-flex-item and child min width/height normalization
      */
-    :host(:not([direction])), :host([direction="row"]), :host([direction="row-reverse"]) {
+    :host(:not([direction])),
+    :host([direction="row"]),
+    :host([direction="row-reverse"]) {
       --moblin-item-min-width: 0;
       --moblin-item-min-height: auto;
       --moblin-child-min-width: auto;
       --moblin-child-min-height: 0;
     }
 
-    :host([direction="column"]), :host([direction="column-reverse"]) {
+    :host([direction="column"]),
+    :host([direction="column-reverse"]) {
       --moblin-item-min-width: auto;
       --moblin-item-min-height: 0;
       --moblin-child-min-width: 0;

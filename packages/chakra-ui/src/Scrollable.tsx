@@ -2,10 +2,10 @@ import { useTheme } from "@chakra-ui/react";
 import { chakra, forwardRef } from "@chakra-ui/system";
 import {
   __DEV__,
-  AlignItems,
   FlexDirection,
   isHorizontal,
   isVertical,
+  JustifyContent,
   MoblinTheme,
   unsafeCoerce,
 } from "@moblin/core";
@@ -14,7 +14,7 @@ import { ContainerProps } from "./props";
 
 export interface ScrollableOptions {
   direction?: FlexDirection;
-  justifyContent?: AlignItems;
+  justifyContent?: JustifyContent;
   overflowAnchor?: "auto" | "none";
 }
 
@@ -75,10 +75,10 @@ const marginEndProp = (direction: FlexDirection) => {
   return isHorizontal(direction) ? "marginInlineEnd" : "marginBlockEnd";
 };
 
-const marginStart = (justifyContent: AlignItems) =>
+const marginStart = (justifyContent: JustifyContent) =>
   justifyContent === "stretch" || justifyContent === "flex-start"
     ? "0"
     : "auto";
 
-const marginEnd = (justifyContent:  AlignItems) =>
+const marginEnd = (justifyContent: JustifyContent) =>
   justifyContent === "stretch" || justifyContent === "flex-end" ? "0" : "auto";
