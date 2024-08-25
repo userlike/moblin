@@ -22,7 +22,7 @@ declare global {
         "className"
       > & {
         class?: string;
-        direction?: "row" | "column";
+        direction?: "row" | "column" | "row-reverse" | "column-reverse";
         gap?: string;
         "row-gap"?: string;
         "column-gap"?: string;

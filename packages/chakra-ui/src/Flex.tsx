@@ -9,6 +9,7 @@ import {
   AlignContent,
   AlignItems,
   AlignSelf,
+  FlexDirection,
   JustifyContent,
   unsafeCoerce,
 } from "@moblin/core";
@@ -44,7 +45,7 @@ if (__DEV__) {
 }
 
 export interface FlexOptions {
-  direction?: "row" | "column";
+  direction?: FlexDirection;
   gap?: SystemProps["margin"];
   gapX?: SystemProps["margin"];
   gapY?: SystemProps["margin"];
@@ -56,7 +57,7 @@ export interface FlexOptions {
 //
 export interface FlexProps
   extends FlexOptions,
-    Omit<ContainerProps<"x-flex">, "class">,
+    Omit<ContainerProps<"x-flex">, "class" | "direction">,
     WithClassName {}
 
 const FlexRaw = styled(reactify("x-flex"), {
