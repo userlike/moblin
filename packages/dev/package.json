@@ -1,5 +1,6 @@
 {
   "name": "@moblin/dev",
+  "version": "0.0.0",
   "private": true,
   "main": "./eslint-config.js",
   "bin": {

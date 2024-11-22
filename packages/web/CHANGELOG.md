@@ -1,5 +1,16 @@
 # @moblin/web
 
+## 0.2.0-esm.0
+
+### Minor Changes
+
+- export esm modules, update dependencies
+
+### Patch Changes
+
+- Updated dependencies
+  - @moblin/core@0.2.0-esm.0
+
 ## 0.1.4
 
 ### Patch Changes

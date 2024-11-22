@@ -1,5 +1,11 @@
 # @moblin/storybook-chakra-ui
 
+## 1.2.0-esm.0
+
+### Minor Changes
+
+- export esm modules, update dependencies
+
 ## 1.1.0
 
 ### Minor Changes
