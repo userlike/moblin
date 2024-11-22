@@ -4,7 +4,7 @@
   "description": "Moblin layout system",
   "author": "Anil Anar",
   "license": "MIT",
-  "main": "dist/cjs/index.js",
+  "type": "module",
   "module": "dist/esm/index.js",
   "types": "dist/types/index.d.ts",
   "files": [
@@ -20,8 +20,8 @@
   },
   "devDependencies": {
     "lit-html": "^2.4.0",
-    "tslib": "^2.4.0",
-    "typescript": "^4.8.4"
+    "tslib": "catalog:",
+    "typescript": "catalog:"
   },
   "dependencies": {
     "@moblin/core": "workspace:*",

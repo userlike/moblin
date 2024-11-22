@@ -9,7 +9,8 @@
     "experimentalDecorators": true,
     "useDefineForClassFields": false,
     "esModuleInterop": true,
-    "moduleResolution": "Node"
+    "module": "ESNext",
+    "moduleResolution": "bundler"
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules/*"]

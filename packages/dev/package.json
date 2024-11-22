@@ -8,7 +8,7 @@
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.40.1",
     "@typescript-eslint/parser": "^5.40.1",
-    "concurrently": "^7.4.0",
+    "concurrently": "^9.1.0",
     "cross-env": "^7.0.3",
     "eslint": "^8.25.0",
     "eslint-config-prettier": "^8.5.0",
@@ -16,13 +16,13 @@
     "eslint-plugin-react": "^7.31.10",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-simple-import-sort": "^8.0.0",
-    "lint-staged": "^13.0.3",
-    "prettier": "^2.7.1",
-    "rimraf": "^3.0.2",
+    "lint-staged": "^15.2.10",
+    "prettier": "^3.3.3",
+    "rimraf": "^6.0.1",
     "zx": "^7.1.1"
   },
   "peerDependencies": {
-    "typescript": ">=4",
+    "typescript": ">=5",
     "tslib": ">=2"
   }
 }

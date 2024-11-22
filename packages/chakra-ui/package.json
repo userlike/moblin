@@ -4,8 +4,16 @@
   "description": "Moblin layout system for chakra-ui",
   "author": "Anil Anar",
   "license": "MIT",
-  "main": "dist/cjs/index.js",
+  "type": "module",
+  "main": "dist/esm/index.js",
   "module": "dist/esm/index.js",
+  "exports": {
+    ".": "./dist/esm/index.js",
+    "./box": "./dist/esm/Box.js",
+    "./flex": "./dist/esm/Flex.js",
+    "./list": "./dist/esm/List.js",
+    "./scrollable": "./dist/esm/Scrollable.js"
+  },
   "types": "dist/types/index.d.ts",
   "files": [
     "dist"
@@ -22,23 +30,23 @@
     "@moblin/core": "workspace:*"
   },
   "devDependencies": {
-    "@chakra-ui/react": "^2.8.2",
-    "@chakra-ui/system": "^2.6.2",
-    "@emotion/react": "^11.11.4",
-    "@emotion/styled": "^11.11.5",
-    "@types/react": "^18.3.1",
-    "@types/react-dom": "^18.3.0",
-    "framer-motion": "7.5.3",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "tslib": "^2.6.2",
-    "typescript": "^4.9.5"
+    "@chakra-ui/react": "catalog:",
+    "@chakra-ui/system": "catalog:",
+    "@emotion/react": "catalog:",
+    "@emotion/styled": "catalog:",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "framer-motion": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "tslib": "catalog:",
+    "typescript": "catalog:"
   },
   "peerDependencies": {
     "@chakra-ui/react": "^2.0.0",
     "@chakra-ui/system": "^2.0.0",
     "react": ">=18",
     "tslib": ">=2",
-    "typescript": ">=4"
+    "typescript": ">=5"
   }
 }

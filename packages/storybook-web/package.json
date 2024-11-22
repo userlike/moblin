@@ -23,10 +23,10 @@
     "chromatic": "^6.12.0",
     "lit": "^2.4.0",
     "lit-html": "^2.4.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "tslib": "^2.4.0",
-    "typescript": "^4.9.3",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "tslib": "catalog:",
+    "typescript": "catalog:",
     "webpack": "^5.76.0"
   }
 }
