@@ -10,6 +10,7 @@
     "@moblin/dev": "0.0.0"
   },
   "changesets": [
-    "unlucky-carpets-double"
+    "unlucky-carpets-double",
+    "warm-shrimps-beam"
   ]
 }

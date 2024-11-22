@@ -1,7 +1,7 @@
 {
   "name": "@moblin/storybook-chakra-ui",
   "private": true,
-  "version": "1.2.0-esm.0",
+  "version": "1.2.0-esm.1",
   "devDependencies": {
     "@babel/core": "^7.20.5",
     "@moblin/chakra-ui": "workspace:*",

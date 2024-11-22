@@ -1,5 +1,11 @@
 # @moblin/core
 
+## 0.2.0-esm.1
+
+### Patch Changes
+
+- fix exports for types
+
 ## 0.2.0-esm.0
 
 ### Minor Changes

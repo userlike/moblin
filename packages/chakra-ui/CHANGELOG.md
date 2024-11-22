@@ -1,5 +1,13 @@
 # @moblin/chakra-ui
 
+## 2.3.0-esm.1
+
+### Patch Changes
+
+- fix exports for types
+- Updated dependencies
+  - @moblin/core@0.2.0-esm.1
+
 ## 2.3.0-esm.0
 
 ### Minor Changes

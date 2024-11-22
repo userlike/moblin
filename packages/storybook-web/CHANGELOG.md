@@ -1,5 +1,14 @@
 # @moblin/storybook-web
 
+## 1.2.0-esm.1
+
+### Patch Changes
+
+- fix exports for types
+- Updated dependencies
+  - @moblin/core@0.2.0-esm.1
+  - @moblin/web@0.2.0-esm.1
+
 ## 1.2.0-esm.0
 
 ### Minor Changes

@@ -1,11 +1,17 @@
 {
   "name": "@moblin/core",
-  "version": "0.2.0-esm.0",
+  "version": "0.2.0-esm.1",
   "author": "Anil Anar",
   "license": "MIT",
   "type": "module",
   "module": "dist/esm/index.js",
   "types": "dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "types": "./dist/types/index.d.ts"
+    }
+  },
   "sideEffects": false,
   "publishConfig": {
     "access": "public"
