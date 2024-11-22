@@ -1,3 +1,3 @@
-import "./Box";
-import "./Flex";
-import "./FlexItem";
+import "./Box.js";
+import "./Flex.js";
+import "./FlexItem.js";

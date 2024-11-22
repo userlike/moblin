@@ -1,4 +1,4 @@
-import { FlexDirection } from "./types";
+import { FlexDirection } from "./types.js";
 
 export function unsafeCoerce<T>(x: unknown): T {
   return x as T;

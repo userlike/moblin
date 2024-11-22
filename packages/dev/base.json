@@ -2,7 +2,8 @@
   "compilerOptions": {
     "incremental": true,
     "target": "ES5",
-    "module": "ESNext",
+    "module": "NodeNext",
+    "moduleResolution": "nodenext",
     "lib": ["dom", "esnext"],
     "importHelpers": true,
     "sourceMap": true,
@@ -13,7 +14,6 @@
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "moduleResolution": "bundler",
     "jsx": "react-jsx",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,

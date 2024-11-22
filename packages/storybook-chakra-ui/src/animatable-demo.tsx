@@ -1,7 +1,7 @@
 import { chakra, HTMLChakraProps, keyframes } from '@chakra-ui/system';
 import isChromatic from 'chromatic/isChromatic';
 
-import * as S from './storybook';
+import * as S from './storybook.js';
 
 interface DemoOptions {
   title?: string;

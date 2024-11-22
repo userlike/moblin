@@ -1,5 +1,5 @@
-import "./Flex";
-import "./FlexItem";
+import "./Flex.js";
+import "./FlexItem.js";
 
 import type { ContentPosition } from "@moblin/core";
 import { html, LitElement } from "lit";

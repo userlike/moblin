@@ -10,7 +10,7 @@ import {
   unsafeCoerce,
 } from "@moblin/core";
 
-import { ContainerProps } from "./props";
+import { ContainerProps } from "./props.js";
 
 export interface ScrollableOptions {
   direction?: FlexDirection;

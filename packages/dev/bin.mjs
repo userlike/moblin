@@ -8,7 +8,7 @@ $.verbose = true;
 const commonFlags = "--rootDir src";
 
 const build = {
-  esm: `tsc ${commonFlags} --module esnext --outDir dist/esm --declaration true --declarationMap true --declarationDir dist/types`,
+  esm: `tsc ${commonFlags} --outDir dist/esm --declaration true --declarationMap true --declarationDir dist/types`,
 };
 
 const command = argv._.length === 1 ? argv._[0] : null;

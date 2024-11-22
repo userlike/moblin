@@ -1,7 +1,7 @@
 import { chakra, forwardRef } from '@chakra-ui/system';
 import { __DEV__ } from '@moblin/core';
 
-import { ContainerProps } from './props';
+import { ContainerProps } from './props.js';
 
 export interface BlockProps extends ContainerProps<'div'> {}
 
