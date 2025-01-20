@@ -7,23 +7,21 @@
     "dev": "./bin.mjs"
   },
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.40.1",
-    "@typescript-eslint/parser": "^5.40.1",
+    "@eslint/js": "^9.18.0",
     "concurrently": "^9.1.0",
     "cross-env": "^7.0.3",
-    "eslint": "^8.25.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-react": "^7.31.10",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-simple-import-sort": "^8.0.0",
+    "eslint": "^9.18.0",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-prettier": "^5.2.3",
+    "eslint-plugin-react": "^7.37.4",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "globals": "^15.14.0",
+    "jiti": "^2.4.2",
     "lint-staged": "^15.2.10",
     "prettier": "^3.3.3",
     "rimraf": "^6.0.1",
-    "zx": "^7.1.1"
-  },
-  "peerDependencies": {
-    "typescript": ">=5",
-    "tslib": ">=2"
+    "typescript-eslint": "^8.21.0",
+    "zx": "^8.3.0"
   }
 }

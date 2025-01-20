@@ -1,8 +1,7 @@
 {
-  "name": "@moblin/core",
+  "name": "@moblin/storybook-indexer",
+  "private": true,
   "version": "0.2.0-esm.2",
-  "author": "Anil Anar",
-  "license": "MIT",
   "type": "module",
   "main": "./dist/cjs/index.js",
   "types": "./dist/cjs/index.d.ts",
@@ -23,14 +22,19 @@
     "dist"
   ],
   "sideEffects": false,
-  "publishConfig": {
-    "access": "public"
-  },
   "scripts": {
     "build": "../dev/bin.mjs build",
     "lint": "../dev/bin.mjs lint"
   },
   "devDependencies": {
+    "@storybook/core": "^8.5.0",
+    "@types/node": "^22.12.0",
     "typescript": "catalog:"
+  },
+  "peerDependencies": {
+    "@storybook/core": "^8.0.0"
+  },
+  "dependencies": {
+    "vite": "^6.0.11"
   }
 }

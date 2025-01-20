@@ -2,37 +2,32 @@
   "name": "@moblin/storybook-chakra-ui",
   "private": true,
   "version": "1.2.0-esm.2",
-  "devDependencies": {
-    "@babel/core": "^7.20.5",
-    "@moblin/chakra-ui": "workspace:*",
-    "@moblin/core": "workspace:*",
-    "@storybook/addon-actions": "^6.5.14",
-    "@storybook/addon-essentials": "^6.5.14",
-    "@storybook/addon-interactions": "^6.5.14",
-    "@storybook/addon-links": "^6.5.14",
-    "@storybook/builder-webpack4": "^6.5.14",
-    "@storybook/manager-webpack4": "^6.5.14",
-    "@storybook/react": "^6.5.14",
-    "@storybook/testing-library": "^0.0.13",
-    "babel-loader": "^8.3.0",
-    "chromatic": "^6.12.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "webpack": "^5.76.0"
-  },
+  "type": "module",
   "scripts": {
-    "storybook": "start-storybook --quiet -p 6006",
-    "build-storybook": "build-storybook -o dist --quiet"
+    "storybook": "storybook dev --no-open -p 6006",
+    "build-storybook": "storybook build -o dist --quiet",
+    "typecheck": "tsc --noEmit --watch"
   },
   "dependencies": {
     "@chakra-ui/react": "catalog:",
     "@chakra-ui/system": "catalog:",
     "@emotion/react": "catalog:",
     "@emotion/styled": "catalog:",
+    "@moblin/chakra-ui": "workspace:*",
+    "@moblin/core": "workspace:*",
+    "@moblin/storybook-indexer": "workspace:*",
+    "@storybook/addon-essentials": "^8.0.0",
+    "@storybook/core": "^8.0.0",
+    "@storybook/react": "^8.0.0",
+    "@storybook/react-vite": "^8.0.0",
+    "@types/node": "^22.12.0",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
+    "chromatic": "catalog:",
     "framer-motion": "catalog:",
-    "tslib": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "storybook": "^8.0.0",
     "typescript": "catalog:"
   }
 }

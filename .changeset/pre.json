@@ -5,9 +5,8 @@
     "@moblin/chakra-ui": "2.2.7",
     "@moblin/core": "0.1.4",
     "@moblin/storybook-chakra-ui": "1.1.0",
-    "@moblin/storybook-web": "1.1.4",
-    "@moblin/web": "0.1.4",
-    "@moblin/dev": "0.0.0"
+    "@moblin/dev": "0.0.0",
+    "@moblin/storybook-indexer": "0.2.0-esm.2"
   },
   "changesets": [
     "few-badgers-vanish",

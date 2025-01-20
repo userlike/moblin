@@ -1,8 +1,0 @@
-{
-  "include": ["./src/**/*"],
-  "extends": "../dev/base.json",
-  "compilerOptions": {
-    "module": "ESNext",
-    "moduleResolution": "bundler"
-  }
-}

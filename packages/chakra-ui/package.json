@@ -5,15 +5,21 @@
   "author": "Anil Anar",
   "license": "MIT",
   "type": "module",
-  "main": "dist/esm/index.js",
-  "module": "dist/esm/index.js",
+  "main": "./dist/cjs/index.js",
+  "types": "./dist/cjs/index.d.ts",
+  "module": "./dist/esm/index.js",
   "exports": {
     ".": {
-      "import": "./dist/esm/index.js",
-      "types": "./dist/types/index.d.ts"
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      },
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      }
     }
   },
-  "types": "dist/types/index.d.ts",
   "files": [
     "dist"
   ],
@@ -38,14 +44,11 @@
     "framer-motion": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
-    "tslib": "catalog:",
     "typescript": "catalog:"
   },
   "peerDependencies": {
     "@chakra-ui/react": "^2.0.0",
     "@chakra-ui/system": "^2.0.0",
-    "react": ">=18",
-    "tslib": ">=2",
-    "typescript": ">=5"
+    "react": ">=18"
   }
 }

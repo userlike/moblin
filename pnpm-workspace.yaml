@@ -12,3 +12,4 @@ catalog:
   framer-motion: ^11.11.17
   "@chakra-ui/react": ^2.8.2
   "@chakra-ui/system": ^2.6.2
+  chromatic: ^11.25.0
