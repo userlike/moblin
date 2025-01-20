@@ -10,6 +10,7 @@
     "@moblin/dev": "0.0.0"
   },
   "changesets": [
+    "few-badgers-vanish",
     "unlucky-carpets-double",
     "warm-shrimps-beam"
   ]

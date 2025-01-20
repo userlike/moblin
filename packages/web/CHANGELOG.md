@@ -1,5 +1,13 @@
 # @moblin/web
 
+## 0.2.0-esm.2
+
+### Patch Changes
+
+- obey node esm module imports with extensions
+- Updated dependencies
+  - @moblin/core@0.2.0-esm.2
+
 ## 0.2.0-esm.1
 
 ### Patch Changes
