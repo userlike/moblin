@@ -1,5 +1,43 @@
 # @moblin/chakra-ui
 
+## 2.3.0-esm.3
+
+### Minor Changes
+
+- c30fe51: big refactoring in tooling for esm modules
+
+### Patch Changes
+
+- Updated dependencies [c30fe51]
+  - @moblin/core@0.2.0-esm.3
+
+## 2.3.0-esm.2
+
+### Patch Changes
+
+- obey node esm module imports with extensions
+- Updated dependencies
+  - @moblin/core@0.2.0-esm.2
+
+## 2.3.0-esm.1
+
+### Patch Changes
+
+- fix exports for types
+- Updated dependencies
+  - @moblin/core@0.2.0-esm.1
+
+## 2.3.0-esm.0
+
+### Minor Changes
+
+- export esm modules, update dependencies
+
+### Patch Changes
+
+- Updated dependencies
+  - @moblin/core@0.2.0-esm.0
+
 ## 2.2.7
 
 ### Patch Changes

@@ -1,8 +1,8 @@
 import { forwardRef } from "@chakra-ui/system";
 import { __DEV__, ContentPosition } from "@moblin/core";
 
-import { Flex, FlexItem } from "./Flex";
-import { ContainerProps } from "./props";
+import { Flex, FlexItem } from "./Flex.js";
+import { ContainerProps } from "./props.js";
 
 export interface BoxOptions {
   valign?: ContentPosition;

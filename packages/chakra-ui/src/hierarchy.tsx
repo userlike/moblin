@@ -1,6 +1,6 @@
 import { createContext, useContext } from 'react';
 
-import { WithChildren } from './react';
+import { WithChildren } from './react.js';
 
 export const HierarchyValidator = createContext<symbol | undefined>(undefined);
 

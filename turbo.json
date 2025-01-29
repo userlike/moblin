@@ -1,6 +1,7 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "pipeline": {
+  "ui": "tui",
+  "tasks": {
     "build": {
       "dependsOn": ["^build"],
       "outputs": ["dist/**"],
@@ -17,9 +18,9 @@
     "lint": {
       "outputs": [],
       "inputs": [
-        "../dev/package.json",
-        "../dev/eslint-config.js",
+        "../dev/*",
         "package.json",
+        "eslint.config.ts",
         "src/**/*"
       ]
     }

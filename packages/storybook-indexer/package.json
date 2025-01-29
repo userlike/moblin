@@ -1,0 +1,40 @@
+{
+  "name": "@moblin/storybook-indexer",
+  "private": true,
+  "version": "0.2.0-esm.3",
+  "type": "module",
+  "main": "./dist/cjs/index.js",
+  "types": "./dist/cjs/index.d.ts",
+  "module": "./dist/esm/index.js",
+  "exports": {
+    ".": {
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      },
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      }
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "../dev/bin.mjs build",
+    "lint": "../dev/bin.mjs lint"
+  },
+  "devDependencies": {
+    "@storybook/core": "^8.5.0",
+    "@types/node": "^22.12.0",
+    "typescript": "catalog:"
+  },
+  "peerDependencies": {
+    "@storybook/core": "^8.0.0"
+  },
+  "dependencies": {
+    "vite": "^6.0.11"
+  }
+}

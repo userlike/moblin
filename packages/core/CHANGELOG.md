@@ -1,5 +1,29 @@
 # @moblin/core
 
+## 0.2.0-esm.3
+
+### Minor Changes
+
+- c30fe51: big refactoring in tooling for esm modules
+
+## 0.2.0-esm.2
+
+### Patch Changes
+
+- obey node esm module imports with extensions
+
+## 0.2.0-esm.1
+
+### Patch Changes
+
+- fix exports for types
+
+## 0.2.0-esm.0
+
+### Minor Changes
+
+- export esm modules, update dependencies
+
 ## 0.1.4
 
 ### Patch Changes

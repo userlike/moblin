@@ -1,5 +1,5 @@
-import { ReactNode, useMemo } from 'react';
-import { useCallback as useCallbackReact, useRef as useRefReact } from 'react';
+import { ReactNode, useMemo } from "react";
+import { useCallback as useCallbackReact, useRef as useRefReact } from "react";
 
 export interface RafObject<T> {
   current: T | null;
@@ -20,7 +20,7 @@ export function useRefVar<T>(defaultValue: T): { current: T } {
 }
 
 export function useRef<T = HTMLElement>(
-  defaultValue: T | null = null
+  defaultValue: T | null = null,
 ): RafObject<T> {
   const sourceOfTruth = useRefReact(defaultValue);
   return useMemo(
@@ -39,7 +39,7 @@ export function useRef<T = HTMLElement>(
       },
     }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    []
+    [],
   );
 }
 
@@ -63,7 +63,7 @@ export function createRef<T>(defaultValue: T | null = null): RafObject<T> {
 
 export const useCallback: <T extends (...args: never[]) => unknown>(
   callback: T,
-  deps: Array<unknown>
+  deps: Array<unknown>,
 ) => T = useCallbackReact;
 
 export interface WithClassName {

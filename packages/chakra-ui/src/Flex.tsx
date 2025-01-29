@@ -11,8 +11,8 @@ import {
   unsafeCoerce,
 } from "@moblin/core";
 
-import { ContainerProps, SafeFlexItemProps } from "./props";
-import { WithChildren } from "./react";
+import { ContainerProps, SafeFlexItemProps } from "./props.js";
+import { WithChildren } from "./react.js";
 
 export interface FlexItemProps extends WithChildren, SafeFlexItemProps {
   alignSelf?: AlignSelf;

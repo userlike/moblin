@@ -1,11 +1,27 @@
 {
   "name": "@moblin/core",
-  "version": "0.1.4",
+  "version": "0.2.0-esm.3",
   "author": "Anil Anar",
   "license": "MIT",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "types": "dist/types/index.d.ts",
+  "type": "module",
+  "main": "./dist/cjs/index.js",
+  "types": "./dist/cjs/index.d.ts",
+  "module": "./dist/esm/index.js",
+  "exports": {
+    ".": {
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      },
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      }
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "sideEffects": false,
   "publishConfig": {
     "access": "public"
@@ -15,11 +31,6 @@
     "lint": "../dev/bin.mjs lint"
   },
   "devDependencies": {
-    "tslib": "^2.4.0",
-    "typescript": "^4.8.4"
-  },
-  "peerDependencies": {
-    "tslib": ">=2",
-    "typescript": ">=4"
+    "typescript": "catalog:"
   }
 }

@@ -1,4 +1,10 @@
 {
-  "include": ["./src/**/*"],
-  "extends": "../dev/base.json"
+  "include": ["./src/**/*", ".storybook/**/*"],
+  "extends": "../dev/tsconfig.base.json",
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
+  }
 }

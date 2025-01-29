@@ -2,7 +2,7 @@ import { forwardRef, SystemProps } from "@chakra-ui/system";
 import { __DEV__ } from "@moblin/core";
 import { Children, isValidElement } from "react";
 
-import { Flex, FlexItem, FlexProps } from "./Flex";
+import { Flex, FlexItem, FlexProps } from "./Flex.js";
 
 export interface ListProps extends FlexProps {
   grow?: number;

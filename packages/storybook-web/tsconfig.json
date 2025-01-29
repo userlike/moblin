@@ -1,4 +1,0 @@
-{
-  "include": ["./src/**/*"],
-  "extends": "../dev/base.json"
-}
