@@ -1,5 +1,11 @@
 # @moblin/chakra-ui
 
+## 2.3.0
+
+### Minor Changes
+
+- abfd8e8: big refactoring in tooling for esm modules
+
 ## 2.3.0-esm.3
 
 ### Minor Changes

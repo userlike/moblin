@@ -1,6 +1,6 @@
 {
   "name": "@moblin/core",
-  "version": "0.2.0-esm.3",
+  "version": "0.2.0",
   "author": "Anil Anar",
   "license": "MIT",
   "type": "module",
