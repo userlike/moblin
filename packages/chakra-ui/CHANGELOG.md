@@ -1,11 +1,5 @@
 # @moblin/chakra-ui
 
-## 3.0.0-next.0
-
-### Major Changes
-
-- replace chakra-ui v2 with its fork @chakra-v2/react
-
 ## 2.3.0
 
 ### Minor Changes
