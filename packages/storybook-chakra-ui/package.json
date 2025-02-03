@@ -9,10 +9,8 @@
     "typecheck": "tsc --noEmit --watch"
   },
   "dependencies": {
-    "@chakra-ui/react": "catalog:",
-    "@chakra-ui/system": "catalog:",
+    "@chakra-v2/react": "catalog:",
     "@emotion/react": "catalog:",
-    "@emotion/styled": "catalog:",
     "@moblin/chakra-ui": "workspace:*",
     "@moblin/core": "workspace:*",
     "@moblin/storybook-indexer": "workspace:*",

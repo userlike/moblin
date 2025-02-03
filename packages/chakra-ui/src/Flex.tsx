@@ -1,4 +1,4 @@
-import { chakra, forwardRef, SystemProps } from "@chakra-ui/system";
+import { chakra, forwardRef, SystemProps } from "@chakra-v2/react";
 import {
   __DEV__,
   AlignContent,
@@ -51,8 +51,8 @@ export const FlexItem = ({
             alignSelf === "stretch"
               ? 1
               : alignSelf !== undefined
-              ? 0
-              : unsafeCoerce("var(--pcss-flex-grandchild-grow)"),
+                ? 0
+                : unsafeCoerce("var(--pcss-flex-grandchild-grow)"),
           flexShrink: 1,
           flexBasis: "auto",
           minWidth: "var(--pcss-flex-grandchild-shrink-width)",
@@ -101,7 +101,7 @@ export const Flex = forwardRef<FlexProps, "div">(
       __css,
       ...props
     },
-    ref
+    ref,
   ) => {
     return (
       <chakra.div
@@ -143,8 +143,8 @@ export const Flex = forwardRef<FlexProps, "div">(
             wrap === true
               ? "wrap"
               : wrap === "reverse"
-              ? "wrap-reverse"
-              : "nowrap"
+                ? "wrap-reverse"
+                : "nowrap"
           }
           columnGap={gapX}
           rowGap={gapY}
@@ -160,7 +160,7 @@ export const Flex = forwardRef<FlexProps, "div">(
         </chakra.div>
       </chakra.div>
     );
-  }
+  },
 );
 
 if (__DEV__) {

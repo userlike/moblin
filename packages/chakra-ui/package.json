@@ -35,20 +35,16 @@
     "@moblin/core": "workspace:*"
   },
   "devDependencies": {
-    "@chakra-ui/react": "catalog:",
-    "@chakra-ui/system": "catalog:",
+    "@chakra-v2/react": "catalog:",
     "@emotion/react": "catalog:",
-    "@emotion/styled": "catalog:",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
-    "framer-motion": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
     "typescript": "catalog:"
   },
   "peerDependencies": {
-    "@chakra-ui/react": "^2.0.0",
-    "@chakra-ui/system": "^2.0.0",
+    "@chakra-v2/react": "*",
     "react": ">=18"
   }
 }

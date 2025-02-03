@@ -1,5 +1,4 @@
-import { useTheme } from "@chakra-ui/react";
-import { chakra, forwardRef } from "@chakra-ui/system";
+import { chakra, forwardRef, useTheme } from "@chakra-v2/react";
 import {
   __DEV__,
   ContentPosition,
@@ -31,7 +30,7 @@ export const Scrollable = forwardRef<ScrollableProps, "div">(
       __css,
       ...props
     },
-    ref
+    ref,
   ) => {
     const theme: MoblinTheme = unsafeCoerce(useTheme());
     const scrollMode =
@@ -60,7 +59,7 @@ export const Scrollable = forwardRef<ScrollableProps, "div">(
         }}
       />
     );
-  }
+  },
 );
 
 if (__DEV__) {

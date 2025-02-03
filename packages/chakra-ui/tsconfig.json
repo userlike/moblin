@@ -1,4 +1,8 @@
 {
   "include": ["src/**/*"],
-  "extends": "../dev/tsconfig.base.json"
+  "extends": "../dev/tsconfig.base.json",
+  "compilerOptions": {
+    "module": "ES2015",
+    "moduleResolution": "bundler"
+  }
 }

@@ -1,4 +1,4 @@
-import { forwardRef, SystemProps } from "@chakra-ui/system";
+import { forwardRef, SystemProps } from "@chakra-v2/react";
 import { __DEV__ } from "@moblin/core";
 import { Children, isValidElement } from "react";
 
@@ -30,10 +30,10 @@ export const List = forwardRef<ListProps, "div">(
           <FlexItem grow={grow} shrink={shrink} basis={basis}>
             {c}
           </FlexItem>
-        ) : null
+        ) : null,
       )}
     </Flex>
-  )
+  ),
 );
 
 if (__DEV__) {

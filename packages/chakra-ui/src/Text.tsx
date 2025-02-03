@@ -1,4 +1,4 @@
-import { chakra, HTMLChakraProps } from "@chakra-ui/system";
+import { chakra, HTMLChakraProps } from "@chakra-v2/react";
 
 export interface TextOptions {
   ellipsis?: boolean;
