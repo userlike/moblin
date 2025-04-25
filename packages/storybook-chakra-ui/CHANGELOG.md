@@ -1,5 +1,23 @@
 # @moblin/storybook-chakra-ui
 
+## 2.0.0-v2-fork.1
+
+### Patch Changes
+
+- Updated dependencies
+  - @moblin/chakra-ui@3.0.0-v2-fork.1
+
+## 2.0.0-v2-fork.0
+
+### Major Changes
+
+- 854367f: replace chakra-ui v2 with its fork @chakra-v2/react
+
+### Patch Changes
+
+- Updated dependencies [854367f]
+  - @moblin/chakra-ui@3.0.0-v2-fork.0
+
 ## 1.2.0
 
 ### Minor Changes

@@ -1,0 +1,15 @@
+{
+  "mode": "pre",
+  "tag": "v2-fork",
+  "initialVersions": {
+    "@moblin/chakra-ui": "2.3.0",
+    "@moblin/core": "0.2.0",
+    "@moblin/dev": "0.1.0",
+    "@moblin/storybook-chakra-ui": "1.2.0",
+    "@moblin/storybook-indexer": "0.2.0"
+  },
+  "changesets": [
+    "moody-games-stare",
+    "witty-books-search"
+  ]
+}

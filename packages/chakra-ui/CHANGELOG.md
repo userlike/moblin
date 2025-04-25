@@ -1,5 +1,17 @@
 # @moblin/chakra-ui
 
+## 3.0.0-v2-fork.1
+
+### Patch Changes
+
+- force publish to fix empty pkg
+
+## 3.0.0-v2-fork.0
+
+### Major Changes
+
+- 854367f: replace chakra-ui v2 with its fork @chakra-v2/react
+
 ## 2.3.0
 
 ### Minor Changes
