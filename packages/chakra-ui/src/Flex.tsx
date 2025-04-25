@@ -22,17 +22,21 @@ export interface FlexItemProps extends WithChildren, SafeFlexItemProps {
   overflowAnchor?: "auto" | "none";
 }
 
-export const FlexItem = ({
-  alignSelf,
-  grow,
-  shrink = 1,
-  basis = "auto",
-  children,
-  overflowAnchor,
-  ...props
-}: FlexItemProps) => {
+export const FlexItem = forwardRef<FlexItemProps, "div">(function FlexItem(
+  {
+    alignSelf,
+    grow,
+    shrink = 1,
+    basis = "auto",
+    children,
+    overflowAnchor,
+    ...props
+  },
+  ref,
+) {
   return (
     <chakra.div
+      ref={ref}
       display="flex"
       overflow="visible"
       alignItems="stretch"
@@ -51,8 +55,8 @@ export const FlexItem = ({
             alignSelf === "stretch"
               ? 1
               : alignSelf !== undefined
-              ? 0
-              : unsafeCoerce("var(--pcss-flex-grandchild-grow)"),
+                ? 0
+                : unsafeCoerce("var(--pcss-flex-grandchild-grow)"),
           flexShrink: 1,
           flexBasis: "auto",
           minWidth: "var(--pcss-flex-grandchild-shrink-width)",
@@ -65,7 +69,7 @@ export const FlexItem = ({
       {children}
     </chakra.div>
   );
-};
+});
 
 if (__DEV__) {
   FlexItem.displayName = "FlexItem";
@@ -101,7 +105,7 @@ export const Flex = forwardRef<FlexProps, "div">(
       __css,
       ...props
     },
-    ref
+    ref,
   ) => {
     return (
       <chakra.div
@@ -143,8 +147,8 @@ export const Flex = forwardRef<FlexProps, "div">(
             wrap === true
               ? "wrap"
               : wrap === "reverse"
-              ? "wrap-reverse"
-              : "nowrap"
+                ? "wrap-reverse"
+                : "nowrap"
           }
           columnGap={gapX}
           rowGap={gapY}
@@ -160,7 +164,7 @@ export const Flex = forwardRef<FlexProps, "div">(
         </chakra.div>
       </chakra.div>
     );
-  }
+  },
 );
 
 if (__DEV__) {
