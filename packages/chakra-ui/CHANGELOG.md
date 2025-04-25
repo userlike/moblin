@@ -1,5 +1,11 @@
 # @moblin/chakra-ui
 
+## 2.4.0
+
+### Minor Changes
+
+- fc53f86: add forwardRef to FlexItem
+
 ## 2.3.0
 
 ### Minor Changes
