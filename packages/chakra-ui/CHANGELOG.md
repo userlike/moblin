@@ -1,5 +1,11 @@
 # @moblin/chakra-ui
 
+## 2.4.1
+
+### Patch Changes
+
+- 830508e: add order prop to FlexItem
+
 ## 2.4.0
 
 ### Minor Changes

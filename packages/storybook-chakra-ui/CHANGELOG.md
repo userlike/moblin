@@ -1,5 +1,12 @@
 # @moblin/storybook-chakra-ui
 
+## 1.2.2
+
+### Patch Changes
+
+- Updated dependencies [830508e]
+  - @moblin/chakra-ui@2.4.1
+
 ## 1.2.1
 
 ### Patch Changes
