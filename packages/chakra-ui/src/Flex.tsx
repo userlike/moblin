@@ -20,6 +20,7 @@ export interface FlexItemProps extends WithChildren, SafeFlexItemProps {
   shrink?: number;
   basis?: SystemProps["flexBasis"];
   overflowAnchor?: "auto" | "none";
+  order?: number;
 }
 
 export const FlexItem = forwardRef<FlexItemProps, "div">(function FlexItem(
@@ -30,6 +31,7 @@ export const FlexItem = forwardRef<FlexItemProps, "div">(function FlexItem(
     basis = "auto",
     children,
     overflowAnchor,
+    order,
     ...props
   },
   ref,
@@ -46,6 +48,7 @@ export const FlexItem = forwardRef<FlexItemProps, "div">(function FlexItem(
       }
       flexShrink={shrink}
       flexBasis={basis}
+      order={order}
       justifyContent={alignSelf ?? unsafeCoerce("var(--pcss-flex-align-items)")}
       minW={shrink > 0 ? "var(--pcss-flex-child-shrink-width)" : "auto"}
       minH={shrink > 0 ? "var(--pcss-flex-child-shrink-height)" : "auto"}
