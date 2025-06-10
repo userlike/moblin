@@ -136,10 +136,10 @@ export const Flex = forwardRef<FlexProps, "div">(
               ? "0"
               : "auto",
             "--pcss-flex-grandchild-shrink-width": isHorizontal(direction)
-              ? "auto"
+              ? "revert"
               : "0",
             "--pcss-flex-grandchild-shrink-height": isVertical(direction)
-              ? "auto"
+              ? "revert"
               : "0",
             "--pcss-flex-grandchild-grow": alignItems === "stretch" ? "1" : "0",
           }}
