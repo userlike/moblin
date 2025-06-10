@@ -1,5 +1,12 @@
 # @moblin/chakra-ui
 
+## 3.0.0
+
+### Major Changes
+
+- 667ea2b: apply `min-width/height: revert` instead of `min-width/height: auto` when a flex
+  item is not shrinking
+
 ## 2.4.1
 
 ### Patch Changes
