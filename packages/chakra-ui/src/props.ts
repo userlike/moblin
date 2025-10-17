@@ -1,5 +1,4 @@
 import {
-  As,
   BackgroundProps,
   BorderProps,
   ColorProps,
@@ -16,7 +15,8 @@ import {
   TransformProps,
   TransitionProps,
   TypographyProps,
-} from "@chakra-ui/system";
+} from "@chakra-v2/react";
+import { ElementType as As } from "react";
 
 export type SafeInteractivityProps = Pick<
   InteractivityProps,

@@ -1,4 +1,9 @@
-import { chakra, forwardRef, SystemProps } from "@chakra-ui/system";
+import {
+  chakra,
+  forwardRef,
+  type MergeWithAs,
+  SystemProps,
+} from "@chakra-v2/react";
 import {
   __DEV__,
   AlignContent,
@@ -23,56 +28,64 @@ export interface FlexItemProps extends WithChildren, SafeFlexItemProps {
   order?: number;
 }
 
-export const FlexItem = forwardRef<FlexItemProps, "div">(function FlexItem(
-  {
-    alignSelf,
-    grow,
-    shrink = 1,
-    basis = "auto",
-    children,
-    overflowAnchor,
-    order,
-    ...props
+export const FlexItem = forwardRef<MergeWithAs<{}, {}, FlexItemProps>, "div">(
+  function FlexItem(
+    {
+      alignSelf,
+      grow,
+      shrink = 1,
+      basis = "auto",
+      children,
+      overflowAnchor,
+      order,
+      as,
+      ...props
+    },
+    ref,
+  ) {
+    return (
+      <chakra.div
+        ref={ref}
+        as={as}
+        display="flex"
+        overflow="visible"
+        alignItems="stretch"
+        flexDirection={unsafeCoerce("var(--pcss-flex-child-direction)")}
+        flexGrow={
+          grow !== undefined
+            ? grow
+            : unsafeCoerce("var(--pcss-flex-child-grow)")
+        }
+        flexShrink={shrink}
+        flexBasis={basis}
+        order={order}
+        justifyContent={
+          alignSelf ?? unsafeCoerce("var(--pcss-flex-align-items)")
+        }
+        minW={shrink > 0 ? "var(--pcss-flex-child-shrink-width)" : "auto"}
+        minH={shrink > 0 ? "var(--pcss-flex-child-shrink-height)" : "auto"}
+        __css={{
+          "& > *": {
+            flexGrow:
+              alignSelf === "stretch"
+                ? 1
+                : alignSelf !== undefined
+                  ? 0
+                  : unsafeCoerce("var(--pcss-flex-grandchild-grow)"),
+            flexShrink: 1,
+            flexBasis: "auto",
+            minWidth: "var(--pcss-flex-grandchild-shrink-width)",
+            minHeight: "var(--pcss-flex-grandchild-shrink-height)",
+          },
+          overflowAnchor,
+        }}
+        {...props}
+      >
+        {children}
+      </chakra.div>
+    );
   },
-  ref,
-) {
-  return (
-    <chakra.div
-      ref={ref}
-      display="flex"
-      overflow="visible"
-      alignItems="stretch"
-      flexDirection={unsafeCoerce("var(--pcss-flex-child-direction)")}
-      flexGrow={
-        grow !== undefined ? grow : unsafeCoerce("var(--pcss-flex-child-grow)")
-      }
-      flexShrink={shrink}
-      flexBasis={basis}
-      order={order}
-      justifyContent={alignSelf ?? unsafeCoerce("var(--pcss-flex-align-items)")}
-      minW={shrink > 0 ? "var(--pcss-flex-child-shrink-width)" : "auto"}
-      minH={shrink > 0 ? "var(--pcss-flex-child-shrink-height)" : "auto"}
-      __css={{
-        "& > *": {
-          flexGrow:
-            alignSelf === "stretch"
-              ? 1
-              : alignSelf !== undefined
-                ? 0
-                : unsafeCoerce("var(--pcss-flex-grandchild-grow)"),
-          flexShrink: 1,
-          flexBasis: "auto",
-          minWidth: "var(--pcss-flex-grandchild-shrink-width)",
-          minHeight: "var(--pcss-flex-grandchild-shrink-height)",
-        },
-        overflowAnchor,
-      }}
-      {...props}
-    >
-      {children}
-    </chakra.div>
-  );
-});
+);
 
 if (__DEV__) {
   FlexItem.displayName = "FlexItem";
