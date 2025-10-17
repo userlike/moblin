@@ -1,7 +1,7 @@
 import { Meta } from "@storybook/react";
 import { Box } from "@moblin/chakra-ui";
 import { demo } from "./animatable-demo";
-import { chakra, HTMLChakraProps } from "@chakra-ui/system";
+import { chakra, HTMLChakraProps } from "@chakra-v2/react";
 
 const meta: Meta = {
   component: Box,

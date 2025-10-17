@@ -1,4 +1,4 @@
-import { forwardRef } from "@chakra-ui/system";
+import { forwardRef } from "@chakra-v2/react";
 import { __DEV__, ContentPosition } from "@moblin/core";
 
 import { Flex, FlexItem } from "./Flex.js";
@@ -23,7 +23,7 @@ export const Box = forwardRef<BoxProps, "div">(
       __css,
       ...props
     },
-    ref
+    ref,
   ) => {
     return (
       <Flex
@@ -40,7 +40,7 @@ export const Box = forwardRef<BoxProps, "div">(
         <FlexItem>{children}</FlexItem>
       </Flex>
     );
-  }
+  },
 );
 
 if (__DEV__) {

@@ -2,7 +2,7 @@ import { Meta } from "@storybook/react";
 
 import { Scrollable, ScrollableProps } from "@moblin/chakra-ui";
 import { demo } from "./animatable-demo";
-import { chakra } from "@chakra-ui/system";
+import { chakra } from "@chakra-v2/react";
 import { FlexDirection } from "@moblin/core";
 
 const meta: Meta<ScrollableProps & { overflow: boolean }> = {

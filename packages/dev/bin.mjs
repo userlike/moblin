@@ -55,6 +55,10 @@ try {
   if (command === "lint") {
     await $`eslint -c eslint.config.ts src/**/*`;
   }
+
+  if (command === "fix") {
+    await $`eslint -c eslint.config.ts src/**/* --fix`;
+  }
 } catch (error) {
   if (error instanceof ProcessOutput) {
     // console.error(error.stderr);

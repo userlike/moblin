@@ -1,7 +1,8 @@
-import { chakra, HTMLChakraProps, keyframes } from '@chakra-ui/system';
-import isChromatic from 'chromatic/isChromatic';
+import { chakra, HTMLChakraProps } from "@chakra-v2/react";
+import isChromatic from "chromatic/isChromatic";
+import { keyframes } from "@emotion/react";
 
-import * as S from './storybook.js';
+import * as S from "./storybook.js";
 
 interface DemoOptions {
   title?: string;
@@ -9,17 +10,17 @@ interface DemoOptions {
 }
 
 const resize = keyframes({
-  '0%': {
-    width: '12rem',
-    height: '12rem',
+  "0%": {
+    width: "12rem",
+    height: "12rem",
   },
-  '50%': {
-    width: '24rem',
-    height: '24rem',
+  "50%": {
+    width: "24rem",
+    height: "24rem",
   },
-  '100%': {
-    width: '12rem',
-    height: '12rem',
+  "100%": {
+    width: "12rem",
+    height: "12rem",
   },
 });
 
@@ -27,7 +28,7 @@ const DemoContainer = ({
   title,
   animate,
   ...props
-}: DemoOptions & HTMLChakraProps<'div'>) => (
+}: DemoOptions & HTMLChakraProps<"div">) => (
   <chakra.div
     {...props}
     position="relative"
@@ -35,13 +36,13 @@ const DemoContainer = ({
     bg="green.300"
     color="black"
     __css={{
-      '& > div:first-of-type': {
-        width: '12rem',
-        height: '12rem',
-        willChange: 'width, height',
-        animationName: animate ? resize.toString() : 'none',
-        animationDuration: '2s',
-        animationIterationCount: 'infinite',
+      "& > div:first-of-type": {
+        width: "12rem",
+        height: "12rem",
+        willChange: "width, height",
+        animationName: animate ? resize.toString() : "none",
+        animationDuration: "2s",
+        animationIterationCount: "infinite",
       },
     }}
   />
@@ -49,15 +50,14 @@ const DemoContainer = ({
 
 export const demo =
   ({
-    title = 'Container',
+    title = "Container",
     animate = !isChromatic(),
   }: DemoOptions = {}): S.Decorator =>
-  (Story) =>
-    (
-      <DemoContainer animate={animate}>
-        <Story />
-        <chakra.div position="absolute" top="0.5rem" left="0.5rem">
-          {title}
-        </chakra.div>
-      </DemoContainer>
-    );
+  (Story) => (
+    <DemoContainer animate={animate}>
+      <Story />
+      <chakra.div position="absolute" top="0.5rem" left="0.5rem">
+        {title}
+      </chakra.div>
+    </DemoContainer>
+  );
